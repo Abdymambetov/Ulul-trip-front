@@ -1,0 +1,206 @@
+.modal_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.first_block{
+    display: flex;
+    justify-content: start;
+    padding-left: 30px;
+    width: 100%;
+    margin-bottom: 36.29px;
+}
+.second_block{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.ulul_img{
+    width: 58.13px;
+    height: 36.29px;
+    margin-right: 37.83px;
+}
+.ulul_h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 0px;
+    letter-spacing: -0.04em;
+    color: #0C73FE;
+}
+.cross_parent{
+    width: 35px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 13px;
+    right: 1px;
+}
+.cross_parent:hover{
+    background: #EFF1F4;
+    border-radius: 8px;
+}
+.cross_img{
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    top: 13px;
+    right: 1px;
+    transition: 500ms;
+}
+.cross_img:hover{
+    transform: rotate(-90deg);
+}
+.signUp_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 0px;
+    color: #919191;
+}
+.all_inputs{
+    margin-top: 5px;
+}
+.one_inputs{
+    margin-bottom: 15px;
+    
+}
+.inputs_modal{
+    width: 401px;
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.inputs_modal_password{
+    margin-bottom: 15px;
+    position: relative;
+}
+.eyes_modal{
+    position: absolute;
+    top: 11px;
+    right: 15px
+}
+.inputs_pas_test{
+    margin-bottom: 15px;
+    position: relative;
+}
+.eyes_test{
+    position: absolute;
+    top: 11px;
+    right: 15px
+}
+.password_input{
+    margin-top: 34.33px;
+}
+.password_text{
+    margin-top: 12px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.checkbox_class{
+    display: flex;
+    justify-content: space-between;
+    width: 421px;
+    height: 50px;
+}
+.inp_checkBox{
+    width: 50px;
+    height: 25px;
+    margin-right: 4px;
+}
+.checkbox_text{
+    font-style: normal;
+    text-align: start;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.4);
+}
+.buttons_or{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sign_btn{
+    margin-top: 19px;
+    width: 285px;
+    height: 39px;
+    background: #FF6F32;
+    border-radius: 10px;
+    border: 0px;
+    
+    gap: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.text_or{
+    margin-top: 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+    color: #000000;
+    margin-bottom: 14px;
+}
+.google_btn{
+    width: 321px;
+    height: 59px;
+    background: #0C73FE;
+    border-radius: 10px;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.sign_google_text{
+    width: 194px;
+    height: 37px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: start;
+}
+.user_account{
+    display: flex;
+   
+    flex-direction: column;
+}
+.exemple_user{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: start;
+}
+.account_google_icon{
+    width: 33.33px;
+    height: 33.33px;
+    padding-left: 13.33px;
+    margin-right: 12px;
+}
+.google_icon{
+    width: 53px;
+    height: 55px;
+    padding-right: 2px;
+}

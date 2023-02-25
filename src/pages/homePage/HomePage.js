@@ -1,13 +1,10 @@
 import React from 'react'
-import FooterPage from '../footer/FooterPage'
-import HeaderPage from '../header/HeaderPage'
-
+import FirstBlockHome from '../../components/firstBlockHome/FirstBlockHome'
 
 function HomePage() {
   return (
     <>
-        <HeaderPage/>
-        <FooterPage/>
+      <FirstBlockHome/>
     </>
   )
 }

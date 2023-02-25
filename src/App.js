@@ -8,11 +8,13 @@ import "./App.css"
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Provider store={store}>
-          <Main/>
-        </Provider>
-      </BrowserRouter>
+      <div className='container'>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Main/>
+          </Provider>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,172 @@
+.parent_Modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.first_block_modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+.ulul_block{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.ulul_img{
+    margin-right: 100px;
+    width: 77.39px;
+    height: 52.86px;
+}
+.ulul_text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 0px;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+.text_come_in{
+    margin-top: 57px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 0px;
+    color: #919191;
+    text-align: center;
+    margin-bottom: 60.33px;
+}
+.cross_parent{
+    width: 35px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 13px;
+    right: 1px;
+}
+.cross_parent:hover{
+    background: #EFF1F4;
+    border-radius: 8px;
+}
+
+.croos_ulul{
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    top: 13px;
+    right: 1px;
+    transition: 500ms;
+}
+.croos_ulul:hover{
+    transform: rotate(-90deg);
+}
+.all_inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputs_ordinary{
+    margin-bottom: 20px;
+}
+.inputs_ordinary_password{
+    position: relative;
+    margin-bottom: 20px;
+}
+.inputs_modal{
+    width: 401px;
+}
+.password_eyes{
+    position: absolute;
+    top: 11px;
+    right: 15px;
+}
+.all_btns{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.come_btn{
+    margin-top: 29px;
+    padding: 20px 134px;
+    gap: 10px;
+    width: 322px;
+    height: 59px;
+    background: #FF6F32;
+    border-radius: 10px;
+    border: 0px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.or_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    margin-top: 17px;
+    margin-bottom: 18px;
+}
+.google_come{
+    width: 322px;
+    height: 59px;
+    background: #0C73FE;
+    border-radius: 10px;
+    border: 0px;
+}
+.google_btn{
+    width: 321px;
+    height: 59px;
+    background: #0C73FE;
+    border-radius: 10px;
+    border: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.sign_google_text{
+    width: 194px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: start;
+}
+.user_account{
+    display: flex;
+   
+    flex-direction: column;
+}
+.exemple_user{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: start;
+}
+.account_google_icon{
+    width: 33.33px;
+    height: 33.33px;
+    padding-left: 13.33px;
+    margin-right: 12px;
+}
+.google_icon{
+    width: 53px;
+    height: 55px;
+    padding-right: 2px;
+}
