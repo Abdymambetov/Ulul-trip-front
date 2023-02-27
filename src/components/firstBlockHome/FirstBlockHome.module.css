@@ -100,10 +100,19 @@
     position: absolute;
     top: 20px;
     right: 15px;
-    transition: 700ms;
+    animation: rotate 4s cubic-bezier(0.8, 0, 1, 1) infinite;
 }
-.search_image:hover{
-    transform: rotate(45deg);
+
+@keyframes rotate {
+  0% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(50deg);
+  }
 }
 .inputs_from_price{
     width: 130px;

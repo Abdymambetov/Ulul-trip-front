@@ -15,7 +15,9 @@
     opacity: 0.9;
     display: flex;
     justify-content: space-between;
-    padding-top: 5px;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 .header_antools{
     display: flex;
@@ -43,6 +45,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.profile_header_search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 150px;
+}
+.search_svg{
+    width: 50x;
+    height: 50px;
+}
+.heart_icon{
+    margin-right: 50px;
+    margin-left: 50px;
+    cursor: pointer;
 }
 .header_user{
     margin-right: 280px;

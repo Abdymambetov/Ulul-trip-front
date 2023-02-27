@@ -41,7 +41,7 @@ function SignUpModal() {
     const [testType, setTestType] = useState('password')
     const [testEye, setTestEye] = useState(closeEye)
     const dispatch = useDispatch()
-    const {modal} = useSelector(state => state.auth)
+    const {modal} = useSelector(state => state.modalTour)
     const handleClose = () => {
         dispatch(closeModal())
     }

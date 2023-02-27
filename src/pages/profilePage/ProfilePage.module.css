@@ -1,0 +1,143 @@
+.profile{
+    background-color: #eff1f4;
+}
+.container{
+    width: 1440px;
+    margin: 0 auto;
+}
+.profile_inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.personal_data{
+    padding: 50px;
+    width: 950px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    margin-top: 30px;
+}
+.personal_img{
+    margin-top: 50px;
+    display: flex;
+}
+.personal_block_one{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+.personal_text_data{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 0px;
+    color: #000000;
+}
+.profile_google{
+    margin-right: 7px;
+}
+.google_text{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 0px;
+    color: #000000;
+    margin-top: 20px;
+}
+.profile_inputs{
+    margin-top: 50px;
+}
+.user_info_block{
+    margin-top: 76px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+.user_password{
+    margin-bottom: 40px;
+    width: 810px;
+    height: 30px;
+    position: relative;
+}
+.change_password_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 0px;
+    color: #000000;
+}
+.cross_img_password{
+    position: absolute;
+    top: 1px;
+    right: 45px;
+}
+.delete_profile{
+    width: 810px;
+    height: 30px;
+    position: relative;
+}
+.delete_profile_google{
+    width: 810px;
+    height: 30px;
+    position: relative;
+    margin-top: 76px;
+}
+.cross_img_google{
+    position: absolute;
+    top: 1px;
+    right: 10px;
+}
+.delete_profile_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 0px;
+    color: #000000;
+}
+.cross_img{
+    position: absolute;
+    top: 1px;
+    right: 45px;
+}
+.confidentality_block{
+    margin-top: 20px;
+    padding: 50px 50px 50px 70px;
+    width: 950px;
+    height: 200px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin-bottom: 170px;
+}
+.text_conf{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 0px;
+    color: #000000;
+}
+.confidentality_text{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+.confidentality_lock{
+    width: 800px;
+    height: 50px;
+    margin-top: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+.lock_img{
+    margin-right: 5px;
+}
+.lock_cross{
+    position: absolute;
+    top: 1px;
+    right: 20px;
+}

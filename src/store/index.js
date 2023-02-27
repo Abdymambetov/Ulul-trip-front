@@ -6,6 +6,6 @@ import authReducer from "./slices/authSlice"
 export const store = configureStore({
     reducer: {
         loading: preloaderReducer,
-        auth: authReducer
+        modalTour: authReducer
     }
 })

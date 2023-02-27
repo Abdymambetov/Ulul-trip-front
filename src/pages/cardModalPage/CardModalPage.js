@@ -18,7 +18,7 @@ const style = {
 };
 function CardModalPage() {
     const dispatch = useDispatch()
-    const {cardModal} = useSelector(state => state.auth)
+    const {cardModal} = useSelector(state => state.modalTour)
     const closeMod = () => {
         dispatch(closeCardModal())
     }

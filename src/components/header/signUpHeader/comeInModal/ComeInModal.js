@@ -26,7 +26,7 @@ function ComeInModal() {
     const [eyesPassword, setEyesPassword] = useState(closeEyes)
     const [passwordType, setPasswordType] = useState('password')
     const dispatch = useDispatch()
-    const {comeInModal} = useSelector(state => state.auth)
+    const {comeInModal} = useSelector(state => state.modalTour)
     const handleCloseModal = () => {
         dispatch( closeComeInModal())
     }

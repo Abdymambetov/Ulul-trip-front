@@ -5,11 +5,11 @@ import searchImg from '../../images/firstBlockImg/search.svg'
 import coordinates from '../../images/firstBlockImg/coordinates (2).svg';
 import CardModalPage from '../../pages/cardModalPage/CardModalPage';
 import { useDispatch } from 'react-redux';
-import { openCardModal, openModal } from '../../store/slices/authSlice';
+import { openCardModal} from '../../store/slices/authSlice';
 
 function FirstBlockHome() {
   const dispatch = useDispatch()
-  const openAuth = () => {
+  const openModal = () => {
     dispatch(openCardModal())
   }
   const [activeInput, setActiveInput] = useState(null);
@@ -50,7 +50,7 @@ function FirstBlockHome() {
                 </div>
             </div>
         </div>
-        <button onClick={openAuth}>hello</button>
+        <button onClick={openModal}>hello</button>
         <CardModalPage/>
     </div>
   )

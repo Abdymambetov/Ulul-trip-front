@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { openComeInModal, openModal } from '../../../store/slices/authSlice'
 import SignUpModal from './signUpModal/SignUpModal'
 import ComeInModal from './comeInModal/ComeInModal'
+import { Link } from 'react-router-dom'
 function SignUpHeader() {
   const dispatch = useDispatch()
   const openAuth = () => {
@@ -13,13 +14,18 @@ function SignUpHeader() {
   const openComeModal = () => {
     dispatch(openComeInModal())
   }
+  const onClick = () => {
+    window.location.reload()
+}
   return (
     <div>
       <div className={classes.header}>
             <div className={classes.container}>
                 <header className={classes.header_inner}>
                   <div className={classes.header_antools}>
-                    <img src={Vector} alt="vector" className={classes.ulul_image}/>
+                    <Link to='/' onClick={onClick}>
+                      <img src={Vector} alt="vector" className={classes.ulul_image}/>
+                    </Link>
                       <h3 className={classes.ulul}>Ulul Trip</h3>
                   </div>
                   <div className={classes.two_btns}>

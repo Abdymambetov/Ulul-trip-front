@@ -7,8 +7,8 @@ function Header() {
  
   return (
     <>
-      <SignUpHeader/>
-      {/* <JustHeader/> */}
+      {/* <SignUpHeader/> */}
+      <JustHeader/>
     </>
   )
 }
