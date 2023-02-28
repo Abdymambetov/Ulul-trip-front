@@ -1,0 +1,42 @@
+.parent_likes{
+    display: flex;
+    justify-content: center;
+}
+.likes_tours_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 0px;
+    letter-spacing: -0.04em;
+    color: #3F3F3F;
+}
+.parent_cross{
+    width: 35px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+}
+.parent_cross:hover{
+    background: #EFF1F4;
+    border-radius: 8px;
+}
+.cross_svg{
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    top: 13px;
+    right: 1px;
+    transition: 500ms;
+}
+.cross_svg:hover{
+    transform: rotate(-90deg);
+}
+.cards_tour{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}

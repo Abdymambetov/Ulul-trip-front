@@ -6,6 +6,7 @@ import coordinates from '../../images/firstBlockImg/coordinates (2).svg';
 import CardModalPage from '../../pages/cardModalPage/CardModalPage';
 import { useDispatch } from 'react-redux';
 import { openCardModal} from '../../store/slices/authSlice';
+import { Link } from 'react-router-dom';
 
 function FirstBlockHome() {
   const dispatch = useDispatch()
@@ -45,7 +46,9 @@ function FirstBlockHome() {
                       <input type="date"  className={classes.inputs_from_date} onFocus={() => setActiveInput(4)}
                        onBlur={() => setActiveInput(null)}/>
                     </div>
-                    <button className={classes.form_btn}>Найти туры</button>
+                    <Link to='search'>
+                      <button className={classes.form_btn}>Найти туры</button>
+                    </Link>
                   </form>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import Vector from '../../../images/headerImg/Vector.svg'
 import { Link } from 'react-router-dom';
 import HeartIcon from '../../../images/headerImg/heart.svg';
 import searchImg from '../../../images/firstBlockImg/search.svg'
-import svgSearch from '../../../images/headerImg/Frame 314.svg'
+import svgSearch from '../../../images/headerImg/Frame 314.svg';
 import { useDispatch } from 'react-redux';
 import { openLikesModal } from '../../../store/slices/authSlice';
 import LikesModal from '../../likesModal/LikesModal';
@@ -20,13 +20,15 @@ function ProfileHeader() {
             <div className={classes.container}>
                 <header className={classes.header_inner}>
                   <div className={classes.header_antools}>
-                    <a href='/'>
+                    <Link to='/search'>
                         <img src={Vector} alt="vector" className={classes.vector_img}/>
-                    </a>
+                    </Link>
                       <h3 className={classes.ulul}>Ulul Trip</h3>
                   </div>
                   <div className={classes.profile_header_search}>
-                    <img src={svgSearch} alt="search" className={classes.search_svg}/>
+                    <a href='search'>
+                      <img src={svgSearch} alt="search" className={classes.search_svg}/>
+                    </a>
                     <img src={HeartIcon} alt="Heart" className={classes.heart_icon } onClick={openLikes}/>
                   </div>
                 </header>

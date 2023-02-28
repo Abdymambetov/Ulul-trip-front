@@ -1,0 +1,127 @@
+.small_card{
+    width: 250px;
+    height: 410px;
+    background: #FFFFFF;
+    border-radius: 30px 30px 12px 12px;
+    padding: 7px;
+    margin-right: 20px;
+    margin-bottom: 27px;
+}
+.photo_block{
+    position: relative;
+}
+.card_img{
+    width: 236px;
+    height: 236px;
+}
+.parent_card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.locatiion_tour{
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+}
+.location_tour_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    color: #000000;
+}
+.location_info{
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 20px;
+    display: flex;
+}
+.location_region{
+    display: flex;
+    flex-direction: column;
+    margin-right: 70px;
+}
+.region_tour{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.region_text{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 0px;
+    color: #393939;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-right: 5px;
+}
+.region_img{
+    width: 12px;
+    height: 16px;
+}
+.tour_price{
+    margin-top: 10px;
+}
+.price_number{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    color: #FF6F32;
+    margin-right: 5px;
+}
+.price_text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    color: #555555;
+}
+.tour_day{
+    margin-top: 20px;
+}
+.day_number{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 0px;
+    letter-spacing: 0.03em;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.day_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 0px;
+    letter-spacing: 0.03em;
+    color: #555555;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.star_parent{
+    margin-top: 13px;
+}
+.card_star{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.rating_text{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #686868;
+}
