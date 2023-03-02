@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg';
+import { useDispatch } from 'react-redux';
+import { getBigerCursor } from '../../store/slices/preloaderSlice';
 
 
 function Footer() {
-  
+ 
   return (
     <div className={classes.footer}>
         <div className={classes.container}>

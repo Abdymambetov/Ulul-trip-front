@@ -94,11 +94,11 @@
     /* display: flex;
     align-items: center; */
     position: relative;
-    cursor: pointer;
+   
 }
 
 .about_us_text:hover{
-    color: #ff6f32;
+    color: #ff6f32;   
 }
 
 .about_us{

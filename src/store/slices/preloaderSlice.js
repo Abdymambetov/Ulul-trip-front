@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const preloaderSlice = createSlice({
    name:  'mainSlice',
    initialState: {
-        preloader: false
+        preloader: false,
+        cursor:''
     },
     reducers: {
         preloaderOn: (state, action) => {
@@ -11,9 +12,17 @@ const preloaderSlice = createSlice({
         },
         preloaderOff: (state, action) => {
             state.preloader = false
+        },
+        getSmallerCursor: (state, action) => {
+            state.cursor =''
+        },
+        getBigerCursor: (state, action) => {
+            state.cursor = action.payload
         }
+
     }
 })
-export const {preloaderOff, preloaderOn} = preloaderSlice.actions
+
+export const {preloaderOff, preloaderOn,getBigerCursor,getSmallerCursor} = preloaderSlice.actions
 
 export default preloaderSlice.reducer
