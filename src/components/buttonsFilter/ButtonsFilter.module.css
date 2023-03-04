@@ -1,0 +1,47 @@
+.button{
+    background-color: #e9f3ff;
+    border-bottom: 2px solid rgba(12, 115, 254, 0.14);
+}
+.container{
+    width: 1440px;
+    margin: 0 auto;
+}
+.button_inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.buttons_tour{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 512px;
+    height: 40px;
+}
+.tours_btn{
+    padding: 20px 15px;
+    gap: 10px;
+    min-width: 88px;
+    height: 40px;
+    border: 3px solid #6AA5FF;
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #0C73FE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1ьs;
+}
+.tours_btn:hover{
+    background-color: #b5d4ff;
+}

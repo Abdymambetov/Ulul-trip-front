@@ -6,6 +6,11 @@
     padding: 7px;
     margin-right: 20px;
     margin-bottom: 27px;
+    transition: 1ms;
+}
+.small_card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .photo_block{
     position: relative;
@@ -13,6 +18,12 @@
 .card_img{
     width: 236px;
     height: 236px;
+    transition: 1s;
+}
+.card_img:hover{
+    transform: scale(1.2);
+    border-radius: 12px;
+    overflow: hidden;
 }
 .parent_card{
     display: flex;

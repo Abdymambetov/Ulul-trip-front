@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -29,7 +30,9 @@ function Footer() {
                   <li className={`${classes.about_us_text} touch__me`}>Реклама</li>
                 </div>
                  <div className={classes.about_point}>
-                  <li className={`${classes.about_us_text} touch__me`}>Помощь</li>
+                  <Link to='faq'>
+                    <li className={`${classes.about_us_text} touch__me`}>Помощь</li>
+                  </Link>
                 </div>
               </ul>
             

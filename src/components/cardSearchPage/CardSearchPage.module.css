@@ -1,0 +1,40 @@
+.card{
+    background-color: #e9f3ff;
+    padding-top: 32px;
+}
+.container{
+    width: 1440px;
+    margin: 0 auto;
+}
+.card_inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 1200px;
+    margin-left: 100px;
+}
+.tour_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 240px;
+}
+.btn_load{
+    width: 212px;
+    height: 50px;
+    background: #D9D9D9;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+    border: 0px;
+}

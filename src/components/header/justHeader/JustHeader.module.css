@@ -18,6 +18,7 @@
     align-items: center;
     padding-right: 30px;
     padding-left: 30px;
+    
 }
 .header_antools{
     display: flex;
@@ -59,7 +60,6 @@
 .heart_icon{
     margin-right: 50px;
     margin-left: 50px;
-    cursor: pointer;
 }
 .header_user{
     margin-right: 280px;

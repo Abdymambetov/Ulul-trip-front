@@ -94,7 +94,6 @@
     /* display: flex;
     align-items: center; */
     position: relative;
-    cursor: pointer;
 }
 
 .about_us_text:hover{

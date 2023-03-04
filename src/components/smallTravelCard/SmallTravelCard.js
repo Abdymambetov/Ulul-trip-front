@@ -26,13 +26,13 @@ function SmallTravelCard() {
           <div className='photo'>
             <img src={carPng} alt="car" className={classes.card_img} />
             <div className={notActive} style={{width: "32px", height: "32px", }}>
-                      <Heart  className='heard-back' 
-                      isActive={active} 
-                      onClick={heandleClick}
-                      animationTrigger = "both" 
-                      inactiveColor='red'
-                      activeColor = "red"
-                      animationDuration={0.1} style={{width: '20px', height: '18px'}}/>
+                <Heart  className='heard-back' 
+                  isActive={active} 
+                  onClick={heandleClick}
+                  animationTrigger = "both" 
+                  inactiveColor='#FF6F32'
+                  activeColor = "#FF6F32"
+                  animationDuration={0.1} style={{width: '20px', height: '18px'}}/>
             </div>
           </div>
         </div>

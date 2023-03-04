@@ -26,6 +26,7 @@ function CardModalPage() {
     <div>
         <Modal
             open={cardModal}
+            onClose={closeMod}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
             sx={{backdropFilter: 'blur(5px)'}}

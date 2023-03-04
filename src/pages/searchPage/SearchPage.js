@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import classes from './SearchPage.module.css';
 import searchImg from '../../images/firstBlockImg/search.svg'
 import coordinates from '../../images/firstBlockImg/coordinates (2).svg';
+import ButtonsFilter from '../../components/buttonsFilter/ButtonsFilter';
+import CardSearchPage from '../../components/cardSearchPage/CardSearchPage';
 function SearchPage() {
   const [activeInput, setActiveInput] = useState(null);
   return (
@@ -37,6 +39,8 @@ function SearchPage() {
             </div>
         </div>
       </div>
+      <ButtonsFilter/>
+      <CardSearchPage/>
     </div>
   )
 }
