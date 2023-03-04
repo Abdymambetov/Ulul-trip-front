@@ -39,3 +39,46 @@ body {
     background: #000;
     margin-right: 10px;
 }
+.photo {
+    border-radius: 24px 23px 12px 12px;
+    overflow: hidden;
+}
+.photo:hover .heard,
+.photo:focus .heard {
+    opacity: 1;
+}
+.heard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #ffff;
+    border-radius: 30px;
+}
+.heard_focus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #ffff;
+    border-radius: 30px;
+    background-image: url('');
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* ширина скроллбара */
+}
+
+/* Стилизуем полосу прокрутки */
+::-webkit-scrollbar-thumb {
+    background-color: #9ea9b7;
+    border-radius: 5px;
+}

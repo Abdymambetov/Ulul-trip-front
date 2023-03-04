@@ -5,7 +5,7 @@
     backdrop-filter: blur(7.5px);
 }
 .container{
-    width: 1440px;
+    width: 1060px;
     height: 50px;
     margin: 0 auto;
     
@@ -16,18 +16,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 30px;
-    padding-left: 30px;
 }
 .header_antools{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 15px 6px 70px;
+   
 }
-.header_profil{
-    padding-right: 280px;
-}
+
 .vector_img{
     width: 40px;
     height: 27px;
@@ -50,17 +46,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 150px;
+    
 }
 .search_svg{
     width: 50x;
     height: 50px;
+    margin-right: 40px;
 }
 .heart_icon{
-    margin-right: 50px;
-    margin-left: 50px;
-    cursor: pointer;
+    margin-right: 40px;
 }
-.header_user{
-    margin-right: 280px;
-}
+
+
