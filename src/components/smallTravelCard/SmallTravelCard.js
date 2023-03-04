@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './SmallTravelCard.module.css';
-import carPng from '../../images/smallCardImg/Rectangle 276.png';
-import Heart from 'react-heart';
+import carPng from '../../images/smallCardImg/Rectangle 276.png'
+import Heart from 'react-heart'
 import point from '../../images/smallCardImg/Vector (3).svg'
 import star from '../../images/smallCardImg/star.svg'
 
