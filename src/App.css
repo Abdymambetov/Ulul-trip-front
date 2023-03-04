@@ -5,7 +5,7 @@
     box-sizing: border-box;
     cursor: none;
 }
-body{
+body {
     background: black;
 }
 a {
@@ -38,50 +38,4 @@ body {
     border-radius: 50%;
     background: #000;
     margin-right: 10px;
-}
-
-/* cursor */
-
-.custom-cursor {
-    position: fixed;
-    top: 1.8%;
-    left: 0.8%;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #000;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    pointer-events: none;
-    /* opacity: 0.5; */
-}
-
-.cursor-circle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #000;
-    box-shadow: 0 0 8px rgba(19, 3, 198, 0.7);
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0;
-    transition: transform 0.3s ease-out;
-    transform: scale(1);
-}
-
-.cursor-circle.show {
-    opacity: 1;
-}
-
-.cursor-circle.move {
-    transition: transform 0.4s ease-out;
-}
-
-.сursorenter {
-    opacity: 1;
-    width: 60px;
-    height: 60px;
 }
