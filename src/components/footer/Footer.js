@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
 import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg'
-import { useDispatch } from 'react-redux'
-import { getBigerCursor } from '../../store/slices/preloaderSlice'
+
 import WithHoverStyles from '../hocHover/HOCHover'
 const HoverRedLi = WithHoverStyles(Li)
 
@@ -44,12 +42,12 @@ function Footer() {
                     </div>
                     <div className={classes.social_media}>
                         {snList.map((item, i) => (
-                            <HoverIcon>{item}</HoverIcon>
+                            <HoverIcon key={i}>{item}</HoverIcon>
                         ))}
                     </div>
                     <ul className={classes.about_us}>
-                        {listSecond.map(item => (
-                            <HoverRedLi key={item}>{item}</HoverRedLi>
+                        {listSecond.map((item, i) => (
+                            <HoverRedLi key={i}>{item}</HoverRedLi>
                         ))}
                     </ul>
                 </footer>
