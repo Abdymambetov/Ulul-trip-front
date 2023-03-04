@@ -3,25 +3,31 @@
     padding: 0;
     font-family: 'Rubik', sans-serif;
     box-sizing: border-box;
+    cursor: none;
 }
-
-a{
+body {
+    background: black;
+}
+a {
     text-decoration: none;
+}
+a:hover .custom-circle {
+    transform: scale(1.5);
 }
 li {
     list-style: none;
 }
 
-html,body {
+html,
+body {
     font-family: 'Rubik', sans-serif;
     font-style: normal;
     font-size: 20px;
     font-weight: 400;
 }
-.touch__me{
-    
+.touch__me {
 }
-.touch__me:hover::before{
+.touch__me:hover::before {
     content: '';
     display: block;
     position: absolute;
@@ -33,24 +39,24 @@ html,body {
     background: #000;
     margin-right: 10px;
 }
-.photo{
+.photo {
     border-radius: 24px 23px 12px 12px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 .photo:hover .heard,
 .photo:focus .heard {
-  opacity: 1;
+    opacity: 1;
 }
-.heard{
+.heard {
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     top: 15px;
     right: 15px;
-    position: absolute ;
+    position: absolute;
     border-radius: 10px;
-    background-color: #ffff; 
+    background-color: #ffff;
     border-radius: 30px;
 }
 .heard_focus {
@@ -60,21 +66,19 @@ html,body {
     opacity: 1;
     top: 15px;
     right: 15px;
-    position: absolute ;
+    position: absolute;
     border-radius: 10px;
-    background-color: #ffff; 
+    background-color: #ffff;
     border-radius: 30px;
     background-image: url('');
 }
 
 ::-webkit-scrollbar {
     width: 8px; /* ширина скроллбара */
-  }
-  
-  /* Стилизуем полосу прокрутки */
-  ::-webkit-scrollbar-thumb {
-    background-color: #9EA9B7;
+}
+
+/* Стилизуем полосу прокрутки */
+::-webkit-scrollbar-thumb {
+    background-color: #9ea9b7;
     border-radius: 5px;
-  }
-
-
+}

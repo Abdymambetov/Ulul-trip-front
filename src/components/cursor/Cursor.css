@@ -1,0 +1,48 @@
+/* cursor */
+
+.custom-cursor {
+    position: fixed;
+    top: 13px;
+    left: 12px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ced2e9;
+    box-shadow: 0 0 8px #ced2e9;
+    z-index: 9999;
+    pointer-events: none;
+    /* opacity: 0.5; */
+}
+
+.cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ced2e9;
+    box-shadow: 0 0 8px #ced2e9;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.cursor-circle.show {
+    opacity: 1;
+}
+
+.cursor-circle.move {
+    transition: transform 0.2s ease-out;
+}
+
+.сursorenter {
+    transition: all 0.5s;
+    top: -20px;
+    left: -20px;
+    opacity: 1;
+    border: 2px solid #f66e06;
+    width: 80px;
+    height: 80px;
+}
