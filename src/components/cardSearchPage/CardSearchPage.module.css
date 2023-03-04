@@ -3,7 +3,7 @@
     padding-top: 32px;
 }
 .container{
-    width: 1440px;
+    width: 1060px;
     margin: 0 auto;
 }
 .card_inner{
@@ -11,8 +11,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 1200px;
-    margin-left: 100px;
 }
 .tour_card{
     display: flex;

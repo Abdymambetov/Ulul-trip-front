@@ -69,7 +69,6 @@ html,body {
 
 ::-webkit-scrollbar {
     width: 8px; /* ширина скроллбара */
-    height: 428px;
   }
   
   /* Стилизуем полосу прокрутки */
