@@ -69,13 +69,30 @@ html,body {
 
 ::-webkit-scrollbar {
     width: 8px; /* ширина скроллбара */
-    height: 428px;
   }
   
   /* Стилизуем полосу прокрутки */
   ::-webkit-scrollbar-thumb {
     background-color: #9EA9B7;
     border-radius: 5px;
+  }
+  .active:hover{
+    border: solid blue;
+    border-width: 0 0 0 3px;
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-left: 0;
+  }
+  .active{
+    border: solid blue;
+    border-width: 0 0 0 3px;
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 19px;
+    margin-left: 0;
   }
 
 
