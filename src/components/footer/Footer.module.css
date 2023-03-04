@@ -94,10 +94,14 @@
     /* display: flex;
     align-items: center; */
     position: relative;
+<<<<<<< HEAD
+   
+=======
+>>>>>>> 3618e2e8732413e750725a368841b23544bf7fc9
 }
 
 .about_us_text:hover{
-    color: #ff6f32;
+    color: #ff6f32;   
 }
 
 .about_us{
