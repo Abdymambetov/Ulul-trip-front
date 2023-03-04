@@ -5,13 +5,12 @@
     backdrop-filter: blur(7.5px);
 }
 .container{
-    width: 1440px;
+    width: 1060px;
     height: 50px;
     margin: 0 auto;
     
 }
 .header_inner{
-    margin-left: 150px;
     z-index: 1;
     opacity: 0.9;
     display: flex;
@@ -21,11 +20,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 10px 6px 70px;
+   
 }
-.header_profil{
-    padding-right: 280px;
-}
+
 .ulul_image{
     width: 40;
     height: 27px;
@@ -65,7 +62,7 @@
 }
 .sign_up_btn{
     border: 3px solid #FF6F32;
-    margin: 9px 190px 11px 50px;
+    margin: 9px 10px 11px 50px;
     padding: 15px 20px;
     gap: 10px;
     width: 186px;

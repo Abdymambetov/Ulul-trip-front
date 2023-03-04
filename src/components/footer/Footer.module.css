@@ -1,30 +1,30 @@
-.footer{
-    background-color: #FFFFFF;
+.footer {
+    background-color: #ffffff;
 }
-.footer_inner{
+.footer_inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-top: 30px;
 }
-.container{
-    width: 1440px;
+.container {
+    width: 1060px;
     height: 193px;
     margin: 0 auto;
 }
-.social_media{
+.social_media {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.ulul_svg{
+.ulul_svg {
     width: 53.96px;
     height: 36.86px;
     margin-bottom: 15.14px;
     margin-top: 20px;
 }
-.svgs_media_facebook{
+.svgs_media_facebook {
     width: 14px;
     height: 24px;
     margin-right: 12px;
@@ -32,14 +32,14 @@
     background-repeat: no-repeat;
     transition: 1ms;
 }
-.svgs_media_facebook:hover{
+.svgs_media_facebook:hover {
     width: 14px;
     height: 24px;
     background-image: url('../../images/footerImg/facebookInitial.svg');
     background-repeat: no-repeat;
     transform: translateY(-2px);
 }
-.svgs_media_inst{
+.svgs_media_inst {
     transition: 1ms;
     width: 20px;
     height: 20px;
@@ -48,28 +48,28 @@
     background-repeat: no-repeat;
 }
 
-.svgs_media_inst:hover{
+.svgs_media_inst:hover {
     width: 20px;
     height: 20px;
     background-image: url('../../images/footerImg/instagram-2016-logo-svgrepo-com\ 2.svg');
     background-repeat: no-repeat;
     transform: translateY(-2px);
 }
-.svgs_media_telega{
+.svgs_media_telega {
     transition: 1ms;
-    Width: 21.25px;
-    Height:17.8px;
+    width: 21.25px;
+    height: 17.8px;
     margin-right: 12px;
     background-image: url('../../images/footerImg/skype.svg');
     background-repeat: no-repeat;
 }
-.svgs_media_telega:hover{
+.svgs_media_telega:hover {
     background-image: url('../../images/footerImg/telegaIn.svg');
     background-repeat: no-repeat;
     transform: translateY(-2px);
 }
 
-.svgs_media_twiter{
+.svgs_media_twiter {
     transition: 1ms;
     width: 24px;
     height: 14px;
@@ -77,11 +77,11 @@
     background-image: url('../../images/footerImg/twitter.svg');
     background-repeat: no-repeat;
 }
-.svgs_media_twiter:hover{
+.svgs_media_twiter:hover {
     background-image: url('../../images/footerImg/twitterIn.svg');
     transform: translateY(-2px);
 }
-.about_us_text{
+.about_us_text {
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -96,15 +96,13 @@
     position: relative;
 }
 
-.about_us_text:hover{
+.about_us_text:hover {
     color: #ff6f32;
 }
 
-.about_us{
+.about_us {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 13px;
 }
-
-
