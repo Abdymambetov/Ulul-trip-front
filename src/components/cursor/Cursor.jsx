@@ -12,9 +12,8 @@ function Cursor() {
             const y = e.clientY
             const circleX = x - 20
             const circleY = y - 20
-
-            circle.style.transform = `translate3d(${circleX}px, ${circleY}px, 0)`
             cursor.style.transform = `translate3d(${circleX}px, ${circleY}px, 0)`
+            circle.style.transform = `translate3d(${circleX}px, ${circleY}px, 0)`
         })
 
         function addMoveClass(e) {

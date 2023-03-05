@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import {
     getBigerCursor,
     getSmallerCursor
-} from '../../store/slices/preloaderSlice'
+} from '../../../store/slices/preloaderSlice'
 
 function WithHoverStyles(WrappedComponent) {
     return function WithHoverStyles(props) {
