@@ -4,6 +4,8 @@ import carPng from '../../images/smallCardImg/Rectangle 276.png'
 import Heart from 'react-heart'
 import point from '../../images/smallCardImg/Vector (3).svg'
 import star from '../../images/smallCardImg/star.svg'
+import { useDispatch } from 'react-redux';
+import { openCardModal } from '../../store/slices/authSlice';
 
 function SmallTravelCard() {
   const [active ,setActive] = useState(false);
@@ -19,8 +21,12 @@ function SmallTravelCard() {
       setNotActive('heard')
     }
   }
+  const dispatch = useDispatch()
+    const openModal = () => {
+        dispatch(openCardModal())
+    }
   return (
-    <div className={classes.small_card}>
+    <div className={classes.small_card} onClick={openModal}>
        <div className={classes.parent_card}>
         <div className={classes.photo_block}>
           <div className='photo'>

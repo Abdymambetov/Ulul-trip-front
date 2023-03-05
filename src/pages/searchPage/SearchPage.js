@@ -3,6 +3,7 @@ import classes from './SearchPage.module.css'
 import ButtonsFilter from '../../components/buttonsFilter/ButtonsFilter'
 import CardSearchPage from '../../components/cardSearchPage/CardSearchPage'
 import SearchComponent from '../../components/searchComponent/SearchComponent'
+import CardModalPage from '../cardModalPage/CardModalPage'
 function SearchPage() {
     return (
         <div className={classes.search_parent}>
@@ -15,6 +16,7 @@ function SearchPage() {
             </div>
             <ButtonsFilter />
             <CardSearchPage />
+            <CardModalPage/>
         </div>
     )
 }

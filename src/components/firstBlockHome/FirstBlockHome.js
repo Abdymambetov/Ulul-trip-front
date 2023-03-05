@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classes from './FirstBlockHome.module.css'
-import CardModalPage from '../../pages/cardModalPage/CardModalPage'
-import { useDispatch } from 'react-redux'
-import { openCardModal } from '../../store/slices/authSlice'
 import SearchComponent from '../searchComponent/SearchComponent'
+import ThreeCards from '../homePageComponents/allCards/threeCards/ThreeCards'
 
 function FirstBlockHome() {
-    const dispatch = useDispatch()
-    const openModal = () => {
-        dispatch(openCardModal())
-    }
     return (
         <div className={classes.home}>
             <div className={classes.container}>
@@ -26,9 +20,8 @@ function FirstBlockHome() {
                         <SearchComponent/>
                     </div>
                 </div>
+                <ThreeCards/>
             </div>
-            <button onClick={openModal}>hello</button>
-            <CardModalPage />
         </div>
     )
 }
