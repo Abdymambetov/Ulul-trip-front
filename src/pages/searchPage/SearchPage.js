@@ -4,6 +4,7 @@ import searchImg from '../../images/firstBlockImg/search.svg'
 import coordinates from '../../images/firstBlockImg/coordinates (2).svg'
 import ButtonsFilter from '../../components/buttonsFilter/ButtonsFilter'
 import CardSearchPage from '../../components/cardSearchPage/CardSearchPage'
+import { InputBase } from '@mui/material'
 function SearchPage() {
     const [activeInput, setActiveInput] = useState(null)
     return (
@@ -21,9 +22,16 @@ function SearchPage() {
                                         Укажите место назначения
                                     </label>
                                 )}
-                                <input
+                                <InputBase
                                     type="text"
                                     placeholder="Куда"
+                                    sx={{
+                                        '&.Mui-focused': {
+                                            border: '2px solid #ff6f32 !important'
+                                        },'& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
+                                        }
+                                    }}
                                     className={classes.inputs_from_where}
                                     onFocus={() => setActiveInput(1)}
                                     onBlur={() => setActiveInput(null)}
@@ -48,9 +56,17 @@ function SearchPage() {
                                         Укажите кол-во дней
                                     </label>
                                 )}
-                                <input
+                                <InputBase
                                     type="text"
                                     placeholder="Длительность"
+                                    sx={{
+                                        '&.Mui-focused': {
+                                            border: '2px solid #ff6f32 !important'
+                                        },
+                                        '& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
+                                        }
+                                    }}
                                     className={classes.inputs_from_duration}
                                     onFocus={() => setActiveInput(2)}
                                     onBlur={() => setActiveInput(null)}
@@ -65,9 +81,16 @@ function SearchPage() {
                                         Укажите ценовую категорию
                                     </label>
                                 )}
-                                <input
+                                 <InputBase
                                     type="text"
                                     placeholder="Цена"
+                                    sx={{
+                                        '&.Mui-focused': {
+                                            border: '2px solid #ff6f32 !important'
+                                        },'& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
+                                        }
+                                    }}
                                     className={classes.inputs_from_price}
                                     onFocus={() => setActiveInput(3)}
                                     onBlur={() => setActiveInput(null)}

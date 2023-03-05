@@ -20,9 +20,9 @@ const dispatch = useDispatch()
             <div className={classes.container}>
                 <header className={classes.header_inner}>
                   <div className={classes.header_antools}>
-                    <a href='/'>
+                    <Link to='/'>
                       <img src={Vector} alt="vector" className={classes.vector_img}/>
-                    </a>
+                    </Link>
                       <h3 className={classes.ulul}>Ulul Trip</h3>
                   </div>
                   <div className={classes.profile_header}>

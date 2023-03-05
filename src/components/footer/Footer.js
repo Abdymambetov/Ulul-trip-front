@@ -2,12 +2,13 @@ import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg'
 
 import WithHoverStyles from '../hocHover/HOCHover'
+import { Link } from 'react-router-dom'
 const HoverRedLi = WithHoverStyles(Li)
 
 function Li({ children }) {
     return (
         <div className={classes.about_point}>
-            <li className={`${classes.about_us_text} touch__me`}>{children}</li>
+            <li className={classes.about_us_text}>{children}</li>
         </div>
     )
 }
@@ -25,7 +26,14 @@ function Icon({ children }) {
 const HoverIcon = WithHoverStyles(Icon)
 
 function Footer() {
-    const listSecond = [' О нас', ' Вакансии', 'Реклама', 'Помощь']
+    const listSecond = [
+    {
+        el: <Link to='/' className={classes.about_us_text}> О нас </Link>,
+        ol: <Link to='/' className={classes.about_us_text}>Вакансии</Link>,
+        al: <Link to='/' className={classes.about_us_text}>Реклама</Link>,
+        rl: <Link to='faq'className={classes.about_us_text}>Помощь</Link>
+    }
+    ]
 
     return (
         <div className={classes.footer}>
@@ -47,7 +55,7 @@ function Footer() {
                     </div>
                     <ul className={classes.about_us}>
                         {listSecond.map((item, i) => (
-                            <HoverRedLi key={i}>{item}</HoverRedLi>
+                            <HoverRedLi key={i}>{item.el} {item.ol} {item.al} {item.rl}</HoverRedLi>
                         ))}
                     </ul>
                 </footer>

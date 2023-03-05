@@ -3,14 +3,19 @@
   margin: 0;
   box-sizing: border-box;
 }
-.container{
+.first{
   background: #EFF1F4;
+}
+.container{
+  width: 1060px;
+  margin: 0 auto;
 }
 .container_item{
   position: relative;
   display: flex;
   justify-content: space-evenly;
   padding-top: 100px;
+  padding-bottom: 60px;
 }
 .block_info{
   display: flex;
@@ -80,7 +85,6 @@
 }
 .info_item p{
   color: var(--ink_500);
-  cursor: pointer;
   font-family: var(--text-font-family);
   font-size: 22px;
   font-weight: 400;

@@ -45,6 +45,8 @@ function FirstBlockHome() {
                                     sx={{
                                         '&.Mui-focused': {
                                             border: '2px solid #ff6f32 !important'
+                                        },'& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
                                         }
                                     }}
                                     className={classes.inputs_from_where}
@@ -71,9 +73,17 @@ function FirstBlockHome() {
                                         Укажите кол-во дней
                                     </label>
                                 )}
-                                <input
+                                <InputBase
                                     type="text"
                                     placeholder="Длительность"
+                                    sx={{
+                                        '&.Mui-focused': {
+                                            border: '2px solid #ff6f32 !important'
+                                        },
+                                        '& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
+                                        }
+                                    }}
                                     className={classes.inputs_from_duration}
                                     onFocus={() => setActiveInput(2)}
                                     onBlur={() => setActiveInput(null)}
@@ -88,9 +98,16 @@ function FirstBlockHome() {
                                         Укажите ценовую категорию
                                     </label>
                                 )}
-                                <input
+                                <InputBase
                                     type="text"
                                     placeholder="Цена"
+                                    sx={{
+                                        '&.Mui-focused': {
+                                            border: '2px solid #ff6f32 !important'
+                                        },'& .MuiInputBase-input': {
+                                            fontSize: '18px !important'
+                                        }
+                                    }}
                                     className={classes.inputs_from_price}
                                     onFocus={() => setActiveInput(3)}
                                     onBlur={() => setActiveInput(null)}

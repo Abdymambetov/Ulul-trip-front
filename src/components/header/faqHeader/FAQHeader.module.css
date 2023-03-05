@@ -8,14 +8,13 @@
 }
 .container{
   width: 1060px;
+  margin: 0 auto;
   height: 509px;
 }
 .headerinfo{
-  width: 1160px;
   display: flex;
   justify-content: space-between;
   padding-top: 19px;
-  margin-left: 95px;
 }
 .info{
   display: flex;
@@ -36,13 +35,13 @@
 .heplinfo{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0px;
   gap: 25px;
   position: absolute;
   width: 743px;
   height: 152px;
-  left: 100px;
+  left: 230px;
   top: 179px;
 }
 .heplinfo h1{

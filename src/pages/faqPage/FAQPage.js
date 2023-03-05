@@ -34,8 +34,7 @@ function FAQPage() {
 
 
   return (
-    <div>
-      
+    <div className={classes.first}>
     <div className={classes.container}>
       <div className={classes.container_item}>
           <div className={classes.text_item}>

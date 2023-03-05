@@ -25,20 +25,7 @@ body {
     font-size: 20px;
     font-weight: 400;
 }
-.touch__me {
-}
-.touch__me:hover::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 20%;
-    right: 90%;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #000;
-    margin-right: 10px;
-}
+
 .photo {
     border-radius: 24px 23px 12px 12px;
     overflow: hidden;

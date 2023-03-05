@@ -84,7 +84,7 @@
 } */
 .label_input_where {
     position: absolute;
-    top: -23%;
+    top: -33%;
     background: #ff6f32;
     border: 3px solid #ff6f32;
     font-style: normal;
@@ -93,7 +93,7 @@
     line-height: 18px;
     color: #ffffff;
     width: 220px;
-    height: 14.19px;
+    height: 20px;
     text-align: center;
 }
 .search_image {
@@ -120,14 +120,14 @@
     background: #ffffff;
     margin-right: 3px;
     border: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 .label_input_price {
-    top: -30%;
+    top: -33%;
     background: #ff6f32;
     position: absolute;
     width: 130px;
-    height: 21px;
+    height: 25px;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -141,13 +141,13 @@
     background: #ffffff;
     margin-right: 3px;
     border: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 .label_input_duration {
     position: absolute;
-    width: 145.69px;
-    height: 14.19px;
-    top: -23%;
+    width: 144.69px;
+    height: 30px;
+    top: -33%;
     background: #ff6f32;
     font-style: normal;
     font-weight: 400;

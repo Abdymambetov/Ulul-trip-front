@@ -62,7 +62,7 @@ function ComeInModal() {
                     <form>
                         <div className={classes.all_inputs}>
                             <div className={classes.inputs_ordinary}>
-                                <TextField id="outlined-basic" label="Эл.почта" variant="outlined" name='email' InputProps={{readOnly: true,}} className={classes.inputs_modal}  sx={{
+                                <TextField id="outlined-basic" label="Эл.почта" variant="outlined" name='email'  className={classes.inputs_modal}  sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px" 
                                     }
