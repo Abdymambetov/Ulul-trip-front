@@ -119,11 +119,10 @@ export default function Calendar() {
                             </label>
                         )}
                         <TextField
-                            id="inputs_from_date"
                             {...params}
                             type="date"
                             sx={{
-                                mr: '20px',
+                                mr: '20px', 
                                 borderRadius: '0px 14px 14px 0px',
                                 '& .MuiFormControl-root': {},
                                 '& .MuiButtonBase-root': {

@@ -12,7 +12,9 @@ function FAQHeader() {
 
             <div className={classes.headerinfo}>
               <div className={classes.info}>
-                <img src={HeadIcon} alt="heard" />
+                <a href="/">
+                  <img src={HeadIcon} alt="heard" />
+                </a>
                 <h3>Snail Trip</h3>
                 </div>
                 <div className={classes.messages}>

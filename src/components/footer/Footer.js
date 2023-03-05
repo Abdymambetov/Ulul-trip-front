@@ -1,7 +1,7 @@
 import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg'
 
-import WithHoverStyles from '../hocHover/HOCHover'
+import WithHoverStyles from '../cursor/hocHover/HOCHover'
 import { Link } from 'react-router-dom'
 const HoverRedLi = WithHoverStyles(Li)
 

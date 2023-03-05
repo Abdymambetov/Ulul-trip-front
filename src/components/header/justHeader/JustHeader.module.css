@@ -5,6 +5,7 @@
     background-color: #0c73fe;
     filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.1));
     backdrop-filter: blur(7.5px);
+    z-index: 2;
 }
 .container {
     width: 1060px;

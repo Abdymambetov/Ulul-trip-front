@@ -157,7 +157,7 @@
     text-align: center;
 }
 .inputs_from_date {
-    min-width: 224px;
+    min-width: 220px;
     height: 60px;
     background: #ffffff;
     border-radius: 0px 14px 14px 0px;
@@ -165,11 +165,14 @@
     margin-right: 20px;
     padding-left: 20px;
 }
+.inputs_from_date:focus{
+    border: 3px solid #ff6f32 ;
+}
 .label_input_date {
     width: 224px;
-    height: 14px;
+    height: 20px;
     position: absolute;
-    top: -23%;
+    top: -33%;
     background: #ff6f32;
     font-style: normal;
     font-weight: 400;
