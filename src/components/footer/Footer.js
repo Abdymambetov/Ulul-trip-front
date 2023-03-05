@@ -1,7 +1,7 @@
 import classes from './Footer.module.css'
 import ululImage from '../../images/modalImg/Ulul.svg'
 
-import WithHoverStyles from '../hocHover/HOCHover'
+import WithHoverStyles from '../cursor/hocHover/HOCHover'
 const HoverRedLi = WithHoverStyles(Li)
 
 function Li({ children }) {
@@ -25,7 +25,7 @@ function Icon({ children }) {
 const HoverIcon = WithHoverStyles(Icon)
 
 function Footer() {
-    const listSecond = [' О нас', ' Вакансии', 'Реклама', 'Помощь']
+    const listSecond = ['О нас', ' Вакансии', 'Реклама', 'Помощь']
 
     return (
         <div className={classes.footer}>

@@ -3,7 +3,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { useState } from 'react'
-import { Box, Tooltip, tooltipClasses } from '@mui/material'
+import { Box, InputBase, Tooltip, tooltipClasses } from '@mui/material'
 import { PickersDay } from '@mui/x-date-pickers'
 import { styled } from '@mui/material/styles'
 import dayjs from 'dayjs'
@@ -26,18 +26,24 @@ const BootstrapTooltip = styled(({ className, ...props }) => (
 
 export default function Calendar() {
     const [value, setValue] = useState()
-    const [activeInput, setActiveInput] = useState(null)
+    const [activeInput, setActiveInput] = useState(true)
 
     return (
         <LocalizationProvider adapterLocale="ru" dateAdapter={AdapterDayjs}>
             <DatePicker
                 disableHighlightToday={true}
                 disableToolbar={true}
+                DialogProps={{
+                    '& .MuiPickersPopper-root': {
+                        top: '10px !important'
+                    }
+                }}
                 PopperProps={{
                     sx: {
                         maxHeight: '400px',
                         '& .css-epd502': {
-                            maxHeight: '400px'
+                            maxHeight: '400px',
+                            mt: '47px'
                         },
                         '& .MuiButtonBase-root': {
                             cursor: 'none !important'
@@ -90,7 +96,13 @@ export default function Calendar() {
                                 title="Delete"
                             >
                                 <Box>
-                                    <CustomPicker {...DayComponentProps} />
+                                    <CustomPicker
+                                        style={{
+                                            border: '1px solid #EAEAEA',
+                                            borderRadius: '10px'
+                                        }}
+                                        {...DayComponentProps}
+                                    />
                                 </Box>
                             </BootstrapTooltip>
                         )
@@ -98,7 +110,7 @@ export default function Calendar() {
                 }}
                 renderInput={params => (
                     <div className={classes.parent_input_date}>
-                        {activeInput === 4 && (
+                        {activeInput && (
                             <label
                                 for="inputs_from_date"
                                 className={classes.label_input_date}
@@ -111,13 +123,27 @@ export default function Calendar() {
                             {...params}
                             type="date"
                             sx={{
+                                mr: '20px',
+                                borderRadius: '0px 14px 14px 0px',
+                                '& .MuiFormControl-root': {},
                                 '& .MuiButtonBase-root': {
                                     cursor: 'none !important'
+                                },
+                                '& .MuiInputBase-root': {
+                                    width: '220px',
+                                    height: '60px'
+                                },
+                                '& .MuiOutlinedInput-notchedOutline': {
+                                    border: 'none'
+                                },
+                                '& .Mui-focused': {
+                                    border: '2px solid #FF6F32'
                                 }
                             }}
+                            disableUnderline={true}
                             className={classes.inputs_from_date}
-                            onFocus={() => setActiveInput(4)}
-                            onBlur={() => setActiveInput(null)}
+                            onFocus={() => setActiveInput(true)}
+                            onBlur={() => setActiveInput(false)}
                         />
                     </div>
                 )}
@@ -139,10 +165,11 @@ function CustomPicker(props) {
                 fontStyle: 'normal',
                 fontWeight: 400,
                 fontSize: '20px',
+                color: '#9F9F9F',
                 '&.Mui-selected': {
                     width: '45px',
                     height: '45px',
-                    background: '#6AA9FF',
+                    background: '#6AA9FF !important',
                     borderRadius: '6px',
                     border: 'none'
                 },
@@ -150,9 +177,9 @@ function CustomPicker(props) {
                     width: '45px',
                     height: '45px',
                     borderRadius: '6px',
-                    background: '#C3DCFF'
-                },
-                '& .MuiPickersDay-today': {}
+                    background: '#C3DCFF',
+                    color: '#4C97FE'
+                }
             }}
             {...props}
         />
