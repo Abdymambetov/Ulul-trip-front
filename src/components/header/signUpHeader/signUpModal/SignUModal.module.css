@@ -69,13 +69,27 @@
     margin-bottom: 15px;
     
 }
-.inputs_modal{
+/* .inputs_modal{
     width: 401px;
     background: #FFFFFF;
     margin-bottom: 20px;
     border-radius: 20px;
+} */
+/* .inputs_modal_email{
+    width: 401px;
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    border-radius: 20px;
+} */
+.span_email{
+    position: absolute;
+    top: -20px;
+    right: 1px;
 }
-
+.one_inputs_email{
+    margin-bottom: 20px;
+    position: relative;
+}
 .inputs_modal_password{
     margin-bottom: 15px;
     position: relative;
