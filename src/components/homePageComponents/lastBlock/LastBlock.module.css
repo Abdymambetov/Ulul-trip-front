@@ -1,0 +1,10 @@
+.last_block{
+    background-color: #ffffff;
+}
+.container{
+    width: 1060px;
+    margin: 0 auto;
+}
+.last_inner{
+    display: flex;
+}
