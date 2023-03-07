@@ -1,0 +1,58 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header{
+  background:#0C73FE;
+}
+.container{
+  width: 1060px;
+  margin: 0 auto;
+  height: 509px;
+}
+.headerinfo{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 19px;
+}
+.info{
+  display: flex;
+  align-items: center;
+}
+.info h3{
+  color: #fff;
+  font-size: 24px;
+}
+.messages {
+  display:flex;
+  align-items: center;
+}
+.messages p {
+  color: #fff;
+  font-size: 20px;
+}
+.heplinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 25px;
+  position: absolute;
+  width: 743px;
+  height: 152px;
+  left: 230px;
+  top: 179px;
+}
+.heplinfo h1{
+  color: #fff;
+  font-size: 64px;
+  line-height: 75px;
+}
+.heplinfo p {
+  color: #fff;
+  width: 716px;
+  height: 52px;
+  font-size: 22px;
+  line-height: 26px;
+}

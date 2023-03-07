@@ -18,4 +18,5 @@
 ### git push origin 'название вашего репозитория' пример Meder_Dev
 
 ## Чтобы обновить информацию которая залита в репо
-## git pull origin master
+## git checkout dev
+## git pull origin dev

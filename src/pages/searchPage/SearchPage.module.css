@@ -2,70 +2,67 @@
     background-color:  #0C73FE;
 }
 .container{
-    width: 1440px;
+    width: 1060px;
     margin: 0 auto;
 }
-.search_form{
+.search_form {
     width: 968px;
-    height:100px;
-    margin-top: 20px;
+    height: 100px;
+    border-radius: 12px;
+    padding-top: 20px;
+    margin-bottom: 20px;
 }
-.search_inner{
+.form_inputs {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.form_inputs{
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.parent_input_where{
+.parent_input_where {
     position: relative;
 }
-.parent_input_where:focus{
-    background-color: #FF6F32;
-    border: 4px #FF6F32;
-}
-.parent_input_duration{
+
+.parent_input_duration {
     position: relative;
 }
-.parent_input_price{
+.parent_input_price {
     position: relative;
 }
-.parent_input_date{
+.parent_input_date {
     position: relative;
 }
-.coordiante_image{
+.coordiante_image {
     position: absolute;
     top: 0;
-    left: -23px ;
+    left: -23px;
 }
-.inputs_from_where{
+.inputs_from_where {
     width: 220px;
     height: 60px;
     margin-right: 3px;
+    padding-left: 30px;
     border: 0px;
-    padding-left: 20px;
+    border-radius: 0px 0px 0px 1px;
+    background: #ffffff;
 }
-.inputs_from_where:focus{
-   outline-color: #FF6F32 ;
-}
-.label_input_where{
+/* .inputs_from_where {
+    outline-color: #ff6f32 !important;
+    border: 1px solid #ff6f32 !important;
+} */
+.label_input_where {
     position: absolute;
-    top: -23%;
-    background: #FF6F32;
+    top: -33%;
+    background: #ff6f32;
+    border: 3px solid #ff6f32;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #FFFFFF;
+    color: #ffffff;
     width: 220px;
-    height: 14.19px;
+    height: 20px;
     text-align: center;
 }
-.search_image{
+.search_image {
     position: absolute;
     top: 20px;
     right: 15px;
@@ -73,86 +70,86 @@
 }
 
 @keyframes rotate {
-  0% {
-    transform: rotate(50deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(50deg);
-  }
+    0% {
+        transform: rotate(50deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
 }
-.inputs_from_price{
+.inputs_from_price {
     width: 130px;
     height: 60px;
-    background: #FFFFFF;
+    background: #ffffff;
     margin-right: 3px;
     border: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
-.label_input_price{
-    top: -30%;
-    background: #FF6F32;
+.label_input_price {
+    top: -33%;
+    background: #ff6f32;
     position: absolute;
     width: 130px;
-    height: 21px;
+    height: 25px;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 10px;
     text-align: center;
-    color: #FFFFFF;
-    }
-.inputs_from_duration{
+    color: #ffffff;
+}
+.inputs_from_duration {
     width: 145px;
     height: 60px;
-    background: #FFFFFF;
+    background: #ffffff;
     margin-right: 3px;
     border: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
-.label_input_duration{
+.label_input_duration {
     position: absolute;
-    width: 145.69px;
-    height: 14.19px;
-    top: -23%;
-    background: #FF6F32;
+    width: 144.69px;
+    height: 30px;
+    top: -33%;
+    background: #ff6f32;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
 }
-.inputs_from_date{
+.inputs_from_date {
     min-width: 224px;
     height: 60px;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 0px 14px 14px 0px;
     border: 0px;
     margin-right: 20px;
     padding-left: 20px;
 }
-.label_input_date{
+.label_input_date {
     width: 224px;
     height: 14px;
     position: absolute;
     top: -23%;
-    background: #FF6F32;
+    background: #ff6f32;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
     border-top-right-radius: 25px;
 }
 
-.form_btn{
+.form_btn {
     width: 155px;
     height: 60px;
-    background: #FF6F32;
+    background: #ff6f32;
     border-radius: 12px;
     border: 0px;
     font-style: normal;
@@ -160,5 +157,5 @@
     font-size: 18px;
     line-height: 0px;
     letter-spacing: 0.01em;
-    color: #FFFFFF;
+    color: #ffffff;
 }

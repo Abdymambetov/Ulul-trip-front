@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import classes from './SmallTravelCard.module.css';
-import carPng from '../../images/smallCardImg/Rectangle 276.png';
-import Heart from 'react-heart';
+import carPng from '../../images/smallCardImg/Rectangle 276.png'
+import Heart from 'react-heart'
 import point from '../../images/smallCardImg/Vector (3).svg'
 import star from '../../images/smallCardImg/star.svg'
+import { useDispatch } from 'react-redux';
+import { openCardModal } from '../../store/slices/authSlice';
 
 function SmallTravelCard() {
   const [active ,setActive] = useState(false);
@@ -19,20 +21,24 @@ function SmallTravelCard() {
       setNotActive('heard')
     }
   }
+  const dispatch = useDispatch()
+    const openModal = () => {
+        dispatch(openCardModal())
+    }
   return (
-    <div className={classes.small_card}>
+    <div className={classes.small_card} onClick={openModal}>
        <div className={classes.parent_card}>
         <div className={classes.photo_block}>
           <div className='photo'>
             <img src={carPng} alt="car" className={classes.card_img} />
             <div className={notActive} style={{width: "32px", height: "32px", }}>
-                      <Heart  className='heard-back' 
-                      isActive={active} 
-                      onClick={heandleClick}
-                      animationTrigger = "both" 
-                      inactiveColor='red'
-                      activeColor = "red"
-                      animationDuration={0.1} style={{width: '20px', height: '18px'}}/>
+                <Heart  className='heard-back' 
+                  isActive={active} 
+                  onClick={heandleClick}
+                  animationTrigger = "both" 
+                  inactiveColor='#FF6F32'
+                  activeColor = "#FF6F32"
+                  animationDuration={0.1} style={{width: '20px', height: '18px'}}/>
             </div>
           </div>
         </div>

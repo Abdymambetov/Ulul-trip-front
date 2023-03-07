@@ -52,6 +52,7 @@ function CardModalPage() {
     <div>
         <Modal
             open={cardModal}
+            onClose={closeMod}
             aria-labelledby="modal-modal-title"
             onClose={closeMod}
             aria-describedby="modal-modal-description"
