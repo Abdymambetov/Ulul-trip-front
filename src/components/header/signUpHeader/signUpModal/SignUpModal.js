@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './SignUModal.module.css'
 import { Modal, Box, TextField} from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,6 +11,9 @@ import closeEye from '../../../../images/modalImg/Property 1=Variant2.svg'
 import { useState } from 'react';
 import googleSvg from '../../../../images/modalImg/Google.svg'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { getToken, signUpAction } from '../../../../store/slices/registerSlice';
+
+
 const style = {
     width: '500px',
     height: '740px',
@@ -63,6 +66,115 @@ function SignUpModal() {
             setTestEye(closeEye)
         }
     }
+
+
+
+    // Валидация 
+    const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [password_again, setPassword_again] = useState('');
+
+  // Дополнительные переменные состояния для хранения сообщений об ошибках и состояния кнопки отправки формы.
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('')
+  const [formValid, setFormValid] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+  // Обработчики изменения состояния для каждого поля формы.
+  function handleFirstNameChange(event) {
+    setFirstName(event.target.value);
+    
+  }
+
+  function handleLastNameChange(event) {
+    setLastName(event.target.value);
+  }
+
+  function handleEmailChange(event) {
+    const emailValue = event.target.value.trim();
+    setEmail(emailValue);
+    const re =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!re.test(String(emailValue).toLowerCase())) {
+      setEmailError('Некоректный емейл');
+    } else {
+      setEmailError('');
+    }
+  }
+
+  function handlePasswordChange(event) {
+    const passwordValue = event.target.value.trim();
+    setPassword(passwordValue);
+  
+    if (passwordValue.trim().length < 8 || passwordValue.trim().length > 16) {
+      setPasswordError('Пароль должен быть не меньше 8 и не больше 16');
+    
+    } else if (!/^[a-zA-Z0-9]*$/.test(passwordValue)) {
+      setPasswordError('Пароль должен содержать только буквы и цифры');
+      
+    } else {
+      setPasswordError('');
+      setFormValid(password_again === passwordValue);
+
+    }
+  }
+  
+  function handleConfirmPasswordChange(event) {
+    setPassword_again(event.target.value.trim());
+    if (event.target.value !== password) {
+      setConfirmPasswordError('Пароль не совпадает, введите пароль, который вы указали выше');
+      return;
+    } else {
+      setConfirmPasswordError('');
+    }
+  }
+
+
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  
+    // Выполнение проверки формы перед отправкой.
+    if (password !== password_again) {
+      setPasswordError('Пароли не совпадают');
+      return;
+    }
+  
+    if (emailError || passwordError || confirmPasswordError) {
+      return;
+    }
+  
+    setIsFormSubmitted(true);
+    const user = {first_name, last_name, email, password, password_again}
+    dispatch(signUpAction(user))
+    
+  }
+
+  useEffect(() => {
+    if (isFormSubmitted) {
+      setFormValid(
+        first_name.trim().length > 0 &&
+        last_name.trim().length > 0 &&
+        email.trim().length > 0 &&
+        password.trim().length > 0 &&
+        password_again.trim().length > 0 &&
+        emailError === '' && 
+        passwordError === '' &&
+        confirmPasswordError === ''
+      );
+    } else {
+      setFormValid(
+        first_name.trim().length > 0 &&
+        last_name.trim().length > 0 &&
+        email.trim().length > 0 &&
+        password.trim().length > 0 &&
+        password_again.trim() === password.trim()
+      );
+    }
+  }, [first_name, last_name, email, password, password_again, emailError, passwordError, isFormSubmitted, confirmPasswordError]);
   return (
     <div>
          <Modal
@@ -71,8 +183,8 @@ function SignUpModal() {
             aria-describedby="modal-modal-description"
             sx={{backdropFilter: 'blur(5px)'}}
         >
-            <Box sx={style} >
-                <form>
+            <Box sx={style}>
+                <form onSubmit={handleSubmit}>
                     <div className={classes.modal_div}>
                         <div className={classes.first_block}>
                             <div className={classes.second_block}>
@@ -85,60 +197,63 @@ function SignUpModal() {
                         </div>
                        
                         <div className={classes.all_inputs}>
-                            {/* <div className={classes.one_inputs} >
-                                <TextField id="outlined-basic" label="Имя" variant="outlined" name='name'  className={classes.inputs_modal} 
+                            <div className={classes.one_inputs} >
+                                <TextField id="outlined-basic" label="Имя" variant="outlined" name='first_name'  className={classes.inputs_modal} value={first_name}
                                 sx={{
                                     '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
-                                    }
-                                }}/>
+                                        borderRadius:"10px",
+                                        width: '402px'
+                                    }, 
+                                }} 
+                                onChange={handleFirstNameChange}
+                                />
                             </div>
                             <div className={classes.one_inputs}>
-                                <TextField id="outlined-basic" label="Фамилия" variant="outlined" name='name' sx={{
+                                <TextField id="outlined-basic" label="Фамилия" variant="outlined" name='last_name' value={last_name} sx={{
                                     '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
+                                        borderRadius:"10px",
+                                        width: '402px'
                                     }
-                                }}  className={classes.inputs_modal} />
+                                }}  className={classes.inputs_modal} 
+                                onChange={handleLastNameChange}
+                                />
                             </div>
-                            <div className={classes.one_inputs}>
-                                <TextField id="outlined-basic" label="Эл.почта" placeholder='@' variant="outlined" name='name'  className={classes.inputs_modal_email} sx={{
+                            <div className={classes.one_inputs_email}>
+                                {emailError && <span className={classes.span_email}>{emailError}</span>}
+                                <TextField id="outlined-basic" label="Эл.почта" placeholder='@' variant="outlined" name='email' value={email} className={classes.inputs_modal_email} 
+                                sx={{
                                     '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
-                                    }
-                                }} />
+                                        borderRadius:"10px",
+                                        width: '402px',
+                                    }, 
+                                    
+                                }}
+                                onChange={handleEmailChange}
+                                />
                             </div>
-                            <div className={classes.one_inputs}>
-                                <TextField id="outlined-basic" label="Пароль" variant="outlined" name='name'  className={classes.inputs_modal} sx={{
-                                    '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
-                                    }
-                                }} />
-                            </div>
-                            <div className={classes.one_inputs}>
-                                <TextField id="outlined-basic" label="Повторите пароль" variant="outlined" name='name'  className={classes.inputs_modal} sx={{
-                                    '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
-                                    }
-                                }} />
-                                <p className={classes.password_text}>Пароль должен содержать не менее 8 букв или цифр.</p>
-                            </div> */}
-                            {inputInner.map(item=><SignUp  name={item.name} label={item.label}/>)}
+                            {/* {inputInner.map(item=><SignUp  name={item.name} label={item.label}/>)} */}
                             <div className={classes.inputs_modal_password}>
-                                <TextField id="outlined-basic" label="Пароль" variant="outlined" name='name' type={type} className={classes.inputs_modal} sx={{
+                                {passwordError && <span>{passwordError}</span>}
+                                <TextField id="outlined-basic" label="Пароль" variant="outlined" name='password' value={password} type={type} className={classes.inputs_modal} sx={{
                                     '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
-                                        
+                                        borderRadius:"10px",
+                                        width: '402px'
                                     }
                                     
-                                }} />
+                                }} 
+                                onChange={handlePasswordChange}
+                                />
                                 <img src={eye} alt="openEye" className={classes.eyes_modal} onClick={handlePassword}/>
                             </div>
                             <div className={classes.inputs_pas_test}>
-                                <TextField id="outlined-basic" label="Повторите пароль" variant="outlined" name='name' type={testType} className={classes.inputs_modal} sx={{
+                                {confirmPasswordError && <span>{confirmPasswordError}</span>}
+                                <TextField id="outlined-basic" label="Повторите пароль" variant="outlined" name='password_again' value={password_again} type={testType} className={classes.inputs_modal} sx={{
                                     '& .MuiInputBase-root':{
-                                        borderRadius:"10px"
+                                        borderRadius:"10px",
+                                        width: '402px'
                                     }
-                                }} />
+                                }} onChange={handleConfirmPasswordChange}
+                                />
                                  <img src={testEye} alt="openEye" className={classes.eyes_test} onClick={handleTestPassword}/>
                                 <p className={classes.password_text}>Пароль должен содержать не менее 8 букв или цифр.</p>
                             </div> 
@@ -148,7 +263,7 @@ function SignUpModal() {
                             <p className={classes.checkbox_text}>Создание учетной записи означает, что вы согласны c нашими Условиями обслуживания, Политикой конфиденциальности и настройками уведомлений по умолчанию.</p>
                         </div>
                         <div className={classes.buttons_or}>
-                            <button className={classes.sign_btn}>Создать аккаунт</button>
+                            <button className={classes.sign_btn} type="submit" disabled={!formValid}  onClick={handleSubmit} style={{backgroundColor: formValid === true ? '#ff6f32' : '#c3c3c3'}}>Создать аккаунт</button>
                             <span className={classes.text_or}>или</span>
                             <button className={classes.google_btn}>
                                 <span className={classes.account_google_icon}><AccountCircleOutlinedIcon/></span>

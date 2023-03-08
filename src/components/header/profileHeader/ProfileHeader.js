@@ -2,8 +2,7 @@ import React from 'react'
 import classes from '../justHeader/JustHeader.module.css'
 import Vector from '../../../images/headerImg/Vector.svg'
 import { Link } from 'react-router-dom';
-import HeartIcon from '../../../images/headerImg/heart.svg';
-import searchImg from '../../../images/firstBlockImg/search.svg'
+import HeartIcon from '../../../images/headerImg/heart.svg'; 
 import svgSearch from '../../../images/headerImg/Frame 314.svg';
 import { useDispatch } from 'react-redux';
 import { openLikesModal } from '../../../store/slices/authSlice';

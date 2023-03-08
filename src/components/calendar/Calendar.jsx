@@ -110,7 +110,7 @@ export default function Calendar() {
                 }}
                 renderInput={params => (
                     <div className={classes.parent_input_date}>
-                        {activeInput && (
+                        {activeInput === 4 && (
                             <label
                                 for="inputs_from_date"
                                 className={classes.label_input_date}
@@ -119,11 +119,10 @@ export default function Calendar() {
                             </label>
                         )}
                         <TextField
-                            id="inputs_from_date"
                             {...params}
                             type="date"
                             sx={{
-                                mr: '20px',
+                                mr: '20px', 
                                 borderRadius: '0px 14px 14px 0px',
                                 '& .MuiFormControl-root': {},
                                 '& .MuiButtonBase-root': {
@@ -142,8 +141,8 @@ export default function Calendar() {
                             }}
                             disableUnderline={true}
                             className={classes.inputs_from_date}
-                            onFocus={() => setActiveInput(true)}
-                            onBlur={() => setActiveInput(false)}
+                            onFocus={() => setActiveInput(4)}
+                            onBlur={() => setActiveInput(null)}
                         />
                     </div>
                 )}

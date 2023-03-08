@@ -1,0 +1,12 @@
+.card_inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_img{
+    width: 420px;
+    height: 420px;
+    border-radius: 30px;
+    background-color: black;
+    margin-right: 20px;
+}

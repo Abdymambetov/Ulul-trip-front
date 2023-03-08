@@ -1,0 +1,68 @@
+.ask_info{
+  display: flex;
+}
+.ask_info h1{
+  margin-left: 10px;
+}
+.info_item{
+  text-align: start;
+  color: #0C73FE;
+  width: 291px;
+}
+.info_itemone{
+  text-align: start;
+  color: #0C73FE;
+  width: 222px;
+}
+.info_itemtwo{
+  text-align: start;
+  color: #0C73FE;
+  width: 264px;
+}
+.info_itemthree{
+  text-align: start;
+  color: #0C73FE;
+  width: 235px;
+}
+.accord{
+  width: 370px;
+  margin-bottom: -3px;
+}
+.accordion{
+  width: 350px;
+  padding-top: 50px;
+}
+.qestion{
+  text-align: start;
+  color: #423F3F;
+  width: 308px;
+}
+.text{
+  font-size: 14px;
+  line-height: 28px;
+  color: #3897FF;
+  text-align: start;
+}
+.button_info{
+  margin: 12px;
+}
+.btn_info{
+  padding: 11px 12px;
+  color: #0C73FE;
+  text-decoration: none;
+  border: 1px solid #0C73FE;
+  border-radius: 3px;
+  width: 340px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 36px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.block_items{
+  min-height: 420px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 10px;
+  background-color: #fbfbfb;
+}
