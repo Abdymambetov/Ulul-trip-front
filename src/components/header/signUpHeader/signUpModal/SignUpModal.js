@@ -11,7 +11,7 @@ import closeEye from '../../../../images/modalImg/Property 1=Variant2.svg'
 import { useState } from 'react';
 import googleSvg from '../../../../images/modalImg/Google.svg'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { signUpAction } from '../../../../store/slices/registerSlice';
+import { getToken, signUpAction } from '../../../../store/slices/registerSlice';
 
 
 const style = {
