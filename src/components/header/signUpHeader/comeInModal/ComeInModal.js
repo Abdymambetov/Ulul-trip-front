@@ -10,6 +10,8 @@ import openEyes from '../../../../images/modalImg/Property 1=Default.svg'
 import closeEyes from '../../../../images/modalImg/Property 1=Variant2.svg'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import googleSvg from '../../../../images/modalImg/Google.svg'
+import { logAction } from '../../../../store/slices/registerSlice';
+import { useEffect } from 'react';
 
 const style = {
     width: '600px',
@@ -39,6 +41,67 @@ function ComeInModal() {
             setEyesPassword(closeEyes)
         }
     }
+    const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [formValid, setFormValid] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+  function handleEmailChange(event) {
+    const emailValue = event.target.value.trim();
+    setEmail(emailValue);
+    const re =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(emailValue).toLowerCase())) {
+      setEmailError('Некоректный емейл');
+    } else {
+      setEmailError('');
+    }
+  }
+
+  function handlePasswordChange(event) {
+    const passwordValue = event.target.value.trim();
+    setPassword(passwordValue);
+  
+    if (passwordValue.trim().length < 8 || passwordValue.trim().length > 16) {
+      setPasswordError('Пароль должен быть не меньше 8 и не больше 16');
+    
+    } else if (!/^[a-zA-Z0-9]*$/.test(passwordValue)) {
+      setPasswordError('Пароль должен содержать только буквы и цифры');
+      
+    } else {
+      setPasswordError('');
+    }
+  }
+  
+  function handleSubmit(event) {
+    event.preventDefault();
+  
+    // Выполнение проверки формы перед отправкой.
+  
+    if (emailError || passwordError) {
+      return;
+    }
+    setIsFormSubmitted(true);
+    const user = {email, password}
+    dispatch(logAction(user))
+    
+  }
+  useEffect(() => {
+    if (isFormSubmitted) {
+      setFormValid(
+        email.trim().length > 0 &&
+        password.trim().length > 0 &&
+        emailError === '' && 
+        passwordError === '' 
+      );
+    } else {
+      setFormValid(
+        email.trim().length > 0 &&
+        password.trim().length > 0
+      );
+    }
+  }, [email, password, emailError, passwordError, isFormSubmitted,]);
   return (
     <div>
         <Modal
@@ -62,14 +125,16 @@ function ComeInModal() {
                     <form>
                         <div className={classes.all_inputs}>
                             <div className={classes.inputs_ordinary}>
-                                <TextField id="outlined-basic" label="Эл.почта" variant="outlined" name='email'  className={classes.inputs_modal}  sx={{
+                                {emailError && <span className={classes.span_email}>{emailError}</span>}
+                                <TextField id="outlined-basic" label="Эл.почта" variant="outlined" name='email'  className={classes.inputs_modal} value={email} onChange={handleEmailChange} sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px" 
                                     }
                                 }} />
                             </div>
                             <div className={classes.inputs_ordinary_password}>
-                                <TextField id="outlined-basic" label="Пароль" variant="outlined" name='password' type={passwordType} className={classes.inputs_modal}  sx={{
+                                {passwordError && <span>{passwordError}</span>}
+                                <TextField id="outlined-basic" label="Пароль" variant="outlined" name='password' type={passwordType} className={classes.inputs_modal} value={password} onChange={handlePasswordChange} sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px"
                                     }
@@ -78,7 +143,7 @@ function ComeInModal() {
                             </div>
                         </div>
                         <div className={classes.all_btns}>
-                            <button className={classes.come_btn}>Войти</button>
+                            <button className={classes.come_btn} onClick={handleSubmit} disabled={!formValid} style={{backgroundColor: formValid === true ? '#ff6f32' : '#c3c3c3'}}>Войти</button>
                             <span className={classes.or_text}>ИЛИ</span>
                             <button className={classes.google_btn}>
                                 <span className={classes.account_google_icon}><AccountCircleOutlinedIcon/></span>
