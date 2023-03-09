@@ -3,7 +3,9 @@ import classes from './GifBlock.module.css'
 
 function GifBlock() {
   return (
-    <div>GifBlock</div>
+        <div>
+            Gif block
+        </div>
   )
 }
 

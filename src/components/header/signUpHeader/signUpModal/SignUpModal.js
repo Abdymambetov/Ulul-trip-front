@@ -11,6 +11,9 @@ import closeEye from '../../../../images/modalImg/Property 1=Variant2.svg'
 import { useState } from 'react';
 import googleSvg from '../../../../images/modalImg/Google.svg'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { getToken, signUpAction } from '../../../../store/slices/registerSlice';
+
+
 const style = {
     width: '500px',
     height: '740px',
@@ -64,12 +67,14 @@ function SignUpModal() {
         }
     }
 
+
+
     // Валидация 
-    const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+    const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [password_again, setPassword_again] = useState('');
 
   // Дополнительные переменные состояния для хранения сообщений об ошибках и состояния кнопки отправки формы.
   const [emailError, setEmailError] = useState('');
@@ -112,13 +117,13 @@ function SignUpModal() {
       
     } else {
       setPasswordError('');
-      setFormValid(confirmPassword === passwordValue);
+      setFormValid(password_again === passwordValue);
 
     }
   }
   
   function handleConfirmPasswordChange(event) {
-    setConfirmPassword(event.target.value.trim());
+    setPassword_again(event.target.value.trim());
     if (event.target.value !== password) {
       setConfirmPasswordError('Пароль не совпадает, введите пароль, который вы указали выше');
       return;
@@ -127,13 +132,14 @@ function SignUpModal() {
     }
   }
 
+
+
   function handleSubmit(event) {
     event.preventDefault();
   
     // Выполнение проверки формы перед отправкой.
-    if (password !== confirmPassword) {
+    if (password !== password_again) {
       setPasswordError('Пароли не совпадают');
-      console.log('hi');
       return;
     }
   
@@ -142,31 +148,33 @@ function SignUpModal() {
     }
   
     setIsFormSubmitted(true);
-    // Здесь можно отправить данные формы на сервер.
+    const user = {first_name, last_name, email, password, password_again}
+    dispatch(signUpAction(user))
+    
   }
 
   useEffect(() => {
     if (isFormSubmitted) {
       setFormValid(
-        firstName.trim().length > 0 &&
-        lastName.trim().length > 0 &&
+        first_name.trim().length > 0 &&
+        last_name.trim().length > 0 &&
         email.trim().length > 0 &&
         password.trim().length > 0 &&
-        confirmPassword.trim().length > 0 &&
+        password_again.trim().length > 0 &&
         emailError === '' && 
         passwordError === '' &&
         confirmPasswordError === ''
       );
     } else {
       setFormValid(
-        firstName.trim().length > 0 &&
-        lastName.trim().length > 0 &&
+        first_name.trim().length > 0 &&
+        last_name.trim().length > 0 &&
         email.trim().length > 0 &&
         password.trim().length > 0 &&
-        confirmPassword.trim() === password.trim()
+        password_again.trim() === password.trim()
       );
     }
-  }, [firstName, lastName, email, password, confirmPassword, emailError, passwordError, isFormSubmitted, confirmPasswordError]);
+  }, [first_name, last_name, email, password, password_again, emailError, passwordError, isFormSubmitted, confirmPasswordError]);
   return (
     <div>
          <Modal
@@ -190,7 +198,7 @@ function SignUpModal() {
                        
                         <div className={classes.all_inputs}>
                             <div className={classes.one_inputs} >
-                                <TextField id="outlined-basic" label="Имя" variant="outlined" name='name'  className={classes.inputs_modal} value={firstName}
+                                <TextField id="outlined-basic" label="Имя" variant="outlined" name='first_name'  className={classes.inputs_modal} value={first_name}
                                 sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px",
@@ -201,7 +209,7 @@ function SignUpModal() {
                                 />
                             </div>
                             <div className={classes.one_inputs}>
-                                <TextField id="outlined-basic" label="Фамилия" variant="outlined" name='lastname' value={lastName} sx={{
+                                <TextField id="outlined-basic" label="Фамилия" variant="outlined" name='last_name' value={last_name} sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px",
                                         width: '402px'
@@ -239,7 +247,7 @@ function SignUpModal() {
                             </div>
                             <div className={classes.inputs_pas_test}>
                                 {confirmPasswordError && <span>{confirmPasswordError}</span>}
-                                <TextField id="outlined-basic" label="Повторите пароль" variant="outlined" name='confirmPassword' value={confirmPassword} type={testType} className={classes.inputs_modal} sx={{
+                                <TextField id="outlined-basic" label="Повторите пароль" variant="outlined" name='password_again' value={password_again} type={testType} className={classes.inputs_modal} sx={{
                                     '& .MuiInputBase-root':{
                                         borderRadius:"10px",
                                         width: '402px'
@@ -255,7 +263,7 @@ function SignUpModal() {
                             <p className={classes.checkbox_text}>Создание учетной записи означает, что вы согласны c нашими Условиями обслуживания, Политикой конфиденциальности и настройками уведомлений по умолчанию.</p>
                         </div>
                         <div className={classes.buttons_or}>
-                            <button className={classes.sign_btn} type="submit" disabled={!formValid}>Создать аккаунт</button>
+                            <button className={classes.sign_btn} type="submit" disabled={!formValid}  onClick={handleSubmit} style={{backgroundColor: formValid === true ? '#ff6f32' : '#c3c3c3'}}>Создать аккаунт</button>
                             <span className={classes.text_or}>или</span>
                             <button className={classes.google_btn}>
                                 <span className={classes.account_google_icon}><AccountCircleOutlinedIcon/></span>

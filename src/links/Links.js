@@ -1,3 +1,4 @@
 export const links = {
-    base: ''
+    base: '',
+    signUp: 'http://164.92.190.147:8880/users/register/'
 }
