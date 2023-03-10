@@ -115,7 +115,14 @@ function SignUpModal() {
     } else if (!/^[a-zA-Z0-9]*$/.test(passwordValue)) {
       setPasswordError('Пароль должен содержать только буквы и цифры');
       
-    } else {
+    } else if (/^[a-zA-Z]+$/.test(passwordValue)) {
+      if (/\d+/.test(passwordValue)) {
+        setPasswordError('Мало цифр');
+      } else {
+        setPasswordError('Password must contain at least one digit');
+      }
+    } 
+    else {
       setPasswordError('');
       setFormValid(password_again === passwordValue);
 
