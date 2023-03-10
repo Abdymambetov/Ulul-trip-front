@@ -62,19 +62,19 @@ body {
 
 ::-webkit-scrollbar {
     width: 8px; /* ширина скроллбара */
-  }
-  
-  /* Стилизуем полосу прокрутки */
-  ::-webkit-scrollbar-thumb {
-    background-color: #9EA9B7;
+}
+
+/* Стилизуем полосу прокрутки */
+::-webkit-scrollbar-thumb {
+    background-color: #9ea9b7;
 }
 
 /* Стилизуем полосу прокрутки */
 ::-webkit-scrollbar-thumb {
     background-color: #9ea9b7;
     border-radius: 5px;
-  }
-  .active:hover{
+}
+.active:hover {
     border: solid blue;
     border-width: 0 0 0 3px;
     color: black;
@@ -82,8 +82,8 @@ body {
     font-weight: 600;
     line-height: 19px;
     margin-left: 0;
-  }
-  .active{
+}
+.active {
     border: solid blue;
     border-width: 0 0 0 3px;
     color: black;
@@ -91,5 +91,4 @@ body {
     font-weight: 600;
     line-height: 19px;
     margin-left: 0;
-  }
-
+}

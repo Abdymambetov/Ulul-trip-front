@@ -27,12 +27,29 @@ const HoverIcon = WithHoverStyles(Icon)
 
 function Footer() {
     const listSecond = [
-    {
-        el: <Link to='/' className={classes.about_us_text}> О нас </Link>,
-        ol: <Link to='/' className={classes.about_us_text}>Вакансии</Link>,
-        al: <Link to='/' className={classes.about_us_text}>Реклама</Link>,
-        rl: <Link to='faq'className={classes.about_us_text}>Помощь</Link>
-    }
+        {
+            el: (
+                <Link to="/" className={classes.about_us_text}>
+                    {' '}
+                    О нас{' '}
+                </Link>
+            ),
+            ol: (
+                <Link to="/" className={classes.about_us_text}>
+                    Вакансии
+                </Link>
+            ),
+            al: (
+                <Link to="/" className={classes.about_us_text}>
+                    Реклама
+                </Link>
+            ),
+            rl: (
+                <Link to="faq" className={classes.about_us_text}>
+                    Помощь
+                </Link>
+            )
+        }
     ]
 
     return (
@@ -55,7 +72,9 @@ function Footer() {
                     </div>
                     <ul className={classes.about_us}>
                         {listSecond.map((item, i) => (
-                            <HoverRedLi key={i}>{item.el} {item.ol} {item.al} {item.rl}</HoverRedLi>
+                            <HoverRedLi key={i}>
+                                {item.el} {item.ol} {item.al} {item.rl}
+                            </HoverRedLi>
                         ))}
                     </ul>
                 </footer>
