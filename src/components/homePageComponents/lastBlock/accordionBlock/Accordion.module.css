@@ -26,11 +26,11 @@
 }
 .accord{
   width: 370px;
-  margin-bottom: -3px;
+  cursor: none;
 }
 .accordion{
   width: 350px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .qestion{
   text-align: start;
@@ -46,6 +46,7 @@
 .button_info{
   margin: 12px;
 }
+
 .btn_info{
   padding: 11px 12px;
   color: #0C73FE;
@@ -55,8 +56,8 @@
   width: 340px;
   display: flex;
   justify-content: space-around;
-  margin-left: 36px;
-  margin-top: 20px;
+  margin-left: 17px;
+  margin-top: 40px;
   font-size: 20px;
 }
 .block_items{
@@ -65,4 +66,7 @@
   padding-top: 20px;
   border-radius: 10px;
   background-color: #fbfbfb;
+}
+AccordionSummary{
+  cursor: none;
 }

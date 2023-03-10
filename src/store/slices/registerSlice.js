@@ -16,8 +16,8 @@ export const signUpAction = createAsyncThunk(
                 data: JSON.stringify(param)
             })
             const data = await response.data
-                localStorage.setItem('token', JSON.stringify(data))
-                console.log( JSON.parse(localStorage.getItem('token')))
+                localStorage.setItem('token', JSON.stringify(data.tokens))
+                console.log( JSON.parse(localStorage.getItem('token').tokens))
                 console.log(data);
                
         } catch(e){
@@ -27,10 +27,34 @@ export const signUpAction = createAsyncThunk(
         }
     }
 )
+
+export const logAction = createAsyncThunk(
+    'logAction',
+    async (param, {dispatch, rejectWithValue}) => {
+        try{
+            const response = await axios({
+                method:'POST',
+                url:links.login,
+                headers:{'Content-type':'application/json'},
+                data: JSON.stringify(param)
+            })
+            const data = await response
+            if(data.status >= 200 && data.status < 400){
+                    localStorage.setItem('user', JSON.stringify(data))
+                    JSON.parse(localStorage.getItem('user'))
+                 
+            } else{
+                throw Error('error')
+            }
+        } catch(e){
+            alert(e)
+        }
+    }
+)
 const registerSlice = createSlice({
     name: 'registerSlice',
     initialState: {
-        signIn: JSON.parse(localStorage.getItem('token'))?.token ? true : false,
+        signIn: JSON.parse(localStorage.getItem('user'))?.tokens ? true : false,
     },
     reducers: {
 

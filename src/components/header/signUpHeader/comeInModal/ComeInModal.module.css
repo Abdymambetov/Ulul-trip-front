@@ -28,7 +28,7 @@
     font-size: 30px;
     line-height: 0px;
     letter-spacing: -0.04em;
-    color: #000000;
+    color: #000000; 
 }
 .text_come_in{
     margin-top: 57px;
@@ -98,7 +98,6 @@
     gap: 10px;
     width: 322px;
     height: 59px;
-    background: #FF6F32;
     border-radius: 10px;
     border: 0px;
     font-style: normal;

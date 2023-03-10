@@ -13,17 +13,16 @@ function AccordionBlock() {
     <div>
       <div className={classes.container}>
 
-<div className={classes.ask_info}>
-  <img src={Ask} alt="Ask" />
-  <h1>Помощь и советы</h1>
-</div>
+      <div className={classes.ask_info}>
+        <img src={Ask} alt="Ask" />
+        <h1>Помощь и советы</h1>
+      </div>
 
-
-<div className={classes.block_items}>
  <div className={classes.accordion}>
 
-    <Accordion className={classes.accord} >
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}
+    >
+      <AccordionSummary style={{'cursor': 'none'}}
         sx={{
           '& .MuiTypography-root':{
              "fontSize": '16px',
@@ -48,12 +47,12 @@ function AccordionBlock() {
         В зависимости от сложности и характера рельефа привалы будут каждые 30-50 минут, длительность привала - 5-15 минут. Среди дня один большой привал на обед длительностью один час. Скорость движения группы определяется по самому медленному человеку-черепашке и по общему настрою.
        
         </Typography>
-        <Link className={classes.text} to='faq'>Читать полностью -</Link>
+        <Link className={classes.text} to='faq'>'Читать полностью- </Link>
       </AccordionDetails>
     </Accordion>
 
-    <Accordion className={classes.accord}>
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}>
+      <AccordionSummary style={{'cursor': 'none'}}
       sx={{
         '& .MuiTypography-root':{
            "fontSize": '16px',
@@ -81,8 +80,8 @@ function AccordionBlock() {
       </AccordionDetails>
     </Accordion>
 
-    <Accordion className={classes.accord}>
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}>
+      <AccordionSummary style={{'cursor': 'none'}}
       sx={{
         '& .MuiTypography-root':{
            "fontSize": '16px',
@@ -111,8 +110,8 @@ function AccordionBlock() {
       </AccordionDetails>
     </Accordion>
 
-    <Accordion className={classes.accord}>
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}>
+      <AccordionSummary style={{'cursor': 'none'}}
       sx={{
         '& .MuiTypography-root':{
            "fontSize": '16px',
@@ -139,8 +138,8 @@ function AccordionBlock() {
       </AccordionDetails>
     </Accordion>  
 
-    <Accordion className={classes.accord}>
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}>
+      <AccordionSummary style={{'cursor': 'none'}}
       sx={{
         '& .MuiTypography-root':{
            "fontSize": '16px',
@@ -168,8 +167,8 @@ function AccordionBlock() {
       </AccordionDetails>
     </Accordion> 
 
-    <Accordion className={classes.accord}>
-      <AccordionSummary
+    <Accordion className={classes.accord} style={{margin: 0}}>
+      <AccordionSummary style={{'cursor': 'none'}}
       sx={{
         '& .MuiTypography-root':{
            "fontSize": '16px',
@@ -198,7 +197,6 @@ function AccordionBlock() {
       </AccordionDetails>
     </Accordion>  
 
-</div>
 </div>
 
   <Link className={classes.btn_info}to='faq'>смотреть весь раздел -</Link>

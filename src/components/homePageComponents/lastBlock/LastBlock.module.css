@@ -7,4 +7,6 @@
 }
 .last_inner{
     display: flex;
+    padding-top: 137px;
+    padding-bottom: 100px;
 }
