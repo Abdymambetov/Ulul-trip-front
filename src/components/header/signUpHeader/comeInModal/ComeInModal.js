@@ -140,7 +140,7 @@ function ComeInModal() {
                                     )}
                                     <TextField
                                         id="outlined-basic"
-                                        label="Эл.почта"
+                                        label="username"
                                         variant="outlined"
                                         name="username"
                                         className={classes.inputs_modal}
