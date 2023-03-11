@@ -18,7 +18,7 @@ export const signUpAction = createAsyncThunk(
             })
             const data = await response.data
             if(data.status>=200 && data.status<400){
-                dispatch(CorrectSignUp())
+                // dispatch(CorrectSignUp())
                 dispatch(openComeInModal())
             }else{
                 alert('try again')
@@ -27,7 +27,7 @@ export const signUpAction = createAsyncThunk(
             }
         } catch(e){
             alert(e)
-            dispatch(ErrorSignUp())
+            // dispatch(ErrorSignUp())
         }finally{
 
         }
@@ -45,10 +45,10 @@ export const logAction = createAsyncThunk(
                 data: JSON.stringify(param)
             })
             const data = await response
-            console.log(JSON.parse(data.data.tokens))
+            
             if(data.status >= 200 && data.status < 400) {
-                    dispatch(CorrectLogIn())
-                    
+                    // dispatch(CorrectLogIn())
+                    localStorage.setItem('user',data.data.tokens.replace(/'/g,'"'))
                     // localStorage.setItem('user', )
                     // const userTokens = JSON.parse(localStorage.getItem('user'));
                     // const accessToken = userTokens.access;
@@ -60,7 +60,7 @@ export const logAction = createAsyncThunk(
             }
         } catch (e) {
             alert(e)
-            dispatch(ErrorLogIn())
+            // dispatch(ErrorLogIn())
         }
     }
 )
@@ -68,7 +68,7 @@ const registerSlice = createSlice({
     name: 'registerSlice',
     initialState: {
         signUp: false,
-        logIn: false
+        logIn: JSON.parse(localStorage.getItem('user')).access ? true: false
     },
     reducers: {
         CorrectSignUp: (state, action) => {
@@ -77,13 +77,13 @@ const registerSlice = createSlice({
         ErrorSignUp: (state, action) => {
             state.signUp = false
         },
-        CorrectLogIn: (state, action) => {
-            state.logIn = true
-        },
-        ErrorLogIn: (state, action)=> {
-            state.logIn = false
-        }
+        // CorrectLogIn: (state, action) => {
+        //     state.logIn = true
+        // },
+        // ErrorLogIn: (state, action)=> {
+        //     state.logIn = false
+        // }
     }
 })
-export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
+// export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
 export default registerSlice.reducer
