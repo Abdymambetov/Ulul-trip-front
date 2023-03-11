@@ -35,14 +35,11 @@
 .heplinfo{
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 0px;
   gap: 25px;
-  position: absolute;
+  margin-top: 80px;
   width: 743px;
   height: 152px;
-  left: 230px;
-  top: 179px;
 }
 .heplinfo h1{
   color: #fff;
