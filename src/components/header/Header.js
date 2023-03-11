@@ -4,18 +4,18 @@ import JustHeader from './justHeader/JustHeader'
 import SignUpHeader from './signUpHeader/SignUpHeader'
 
 function Header() {
-    const {signIn} = useSelector(state => state.regis)
+    const {logIn} = useSelector(state => state.regis)
     return (
         <>
-            {/* {
-                signIn
+            {
+                logIn
                 ?
                 <JustHeader/>
                 :
                 <SignUpHeader/>
-            } */}
-            <SignUpHeader/>   
-            {/* <JustHeader /> */}
+            }
+            {/* <SignUpHeader/>   
+            <JustHeader /> */}
         </>
     )
 }
