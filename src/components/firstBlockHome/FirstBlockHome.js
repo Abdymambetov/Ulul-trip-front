@@ -3,7 +3,9 @@ import classes from './FirstBlockHome.module.css'
 import SearchComponent from '../searchComponent/SearchComponent'
 import ThreeCards from '../homePageComponents/allCards/threeCards/ThreeCards'
 
+
 function FirstBlockHome() {
+    // console.log(JSON.parse(localStorage.getItem('user')))
     return (
         <div className={classes.home}>
             <div className={classes.container}>
