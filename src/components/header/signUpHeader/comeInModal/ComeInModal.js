@@ -41,7 +41,7 @@ function ComeInModal() {
             setEyesPassword(closeEyes)
         }
     }
-    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
@@ -49,15 +49,16 @@ function ComeInModal() {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
     function handleEmailChange(event) {
-        const emailValue = event.target.value.trim()
-        setEmail(emailValue)
-        const re =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        if (!re.test(String(emailValue).toLowerCase())) {
-            setEmailError('Некоректный емейл')
-        } else {
-            setEmailError('')
-        }
+        setUsername(event.target.value)
+        // const emailValue = event.target.value.trim()
+        // setUsername(emailValue)
+        // const re =
+        //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        // if (!re.test(String(emailValue).toLowerCase())) {
+        //     setEmailError('Некоректный емейл')
+        // } else {
+        //     setEmailError('')
+        // }
     }
 
     function handlePasswordChange(event) {
@@ -85,21 +86,21 @@ function ComeInModal() {
             return
         }
         setIsFormSubmitted(true)
-        const user = { email, password }
+        const user = { username, password }
         dispatch(logAction(user))
     }
     useEffect(() => {
         if (isFormSubmitted) {
             setFormValid(
-                email.trim().length > 0 &&
+                username.trim().length > 0 &&
                     password.trim().length > 0 &&
                     emailError === '' &&
                     passwordError === ''
             )
         } else {
-            setFormValid(email.trim().length > 0 && password.trim().length > 0)
+            setFormValid(username.trim().length > 0 && password.trim().length > 0)
         }
-    }, [email, password, emailError, passwordError, isFormSubmitted])
+    }, [username, password, emailError, passwordError, isFormSubmitted])
     return (
         <div>
             <Modal
@@ -139,11 +140,11 @@ function ComeInModal() {
                                     )}
                                     <TextField
                                         id="outlined-basic"
-                                        label="Эл.почта"
+                                        label="username"
                                         variant="outlined"
-                                        name="email"
+                                        name="username"
                                         className={classes.inputs_modal}
-                                        value={email}
+                                        value={username}
                                         onChange={handleEmailChange}
                                         sx={{
                                             '& .MuiInputBase-root': {

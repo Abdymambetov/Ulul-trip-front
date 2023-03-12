@@ -69,8 +69,8 @@ function SignUpModal() {
     }
 
     // Валидация
-    const [first_name, setFirstName] = useState('')
-    const [last_name, setLastName] = useState('')
+    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password_again, setPassword_again] = useState('')
@@ -84,11 +84,11 @@ function SignUpModal() {
 
     // Обработчики изменения состояния для каждого поля формы.
     function handleFirstNameChange(event) {
-        setFirstName(event.target.value)
+        setName(event.target.value)
     }
 
     function handleLastNameChange(event) {
-        setLastName(event.target.value)
+        setUsername(event.target.value)
     }
 
     function handleEmailChange(event) {
@@ -128,7 +128,7 @@ function SignUpModal() {
             )
             return
         } else {
-            setConfirmPasswordError('')
+            setConfirmPasswordError('') 
         }
     }
   function handlePasswordChange(event) {
@@ -180,15 +180,15 @@ function SignUpModal() {
         }
 
         setIsFormSubmitted(true)
-        const user = { first_name, last_name, email, password, password_again }
+        const user = { name, username, email, password, password_again }
         dispatch(signUpAction(user))
     }
 
     useEffect(() => {
         if (isFormSubmitted) {
             setFormValid(
-                first_name.trim().length > 0 &&
-                    last_name.trim().length > 0 &&
+                    name.trim().length > 0 &&
+                    username.trim().length > 0 &&
                     email.trim().length > 0 &&
                     password.trim().length > 0 &&
                     password_again.trim().length > 0 &&
@@ -198,16 +198,16 @@ function SignUpModal() {
             )
         } else {
             setFormValid(
-                first_name.trim().length > 0 &&
-                    last_name.trim().length > 0 &&
+                    name.trim().length > 0 &&
+                    username.trim().length > 0 &&
                     email.trim().length > 0 &&
                     password.trim().length > 0 &&
                     password_again.trim() === password.trim()
             )
         }
     }, [
-        first_name,
-        last_name,
+        name,
+        username,
         email,
         password,
         password_again,
@@ -255,9 +255,9 @@ function SignUpModal() {
                                         id="outlined-basic"
                                         label="Имя"
                                         variant="outlined"
-                                        name="first_name"
+                                        name="name"
                                         className={classes.inputs_modal}
-                                        value={first_name}
+                                        value={name}
                                         sx={{
                                             '& .MuiInputBase-root': {
                                                 borderRadius: '10px',
@@ -272,8 +272,8 @@ function SignUpModal() {
                                         id="outlined-basic"
                                         label="Фамилия"
                                         variant="outlined"
-                                        name="last_name"
-                                        value={last_name}
+                                        name="username"
+                                        value={username}
                                         sx={{
                                             '& .MuiInputBase-root': {
                                                 borderRadius: '10px',

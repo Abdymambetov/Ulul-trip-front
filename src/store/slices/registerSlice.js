@@ -68,7 +68,7 @@ const registerSlice = createSlice({
     name: 'registerSlice',
     initialState: {
         signUp: false,
-        logIn: false
+        logIn: JSON.parse(localStorage.getItem('user')) ? true: false
     },
     reducers: {
         CorrectSignUp: (state, action) => {
