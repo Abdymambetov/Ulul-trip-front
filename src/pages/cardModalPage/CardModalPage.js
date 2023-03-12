@@ -151,7 +151,7 @@ const heandleOpenReviews = () => {
                     </div> */}
                         
                         <div className={classes.heart_header}>
-                            <img scr={heartImg} alt ='h' className={classes.heart}/>
+                            <img src={heartImg} alt ='h' className={classes.heart}/>
                             <h1 className={classes.heart_text}>{products?.title}</h1>
                         </div>
         
@@ -159,11 +159,11 @@ const heandleOpenReviews = () => {
         
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
-                                <img scr ={regionImg} alt = 'r' className={classes.region_image}/>
+                                <img src ={regionImg} alt = 'r' className={classes.region_image}/>
                                 <div className={classes.region_text}>Область</div>
                             </div>
                             <div className={classes.level}>
-                                <img scr={groupImg} alt ='g' className={classes.group_image}/>
+                                <img src={groupImg} alt ='g' className={classes.group_image}/>
                                 <div className={classes.level_text}>Сложность</div>
                             </div>    
                     </div>
@@ -177,11 +177,11 @@ const heandleOpenReviews = () => {
         
                     <div className={classes.duration_and_price}>
                             <div className={classes.duration}>
-                                <img scr ={regionImg} alt = 'r' className={classes.duration_image}/>
+                                <img src ={regionImg} alt = 'r' className={classes.duration_image}/>
                                 <div className={classes.duration_text}>Длительность</div>
                             </div>
                             <div className={classes.price}>
-                                <img scr={groupImg} alt ='g' className={classes.price_image}/>
+                                <img src={groupImg} alt ='g' className={classes.price_image}/>
                                 <div className={classes.price_text}>Цена</div>
                             </div>    
                     </div>
@@ -204,22 +204,22 @@ const heandleOpenReviews = () => {
         
                             
                             <div className={classes.rating}>
-                                <img scr = {ratingImg} alt ='r' className={classes.rating_image}/>
+                                <img src = {ratingImg} alt ='r' className={classes.rating_image}/>
                                 <div className={classes.rating_text}>Рейтинг</div>
                             </div>
-                            <img scr ={starsImg} alt ='stars' className={classes.stars_image}/>
+                            <img src ={starsImg} alt ='stars' className={classes.stars_image}/>
         
                             
                         <div className={classes.walker_and_google}>
                         <div className={classes.display}>
                         <div className={classes.walker}>
-                                <img scr ={walkerImg} alt = 'w' className={classes.walker_image}/>
+                                <img src ={walkerImg} alt = 'w' className={classes.walker_image}/>
                                 <div className={classes.walker_text}>{products?.category?.name}</div>
                                 {/* <div className={classes.walker_text_two}>тур</div> */}
                             </div>
                         <div className={classes.google}>
                             <div className={classes.google_text_and_image}>
-                                <img scr ={googleImg} alt ='g' className={classes.google_image}/>
+                                <img src ={googleImg} alt ='g' className={classes.google_image}/>
                                 <div className={classes.google_text_main}>
                                     <div className={classes.google_text}>Google</div>
                                     <div className={classes.google_text_two}>карты</div>
@@ -233,10 +233,10 @@ const heandleOpenReviews = () => {
                         <div className={classes.guide}>
                                 <div className={classes.guide_text_and_image_h}>
                                     <div className={classes.guide_text_and_image}>
-                                        <img scr ={guideImg} alt ='g' className={classes.guide_image}/>
+                                        <img src ={guideImg} alt ='g' className={classes.guide_image}/>
                                         <div className={classes.guide_text}>Гид</div>
                                     </div>
-                                    <img scr ={vasyaImg} alt = 'vasya' className={classes.vasya_image}/>
+                                    <img src ={vasyaImg} alt = 'vasya' className={classes.vasya_image}/>
                                     <div className={classes.vasya_text}>{products?.guide?.get_initials}</div>
                                 </div>
                             </div>
