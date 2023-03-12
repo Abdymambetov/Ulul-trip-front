@@ -19,20 +19,40 @@ export const categoryAction = createAsyncThunk(
         }
     }
 )
-
+ export const horseTourAction = createAsyncThunk(
+    'horseTourAction',
+    async (param, {dispatch, rejectWithValue}) => {
+        try{
+            const response = await axios('http://164.92.190.147:8880/home/tours/?search=%D0%BA%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9')
+            if(response.status === 200){
+                const data = await response.data.results
+                console.log(data);
+                dispatch(getHorseArr(data))
+            } else{
+                throw Error(`error: ${response.status}`)
+            }
+        } catch(e){
+            alert(e)
+        }
+    }
+ )
 const tourSlice = createSlice({
     name: 'tourSLice',
     initialState: {
         tourArr: [],
-        categoryArr: []
+        categoryArr: [],
+        horseArr: []
     }, reducers: {
         addTour: (state, action) => {
             state.tourArr = action.payload
         }, 
         addCategoryArr: (state, action) => {
             state.categoryArr = action.payload
+        },
+        getHorseArr: (state, action) => {
+            state.horseArr = action.payload
         }
     }
 })
-export const {addTour, addCategoryArr} = tourSlice.actions
+export const {addTour, addCategoryArr, getHorseArr} = tourSlice.actions
 export default tourSlice.reducer
