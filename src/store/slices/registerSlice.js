@@ -18,6 +18,8 @@ export const signUpAction = createAsyncThunk(
             const data = await response.data
             if (data.status >= 200 && data.status < 400) {
                 dispatch(CorrectSignUp())
+            if(data.status>=200 && data.status<400){
+                dispatch(CorrectSignUp())
                 dispatch(openComeInModal())
             } else {
                 alert('try again')
@@ -27,6 +29,9 @@ export const signUpAction = createAsyncThunk(
             alert(e)
             dispatch(ErrorSignUp())
         } finally {
+            dispatch(ErrorSignUp())
+        }finally{
+
         }
     }
 )
@@ -81,9 +86,13 @@ const registerSlice = createSlice({
         ErrorLogIn: (state, action) => {
             state.logIn = false
         }
+        CorrectLogIn: (state, action) => {
+            state.logIn = true
+        },
+        ErrorLogIn: (state, action)=> {
+            state.logIn = false
+        }
     }
 })
-
-export const { CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn } =
-    registerSlice.actions
+export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
 export default registerSlice.reducer
