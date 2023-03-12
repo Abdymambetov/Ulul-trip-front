@@ -11,12 +11,10 @@ function Cursor() {
         cursor.style.display = 'none'
         circle.style.display = 'none'
         document.addEventListener('mousemove', e => {
-            const x = e.clientX
-            const y = e.clientY
-            // const circleX = x
-            // const circleY = y
-            const circleX = x - 20
-            const circleY = y - 20
+            //color
+            console.log(e.target)
+            const circleX = e.clientX - 20
+            const circleY = e.clientY - 20
             cursor.style.transform = `translate3d(${circleX}px, ${circleY}px, 0)`
             circle.style.transform = `translate3d(${circleX}px, ${circleY}px, 0)`
         })
@@ -51,7 +49,7 @@ function Cursor() {
 
         return () => {
             document.removeEventListener('mouseenter', addMoveClass)
-            document.addEventListener('mouseleave', removeMoveClass)
+            document.removeListener('mouseleave', removeMoveClass)
             document.removeEventListener('mousemove')
             window.removeEventListener('mouseout', hideCursor)
             window.removeEventListener('mouseover', showCursor)

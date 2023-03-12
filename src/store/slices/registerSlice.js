@@ -1,8 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { links } from "../../links/Links";
-import { openComeInModal } from "./authSlice";
-
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { links } from '../../links/Links'
+import { openComeInModal } from './authSlice'
 
 export const signUpAction = createAsyncThunk(
     'signUpAction',
@@ -17,19 +16,17 @@ export const signUpAction = createAsyncThunk(
                 data: JSON.stringify(param)
             })
             const data = await response.data
-            if(data.status>=200 && data.status<400){
-                // dispatch(CorrectSignUp())
+            if (data.status >= 200 && data.status < 400) {
+                dispatch(CorrectSignUp())
                 dispatch(openComeInModal())
-            }else{
+            } else {
                 alert('try again')
                 throw Error('something is invalid')
-                
             }
-        } catch(e){
+        } catch (e) {
             alert(e)
-            // dispatch(ErrorSignUp())
-        }finally{
-
+            dispatch(ErrorSignUp())
+        } finally {
         }
     }
 )
@@ -45,17 +42,17 @@ export const logAction = createAsyncThunk(
                 data: JSON.stringify(param)
             })
             const data = await response
-            
-            if(data.status >= 200 && data.status < 400) {
-                    // dispatch(CorrectLogIn())
-                    localStorage.setItem('user',data.data.tokens.replace(/'/g,'"'))
-                    // localStorage.setItem('user', )
-                    // const userTokens = JSON.parse(localStorage.getItem('user'));
-                    // const accessToken = userTokens.access;
-                    // const refreshToken = userTokens.refresh;
-                    // console.log(JSON.parse( accessToken));
-                    // console.log(JSON.parse(refreshToken));
-            } else{
+            console.log(data.data.tokens.replace(/'/g, '"'))
+            if (data.status >= 200 && data.status < 400) {
+                dispatch(CorrectLogIn())
+
+                // localStorage.setItem('user', )
+                // const userTokens = JSON.parse(localStorage.getItem('user'));
+                // const accessToken = userTokens.access;
+                // const refreshToken = userTokens.refresh;
+                // console.log(JSON.parse( accessToken));
+                // console.log(JSON.parse(refreshToken));
+            } else {
                 throw Error('error')
             }
         } catch (e) {
@@ -64,11 +61,12 @@ export const logAction = createAsyncThunk(
         }
     }
 )
+
 const registerSlice = createSlice({
     name: 'registerSlice',
     initialState: {
         signUp: false,
-        logIn: JSON.parse(localStorage.getItem('user')) ? true: false
+        logIn: false
     },
     reducers: {
         CorrectSignUp: (state, action) => {
@@ -77,13 +75,15 @@ const registerSlice = createSlice({
         ErrorSignUp: (state, action) => {
             state.signUp = false
         },
-        // CorrectLogIn: (state, action) => {
-        //     state.logIn = true
-        // },
-        // ErrorLogIn: (state, action)=> {
-        //     state.logIn = false
-        // }
+        CorrectLogIn: (state, action) => {
+            state.logIn = true
+        },
+        ErrorLogIn: (state, action) => {
+            state.logIn = false
+        }
     }
 })
-// export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
+
+export const { CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn } =
+    registerSlice.actions
 export default registerSlice.reducer
