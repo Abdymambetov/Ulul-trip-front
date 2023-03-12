@@ -14,7 +14,7 @@ function OneTour() {
     <div className={classes.tour}>
       <div className={classes.container}>
         <div className={classes.tour_inner}>
-                  <h1 className={classes.tour_text}>Пешие туры</h1>
+                  <h1 className={classes.tour_text}>Конные туры</h1>
                   <div className={classes.all_tours}>
                     {horseArr.map((item) => (
                           <SmallTravelCard item={item}/>

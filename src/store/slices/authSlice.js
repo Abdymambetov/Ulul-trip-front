@@ -8,6 +8,7 @@ const authSlice = createSlice({
         cardModal: false,
         likesModal: false,
         reviewsModal: false,
+        cardInfo: null
     }, 
     reducers: {
         openModal: (state, action) => {
@@ -24,6 +25,7 @@ const authSlice = createSlice({
         },
         openCardModal: (state, action) => {
             state.cardModal = true
+            state.cardInfo =action.payload
         },
         closeCardModal: (state, action) => {
             state.cardModal = false

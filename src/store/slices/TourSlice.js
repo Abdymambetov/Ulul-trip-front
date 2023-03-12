@@ -36,12 +36,13 @@ export const categoryAction = createAsyncThunk(
         }
     }
  )
+ 
 const tourSlice = createSlice({
     name: 'tourSLice',
     initialState: {
         tourArr: [],
         categoryArr: [],
-        horseArr: []
+        horseArr: [],
     }, reducers: {
         addTour: (state, action) => {
             state.tourArr = action.payload
@@ -54,5 +55,5 @@ const tourSlice = createSlice({
         }
     }
 })
-export const {addTour, addCategoryArr, getHorseArr} = tourSlice.actions
+export const {addTour, addCategoryArr, getHorseArr, } = tourSlice.actions
 export default tourSlice.reducer
