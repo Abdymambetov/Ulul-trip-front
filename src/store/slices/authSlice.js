@@ -7,6 +7,7 @@ const authSlice = createSlice({
         comeInModal: false,
         cardModal: false,
         likesModal: false,
+        reviewsModal: false,
     }, 
     reducers: {
         openModal: (state, action) => {
@@ -32,9 +33,15 @@ const authSlice = createSlice({
         },
         closeLikesModal: (state, action) => {
             state.likesModal = false
-        }
+        },
+        openReviewsModal: (state,action) => {
+            state.reviewsModal = true
+        },
+        closeReviewsModal: (state,action) => {
+            state.reviewsModal = false
+        },
     }
 })
 
-export const {openModal, closeModal, openComeInModal, closeComeInModal, openCardModal, closeCardModal, openLikesModal, closeLikesModal} = authSlice.actions; 
+export const {openModal, closeModal, openComeInModal, closeComeInModal, openCardModal, closeCardModal, openLikesModal, closeLikesModal, openReviewsModal, closeReviewsModal} = authSlice.actions; 
 export default authSlice.reducer
