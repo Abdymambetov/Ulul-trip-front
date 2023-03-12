@@ -1,6 +1,14 @@
 .modal_inner {
     display: flex;
+    
     /* position: relative; */
+}
+
+.cross_block {
+    position: absolute;
+    top: 12px;
+    right: 1px;
+    
 }
 .block_reviwes {
     width: 630px;
@@ -9,17 +17,33 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+}
+
+.block_booking {
+    position: fixed;
+    top: 0;
+    right: 0;
+
 }
 .slider {
     width: 630px;
-    height: 350px;
-    background-color: red;
+    height: 413px;
+   
+    /* pointer-events: none; */
 }
 
-.arrows {
+.slider_block {
+    display: flex;
+   
+    
+
+}
+
+.product_image {
     width: 630px;
-    height: 63px;
-    background-color: blue;
+    height: 413px;
+    
 }
 
 .text {
@@ -114,7 +138,7 @@ margin-top: 5px;
 
 
 .block_booking {
-
+    
     /* position: fixed; */
 }
 .heart_header {
@@ -358,6 +382,8 @@ margin-top: 5px;
 
 .guide_text_and_image {
     display: flex;
+    margin-bottom: 8px;
+    
  
 }
 
@@ -368,3 +394,100 @@ margin-top: 5px;
     line-height: 21px;
     color: #7E7E7E;
 }
+
+
+.display {
+    display: flex;
+}
+.guide {
+    display: flex;
+    flex-direction: column;
+    margin-top: -83px;
+}
+
+.vasya_image {
+    margin-bottom: 3px;
+}
+
+.vasya_text {
+    width: 75px;
+    height: 21px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    color: #444444;
+    }
+
+.title_reviews {
+    width: 500px;
+    height: 51px;
+    background-color: #EBF3FF;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.title_text {
+color: #323232;
+
+}
+
+.cross {
+    position: absolute;
+    top: 14px;
+    right: 13px;
+}
+
+.user_reviews {
+    width: 500px;
+    height: 200px;
+}
+
+.post_text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #737E8B;
+    margin-top: 9px;
+    margin-left:8px ;
+    border: none;
+    outline: none;
+}
+
+.text_and_stars {
+    background-color:#EBF3FF;
+    width: 365px;
+    height: 50px;
+    display: flex;
+
+}
+
+
+.rating_and_btn {
+    display: flex;
+}
+.text_rating {
+    width: 115px;
+    height: 27px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #434343;
+    margin-top: 15px;
+    margin-left: 11px;
+}
+
+.stars {
+    width: 135px;
+    height: 50px;
+}
+.btn {
+    width: 135px;
+    height: 50px;
+    background: #0C73FE;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;     
+    color: #EBF3FF;
+    }

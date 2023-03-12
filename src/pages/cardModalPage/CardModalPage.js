@@ -1,17 +1,28 @@
 import { Box, Modal } from '@mui/material'
-import React from 'react'
+// import React from 'react'
 import classes from './CardModalPage.module.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCardModal} from '../../store/slices/authSlice';
+import { closeCardModal, openReviewsModal} from '../../store/slices/authSlice';
 import penImg from '../../images/cardModalImg/pen.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
-import heartImg from '../../images/cardModalImg/Heart.svg'
+import heartImg  from '../../images/cardModalImg/heart.svg'
 import regionImg from '../../images/cardModalImg/region.svg'
 import groupImg from '../../images/cardModalImg/Group.svg'
 import ratingImg from '../../images/cardModalImg/rating.svg'
 import guideImg from '../../images/cardModalImg/guide.svg'
 import walkerImg from '../../images/cardModalImg/walker.svg'
-import googleImg from '../../images/cardModalImg/google.svg'
+import googleImg from '../../images/cardModalImg/GoogleTwo.svg'
+import vasyaImg from '../../images/cardModalImg/vasya.png'
+import crossImg from '../../images/modalImg/Cross2.svg'
+import "swiper/swiper-bundle.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Reviews from './Reviews';
+import ModalReviews from './ModalReviews';
+
+SwiperCore.use([Navigation, Pagination]);
 // import { useState } from 'react';
 // import Heart from 'react-heart';
 
@@ -27,7 +38,7 @@ const style = {
     borderRadius: '20px',
     boxShadow: 24,
     p: 4,
-    overflow: 'auto'
+    overflow: 'auto', 
 };
 function CardModalPage() {
     const dispatch = useDispatch()
@@ -35,6 +46,16 @@ function CardModalPage() {
     const closeMod = () => {
         dispatch(closeCardModal())
     }
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+      const fetchProducts = async () => {
+        const { data } = await axios.get("https://fakestoreapi.com/products");
+        setProducts(data);
+      };
+      fetchProducts();
+    }, []);
 //     const [active ,setActive] = useState(false);
 //   const [notActive , setNotActive] =useState('heard');
 
@@ -48,6 +69,12 @@ function CardModalPage() {
 //       setNotActive('heard')
 //     }
 //   }
+
+const heandleOpenReviews = () => {
+    dispatch(openReviewsModal())
+}
+
+
   return (
     <div>
         <Modal
@@ -62,179 +89,52 @@ function CardModalPage() {
         }}}
         >
         <Box sx={style}>
-            <button onClick={closeMod}>hello</button>
+           
+           
+            
             
             <div className={classes.modal_inner}>
+            <div className={classes.cross_block}>
+            <img src = {crossImg} alt='cross' className={classes.cross}/>
+            </div>
             <div className={classes.block_reviwes}>
-                <div className= {classes.slider}></div>
-                <div className={classes.arrows}></div>
+                <div className= {classes.slider}>
+                <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+            >
+                {products.map((product) => (
+                <SwiperSlide key={product.id}>
+                   
+                        <img src={product.image} alt={product.title} className={classes.product_image} />
+                   
+                    
+                </SwiperSlide>
+                ))}
+  </Swiper>
+                </div>
+               
                 <div className={classes.text}>
                      Кель-Суу — это высокогорное озеро ледникового происхождения, располагающееся в юго-восточной части Нарынской области, близ кыргызско-китайской границы, на высоте 3500 метров. Озеро потрясает своими видами — вода в нем ярко-голубого цвета и очень красиво контрастирует с окружающими его суровыми скалами. Это одно из самых красивых, и вместе с тем труднодоступных мест в Кыргызстане.Кель-Суу — это озеро завального типа, образованное в большой расщелине между скалами. С берега не видно большей его части, а потому чтобы увидеть озеро целиком, нужно плыть по нему на лодке. Длина озера составляет 9 километров, а ширина — варьируется от 500 метров до 2-х километров в самом широком месте.У озера имеется одна необычная особенность, в честь которой и ему и было дано такое название: Кель-Суу в переводе с кыргызского переводится как «преходящая вода». И действительно, иногда вода пропадает, утекая в подземные пещеры и гроты, а потому перед поездкой туда нужно иметь ввиду, что озеро можно и не застать, однако и в этом случае вам откроются инопланетные пейзажи со скалами.Озеро находится на труднодоступном хребте Кокшаал-Тоо, а путь туда лежит через обширную Ак-Сайскую долину и изобилует болотистыми местами и бродами, справиться с которыми может только подготовленный автомобиль и опытный водитель. Сама дорога к озеру от лагеря тоже живописна: высокогорные пастбища, реки, стада яков и пики ледников на горизонте не оставят никого равнодушным.
 
             </div>
             <div className={classes.reviwes}>
                 <div className={classes.title}>Отзывы</div>
-                <img src={penImg} alt='pen' className={classes.icon_pen}/>
+                <img src={penImg} alt='pen' className={classes.icon_pen} onClick = {heandleOpenReviews}/> 
             </div> 
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>  
+                <Reviews/>   
         
             
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
-        
-            
-                <div className={classes.people_reviwes}>
-                <div className={classes.unwanted_line}></div>
-                <div className={classes.header_review}>
-                    <div className={classes.info}>
-                    <h5 className={classes.name}>
-                        Имя Фамилия
-                    </h5>
-                    <h6 className={classes.date}>
-                        ДД/ММ/ГГГГ
-                    </h6>
-                    </div>
-                    <img src={starsImg} alt ='stars' className={classes.stars}/>
-                </div>
-                    <hr className={classes.line}/>
-                <div className={classes.review_text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ea commodo consequat. t in culpa qui officia deserunt mollit anim id est laborum...
-                </div>
-                </div>        
+                   
         
             </div>
             <div className={classes.block_booking}>
@@ -311,7 +211,8 @@ function CardModalPage() {
 
                     
                 <div className={classes.walker_and_google}>
-                    <div className={classes.walker}>
+                <div className={classes.display}>
+                <div className={classes.walker}>
                         <img scr ={walkerImg} alt = 'w' className={classes.walker_image}/>
                         <div className={classes.walker_text}>Пеший</div>
                         <div className={classes.walker_text_two}>тур</div>
@@ -327,10 +228,16 @@ function CardModalPage() {
                     </div>
                     
                 </div>
+                </div>
+                  
                 <div className={classes.guide}>
-                        <div className={classes.guide_text_and_image}>
-                            <img scr ={guideImg} alt ='g' className={classes.guide_image}/>
-                            <div className={classes.guide_text}>Гид</div>
+                        <div className={classes.guide_text_and_image_h}>
+                            <div className={classes.guide_text_and_image}>
+                                <img scr ={guideImg} alt ='g' className={classes.guide_image}/>
+                                <div className={classes.guide_text}>Гид</div>
+                            </div>
+                            <img scr ={vasyaImg} alt = 'vasya' className={classes.vasya_image}/>
+                            <div className={classes.vasya_text}>Вася Пупкин</div>
                         </div>
                     </div>
                 </div>
@@ -341,6 +248,7 @@ function CardModalPage() {
                 
             </div>
             </div>
+            <ModalReviews/>
         </Box>  
         </Modal>
     </div>
