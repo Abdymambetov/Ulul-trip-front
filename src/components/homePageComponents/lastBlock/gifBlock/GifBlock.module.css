@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    padding: 10px;
+    width: 1060px;
+    height:100px;
+    justify-content: center;
+    text-align: center;
+
+
+}
+.lot{
+    margin: 15px;
+    padding: 2px;
+    width:1000px;
+    height: 100px;
+
+
+}
+.block{
+    position: relative;
+}
+.android{
+    padding: 20px;
+    margin: 40px;
+    width: 400px;
+    height: 350px;
+    justify-content: center;
+    position: absolute;
+    transform: rotate(-90deg);
+}
+
+.point{
+    padding: 20px;
+}
+
+.text h2{
+    font-size: 20px;
+}
+.text{
+    margin-bottom: 1px;
+    text-align: center;
+}
+.userFile{
+    color: green;
+    text-align: center;
+    font-size: 20px;
+    line-height: 42px;
+}
+p{
+    padding: 2px;
+    color: blue;
+}

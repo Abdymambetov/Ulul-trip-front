@@ -10,6 +10,7 @@ function LastBlock() {
             <div className={classes.last_inner}>
                 <GifBlock/>
                 <AccordionBlock/>
+
             </div>
         </div>
     </div>

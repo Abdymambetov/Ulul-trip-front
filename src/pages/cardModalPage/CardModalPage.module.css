@@ -20,10 +20,9 @@
     
 }
 
-.block_booking {
-    position: fixed;
-    top: 0;
-    right: 0;
+.block_booking { 
+    width: 360px;
+    height: 825px;
 
 }
 .slider {
@@ -138,8 +137,8 @@ margin-top: 5px;
 
 
 .block_booking {
-    
-    /* position: fixed; */
+    position: fixed;
+    left: 630px;
 }
 .heart_header {
     display: flex;
@@ -152,12 +151,13 @@ margin-top: 5px;
 
 .heart_text {
     width: 250px;
-    height: 34px;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 22px;
     line-height: 21px;
     margin-top: 18px;
     margin-right: 30px;
+    margin-bottom: 6px;
+    margin-left: 10px;
 }
 
 .region {
@@ -173,6 +173,9 @@ margin-top: 5px;
     width: 56px;
     height: 10.96px;
     color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .location_and_level {
@@ -196,6 +199,9 @@ margin-top: 5px;
     width: 56px;
     height: 10.96px;
     color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .user_choice{
@@ -216,7 +222,7 @@ margin-top: 5px;
 }
 
 .level_name {
-    width: 155px;
+    width: 50px;
     height: 19px;
     font-weight: 400;
     font-size: 20px;
@@ -224,7 +230,11 @@ margin-top: 5px;
     color: #000000;
     /* margin-right: 25px; */
     margin-top: 12px;
-    margin-left: 30px;
+    margin-left: 60px;
+}
+
+.warning_image {
+    margin-top: 10px;
 }
 
 .line_two {
@@ -250,6 +260,9 @@ margin-top: 5px;
     width: 56px;
     height: 10.96px;
     color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .price {
@@ -263,6 +276,7 @@ margin-top: 5px;
     width: 56px;
     height: 10.96px;
     color: #7E7E7E;
+    
 }
 
 .user_choice_two {
@@ -329,6 +343,8 @@ margin-top: 5px;
     margin-left: 20px;
     margin-top: 11px;
     margin-bottom: 33px;
+    width: 150px;
+
 }
 
 .walker_and_google {
@@ -407,6 +423,7 @@ margin-top: 5px;
 
 .vasya_image {
     margin-bottom: 3px;
+    margin-left: 30px;
 }
 
 .vasya_text {
@@ -416,6 +433,8 @@ margin-top: 5px;
     font-size: 12px;
     line-height: 21px;
     color: #444444;
+    margin-bottom: 20px;
+    margin-left: 40px;
     }
 
 .title_reviews {
@@ -490,4 +509,26 @@ color: #323232;
     line-height: 17px;
     text-align: center;     
     color: #EBF3FF;
+    border: none;
     }
+
+    .calendar {
+        background: red;
+        width: 360px;
+        height: 298px;
+    }
+    
+    .reservation {
+        width: 200px;
+        height: 50px;
+        background: #FF6B32;
+        border-radius: 6px;
+        margin-left: 80px;
+        margin-top: 22px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 21px;
+        color: #E9F3FF;
+        outline: none;
+        border: none;
+        }
