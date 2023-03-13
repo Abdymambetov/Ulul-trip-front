@@ -106,10 +106,10 @@ const heandleOpenReviews = () => {
                     >
                         <SwiperSlide >
                             {
-                                products?.tour_images?.map(item=><img src={item.images.replace(
+                                products?.tour_images?.map(item=><img src={item?.images.replace(
                                     /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
                                     '$1' + '147:8880'
-                                )} alt=''/>)
+                                )} alt='hello'/>)
                             }                        
                             
                         </SwiperSlide>
@@ -122,7 +122,7 @@ const heandleOpenReviews = () => {
                     </div>
                     <div className={classes.reviwes}>
                         <div className={classes.title}>Отзывы</div>
-                        <img src={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
+                        <img src ={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
                     </div> 
                         <Reviews/>  
                         <Reviews/>  
@@ -151,7 +151,7 @@ const heandleOpenReviews = () => {
                     </div> */}
                         
                         <div className={classes.heart_header}>
-                            <img src={heartImg} alt ='h' className={classes.heart}/>
+                            <img src ={heartImg} alt ='h' className={classes.heart}/>
                             <h1 className={classes.heart_text}>{products?.title}</h1>
                         </div>
         
@@ -163,12 +163,16 @@ const heandleOpenReviews = () => {
                                 <div className={classes.region_text}>Область</div>
                             </div>
                             <div className={classes.level}>
-                                <img src={groupImg} alt ='g' className={classes.group_image}/>
+                                <img src ={groupImg} alt ='g' className={classes.group_image}/>
                                 <div className={classes.level_text}>Сложность</div>
                             </div>    
                     </div>
                     <div className={classes.user_choice}>
+
                                 {/*<div className={classes.region_name}>{products?.region?.name}</div>*/}
+
+                               
+
                                 <div className={classes.level_name}>{products?.complexity}</div>
                             </div>
                             <hr className={classes.line_two}></hr>
@@ -181,7 +185,7 @@ const heandleOpenReviews = () => {
                                 <div className={classes.duration_text}>Длительность</div>
                             </div>
                             <div className={classes.price}>
-                                <img src={groupImg} alt ='g' className={classes.price_image}/>
+                                <img src ={groupImg} alt ='g' className={classes.price_image}/>
                                 <div className={classes.price_text}>Цена</div>
                             </div>    
                     </div>
