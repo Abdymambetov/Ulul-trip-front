@@ -6,33 +6,27 @@
 .container{
     padding: 10px;
     width: 1060px;
-    height:100px;
     justify-content: center;
     text-align: center;
-
-
 }
 .lot{
     margin: 15px;
     padding: 2px;
-    width:1000px;
     height: 100px;
-
-
 }
 .block{
     position: relative;
 }
 .android{
     padding: 20px;
-    margin: 40px;
     width: 400px;
     height: 350px;
     justify-content: center;
     position: absolute;
+    left: -137px;
+    top: 12px;
     transform: rotate(-90deg);
 }
-
 .point{
     padding: 20px;
 }
