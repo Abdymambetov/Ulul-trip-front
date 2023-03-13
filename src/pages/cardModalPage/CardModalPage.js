@@ -220,12 +220,8 @@ const heandleOpenReviews = () => {
                         <div className={classes.google}>
                             <div className={classes.google_text_and_image}>
                                 <img src ={googleImg} alt ='g' className={classes.google_image}/>
-                                <div className={classes.google_text_main}>
-                                    <div className={classes.google_text}>Google</div>
-                                    <div className={classes.google_text_two}>карты</div>
-                                </div>
                                 
-                            </div>
+                            </div> 
                             
                         </div>
                         </div>
