@@ -94,7 +94,7 @@ const heandleOpenReviews = () => {
             
             <div className={classes.modal_inner}>
             <div className={classes.cross_block}>
-            <img src = {crossImg} alt='cross' className={classes.cross}/>
+            <img src = {crossImg} alt='cross' className={classes.cross} onClick = {closeMod}/>
             </div>
             <div className={classes.block_reviwes}>
                 <div className= {classes.slider}>
