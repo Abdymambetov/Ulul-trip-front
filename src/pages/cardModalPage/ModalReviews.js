@@ -31,7 +31,7 @@ function ModalReviews() {
         dispatch(closeReviewsModal())
     }
   return (
-    <Modal open = {reviewsModal} onClose = {heandleCloseMod}>
+    <Modal className = {classes.modal_reviews} open = {reviewsModal} onClose = {heandleCloseMod}>
         <Box sx ={style}>
             <div className={classes.reviews}>
                 <div className={classes.title_reviews}>

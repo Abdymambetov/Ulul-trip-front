@@ -43,7 +43,7 @@ const style = {
     borderRadius: '20px',
     boxShadow: 24,
     p: 4,
-    overflow: 'auto', 
+    
 };
 function CardModalPage() {
     const dispatch = useDispatch()
@@ -89,7 +89,7 @@ const heandleOpenReviews = () => {
             onClose={closeMod}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            sx={{backdropFilter: 'blur(5px)', overflow: 'auto',
+            sx={{backdropFilter: 'blur(5px)',
         '& .MuiBox-root ':{
             padding: '0px'
         }}}
@@ -97,7 +97,7 @@ const heandleOpenReviews = () => {
         <Box sx={style}>
                 <div className={classes.modal_inner}>
                     <div className={classes.cross_block}>
-                    <img src = {crossImg} alt='cross' className={classes.cross} onClick ={closeMod} />
+                    <img src = {crossImg} alt='cross' className={classes.cross_main} onClick ={closeMod} />
                     </div>
                     <div className={classes.block_reviwes}>
                         <div className= {classes.slider}>
@@ -126,15 +126,16 @@ const heandleOpenReviews = () => {
                     <div className={classes.reviwes}>
                         <div className={classes.title}>Отзывы</div>
                         <img src ={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/>  
+                        <Reviews/> 
                     </div> 
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>   
+                         
                 
                     
                         

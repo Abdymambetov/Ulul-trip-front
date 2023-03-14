@@ -1,5 +1,6 @@
 .modal_inner {
     display: flex;
+
     
     /* position: relative; */
 }
@@ -8,22 +9,63 @@
     position: absolute;
     top: 12px;
     right: 1px;
+    width: 30px;
+    height: 30px;
+    
+    
     
 }
+.cross_block:hover {
+    background: #EFF1F4;
+    border-radius: 8px;
+
+}
+.cross{
+    width: 16px;
+    height: 16px;
+    transition: 500ms;
+    position: absolute;
+    top: 14px;
+    right: 13px;
+
+}
+.cross:hover{
+    transform: rotate(-90deg);
+    
+
+}
+/* 
+.cross_main:hover  {
+    transform: rotate(-90deg);
+
+} */
+
+/* .cross_main{
+    width: 16px;
+    height: 16px;
+    transition: 500ms;
+    position: absolute;
+    top: 14px;
+    right: 13px;
+} */
 .block_reviwes {
     width: 630px;
-    background: #EFF1F4;
+    /* position: fixed; */
+    background:   #EFF1F4;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     
+    
 }
 
 .block_booking { 
     width: 360px;
-    height: 825px;
-
+    height: 900px;
+    left: 630px;
+    position: fixed;
+    
 }
 .slider {
     width: 630px;
@@ -136,10 +178,7 @@ margin-top: 5px;
 }
 
 
-.block_booking {
-    position: fixed;
-    left: 630px;
-}
+
 .heart_header {
     display: flex;
 }
@@ -531,4 +570,9 @@ color: #323232;
         color: #E9F3FF;
         outline: none;
         border: none;
+        }
+
+        .modal_reviews {
+            border: none;
+            outline: none;
         }
