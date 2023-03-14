@@ -10,35 +10,34 @@ function PeshijTur() {
     const showMoreItems = () => {
         dispatch(getPeshijTutArr(visible + visible))
     }
-  const dispatch = useDispatch()
-  const {items, visible} = useSelector(state => state.tours)
-  useEffect(() => {
-    dispatch(oneTour())
-  }, [])
-  return (
-    <div>
-      <div className={classes.tour}>
-      <div className={classes.container}>
-        <div className={classes.tour_inner}>
-                  <h1 className={classes.tour_text}>Пешие туры</h1>
-                  <div className={classes.all_tours}>
-                    {
-                        items.slice(0, visible).map((item) => (
-                        <SmallTravelCard item={item}/>
-                      ))
-                    }
-                  </div>
-            {
-                visible < items.length && (
-                    <button className={classes.btn_tour} onClick={showMoreItems}>Показать все места</button>
-                )
-            }
-
+    const dispatch = useDispatch()
+    const {visible, items} = useSelector(state => state.tours)
+    const slice = items.slice(0, visible);
+    useEffect(() => {
+        dispatch(oneTour())
+    }, [])
+    return (
+        <div>
+            <div className={classes.tour}>
+                <div className={classes.container}>
+                    <div className={classes.tour_inner}>
+                        <h1 className={classes.tour_text}>Пешие туры</h1>
+                        <div className={classes.all_tours}>
+                            {
+                                slice.map((item) => (
+                                    <SmallTravelCard item={item}/>
+                                ))
+                            }
+                        </div>
+                        {
+                            visible < items.length && (
+                                <button className={classes.btn_tour} onClick={showMoreItems}>Показать все места</button>)
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
-  )
+    )
 }
 
 export default PeshijTur
