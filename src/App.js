@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom'
 import Main from './Main'
 import { store } from './store'
 import './App.css'
-
 function App() {
     return (
         <div className="App">

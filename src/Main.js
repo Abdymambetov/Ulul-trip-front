@@ -24,6 +24,7 @@ function Main() {
                     <Route index element={<FAQPage />} />
                 </Route>
             </Routes>
+
             <Cursor />
         </>
     )

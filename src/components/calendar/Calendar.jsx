@@ -2,13 +2,15 @@ import TextField from '@mui/material/TextField'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Box, InputBase, Tooltip, tooltipClasses } from '@mui/material'
 import { PickersDay } from '@mui/x-date-pickers'
 import { styled } from '@mui/material/styles'
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 import classes from '../firstBlockHome/FirstBlockHome.module.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { setValueDay } from '../../store/slices/FilterTour'
 const BootstrapTooltip = styled(({ className, ...props }) => (
     <Tooltip
         placement="top-start"
@@ -24,10 +26,14 @@ const BootstrapTooltip = styled(({ className, ...props }) => (
     }
 }))
 
-export default function Calendar() {
-    const [value, setValue] = useState()
+function Calendar() {
+    const { value } = useSelector(state => state.filtered)
+    const dispatch = useDispatch()
     const [activeInput, setActiveInput] = useState(true)
-
+    const handleChange = newValue => {
+        dispatch(setValueDay(newValue))
+    }
+    console.log(value.valueDay)
     return (
         <LocalizationProvider adapterLocale="ru" dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -75,10 +81,8 @@ export default function Calendar() {
                 }}
                 disablePast={true}
                 views={['day']}
-                value={value}
-                onChange={newValue => {
-                    setValue(newValue)
-                }}
+                value={value.valueDay}
+                onChange={handleChange}
                 dayOfWeekFormatter={day =>
                     day.charAt(0).toUpperCase() + day.charAt(1)
                 }
@@ -112,7 +116,7 @@ export default function Calendar() {
                     <div className={classes.parent_input_date}>
                         {activeInput === 4 && (
                             <label
-                                for="inputs_from_date"
+                                htmlFor="inputs_from_date"
                                 className={classes.label_input_date}
                             >
                                 Выберите предпочтительную дату
@@ -122,7 +126,7 @@ export default function Calendar() {
                             {...params}
                             type="date"
                             sx={{
-                                mr: '20px', 
+                                mr: '20px',
                                 borderRadius: '0px 14px 14px 0px',
                                 '& .MuiFormControl-root': {},
                                 '& .MuiButtonBase-root': {
@@ -139,7 +143,6 @@ export default function Calendar() {
                                     border: '2px solid #FF6F32'
                                 }
                             }}
-                            disableUnderline={true}
                             className={classes.inputs_from_date}
                             onFocus={() => setActiveInput(4)}
                             onBlur={() => setActiveInput(null)}
@@ -150,6 +153,8 @@ export default function Calendar() {
         </LocalizationProvider>
     )
 }
+
+export default memo(Calendar)
 
 function CustomPicker(props) {
     return (

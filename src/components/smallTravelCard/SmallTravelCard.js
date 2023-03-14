@@ -20,6 +20,7 @@ function SmallTravelCard() {
             setNotActive('heard')
         }
     }
+
     const dispatch = useDispatch()
 
     const openModal = e => {
@@ -35,12 +36,7 @@ function SmallTravelCard() {
         }
     }
     return (
-        <div
-            className={classes.small_card}
-            onClick={e => {
-                openModal(e)
-            }}
-        >
+        <div className={classes.small_card} onClick={openModal}>
             <div className={classes.parent_card}>
                 <div className={classes.photo_block}>
                     <div className="photo">
