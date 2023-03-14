@@ -284,12 +284,12 @@ function SignUpModal() {
                                         onChange={handleLastNameChange}
                                     />
                                 </div>
-                                <div className={classes.one_inputs_email}>
                                     {emailError && (
                                         <span className={classes.span_email}>
                                             {emailError}
                                         </span>
                                     )}
+                                <div className={classes.one_inputs_email}>
                                     <TextField
                                         id="outlined-basic"
                                         label="Эл.почта"
@@ -308,10 +308,10 @@ function SignUpModal() {
                                     />
                                 </div>
                                 {/* {inputInner.map(item=><SignUp  name={item.name} label={item.label}/>)} */}
-                                <div className={classes.inputs_modal_password}>
                                     {passwordError && (
-                                        <span>{passwordError}</span>
+                                        <span className={classes.span_error}>{passwordError}</span>
                                     )}
+                                <div className={classes.inputs_modal_password}>
                                     <TextField
                                         id="outlined-basic"
                                         label="Пароль"
@@ -335,10 +335,10 @@ function SignUpModal() {
                                         onClick={handlePassword}
                                     />
                                 </div>
-                                <div className={classes.inputs_pas_test}>
                                     {confirmPasswordError && (
-                                        <span>{confirmPasswordError}</span>
+                                        <span className={classes.span_error}>{confirmPasswordError}</span>
                                     )}
+                                <div className={classes.inputs_pas_test}>
                                     <TextField
                                         id="outlined-basic"
                                         label="Повторите пароль"
