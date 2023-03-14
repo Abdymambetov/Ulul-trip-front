@@ -90,6 +90,23 @@ export const veloTutAction = createAsyncThunk(
         }
     }
 )
+export const oneTour = createAsyncThunk(
+    'oneTour',
+    async(param,{dispatch,rejectedWithValue}) => {
+        try {
+            const response = await axios('http://164.92.190.147:8880/home/tours/')
+            if(response.status === 200) {
+                const data = await response.data.results
+                console.log(data)
+                dispatch(getCards(data))
+            } else {
+                throw Error (`error: ${response.status}`)
+            }
+        } catch (e) {
+            alert(e)
+        }
+    }
+)
 const tourSlice = createSlice({
     name: 'tourSLice',
     initialState: {
@@ -98,7 +115,10 @@ const tourSlice = createSlice({
         horseArr: [],
         jeepTourArr: [],
         peshijTurArr: [],
-        veloTurArr: []
+        veloTurArr: [],
+        items: [],
+        visible: 8,
+        visibleCard:8
     }, reducers: {
         addTour: (state, action) => {
             state.tourArr = action.payload
@@ -108,17 +128,23 @@ const tourSlice = createSlice({
         },
         getHorseArr: (state, action) => {
             state.horseArr = action.payload
+            state.visibleCard = action.payload
         }, 
         getJeepToursArr: (state, action) => {
             state.jeepTourArr = action.payload
         },
         getPeshijTutArr: (state, action) => {
             state.peshijTurArr = action.payload
+            state.visible = action.payload
         },
         getVeloTutArr: (state, action) => {
             state.veloTurArr = action.payload
-        }
+        },
+        getCards: (state, action) => {
+            state.items = action.payload
+        },
+
     }
 })
-export const {addTour, addCategoryArr, getHorseArr, getJeepToursArr, getPeshijTutArr, getVeloTutArr} = tourSlice.actions
+export const {addTour, addCategoryArr, getHorseArr, getJeepToursArr, getPeshijTutArr, getVeloTutArr, getCards} = tourSlice.actions
 export default tourSlice.reducer

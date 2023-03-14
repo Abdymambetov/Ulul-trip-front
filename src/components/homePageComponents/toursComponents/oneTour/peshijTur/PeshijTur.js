@@ -1,15 +1,19 @@
-
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { peshijTurAction } from '../../../../../store/slices/TourSlice'
+import {getPeshijTutArr, oneTour} from '../../../../../store/slices/TourSlice'
 import SmallTravelCard from '../../../../smallTravelCard/SmallTravelCard'
 import classes from '../OneTour.module.css'
+
+
 function PeshijTur() {
+    const showMoreItems = () => {
+        dispatch(getPeshijTutArr(visible + visible))
+    }
   const dispatch = useDispatch()
-  const {peshijTurArr} = useSelector(state => state.tours)
+  const {items, visible} = useSelector(state => state.tours)
   useEffect(() => {
-    dispatch(peshijTurAction())
+    dispatch(oneTour())
   }, [])
   return (
     <div>
@@ -19,12 +23,17 @@ function PeshijTur() {
                   <h1 className={classes.tour_text}>Пешие туры</h1>
                   <div className={classes.all_tours}>
                     {
-                      peshijTurArr.map((item) => (
+                        items.slice(0, visible).map((item) => (
                         <SmallTravelCard item={item}/>
                       ))
                     }
                   </div>
-                  <button className={classes.btn_tour}>Показать все места</button>
+            {
+                visible < items.length && (
+                    <button className={classes.btn_tour} onClick={showMoreItems}>Показать все места</button>
+                )
+            }
+
         </div>
     </div>
     </div>
