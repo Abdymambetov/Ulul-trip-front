@@ -65,7 +65,7 @@ export const peshijTurAction = createAsyncThunk(
                 console.log(data)
                 dispatch(getPeshijTutArr(data))
 
-            } else{
+            } else {
                 throw Error (`error: ${response.status}`)
             }
         } catch(e) {

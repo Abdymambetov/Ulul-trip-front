@@ -5,7 +5,7 @@ import classes from './OneTour.module.css'
 import {getHorseArr, oneTour} from "../../../../store/slices/TourSlice";
 
 function OneTour() {
-    const {items, visibleCard} = useSelector(state => state.tours)
+    const {items, visibleCard, } = useSelector(state => state.tours)
     const showMoreItems = () =>{
         dispatch(getHorseArr(visibleCard + visibleCard))
 
@@ -23,14 +23,6 @@ function OneTour() {
                     {items.slice(0, visibleCard).map((item) => (
                           <SmallTravelCard item={item}/>
                     ))}
-                    {/* <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/>
-                    <SmallTravelCard/> */}
                   </div>
             {
                 visibleCard < items.length && (
