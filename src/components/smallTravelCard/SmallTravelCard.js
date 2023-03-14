@@ -46,7 +46,10 @@ function SmallTravelCard({item}) {
                 <div className={classes.photo_block}>
                     <div className="photo">
                         <img
-                            src={carPng}
+                            src={item?.tour_images[0]?.images.replace(
+                                /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                '$1' + '147:8880'
+                            )}
                             alt="car"
                             className={classes.card_img}
                         />
@@ -75,7 +78,7 @@ function SmallTravelCard({item}) {
                 <div className={classes.location_info}>
                     <div className={classes.location_region}>
                         <div className={classes.region_tour}>
-                            <p className={classes.region_text}>{item?.region[0]?.name}</p>
+                            <p className={classes.region_text}>{item?.region?.name}</p>
                             <img
                                 src={point}
                                 alt="point"
