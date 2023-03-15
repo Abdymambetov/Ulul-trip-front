@@ -18,12 +18,10 @@ export default function Gif() {
                     чтобы скачать мобильное ANDROID приложение</h2>
             </div>
             <div className={classes.block}>
-
                 <Lottie
                     className={classes.android}
                     animationData={lottie2}
                 />
-
                 <img src={point} className={classes.point} alt="some" />
             </div>
 

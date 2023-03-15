@@ -105,12 +105,12 @@ const heandleOpenReviews = () => {
                         pagination={{ clickable: true }}
                     >
                         <SwiperSlide >
-                            {
+                            {/* {
                                 products?.tour_images?.map(item=><img src={item?.images.replace(
                                     /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
                                     '$1' + '147:8880' 
                                 )} alt='hello'/>)
-                            }                        
+                            }                         */}
                             
                         </SwiperSlide>
 
@@ -233,7 +233,10 @@ const heandleOpenReviews = () => {
                                         <img src ={guideImg} alt ='g' className={classes.guide_image}/>
                                         <div className={classes.guide_text}>Гид</div>
                                     </div>
-                                    <img src ={vasyaImg} alt = 'vasya' className={classes.vasya_image}/>
+                                    <img src ={products?.guide?.photo.replace(
+                                    /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                    '$1' + '147:8880' 
+                                )} alt = 'vasya' className={classes.vasya_image}/>
                                     <div className={classes.vasya_text}>{products?.guide?.get_initials}</div>
                                 </div>
                             </div>

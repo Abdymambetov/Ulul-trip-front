@@ -64,6 +64,55 @@ export const logAction = createAsyncThunk(
         }
     }
 )
+export const refreshToken = createAsyncThunk(
+    'refreshToken',
+    async (_, { dispatch, getState, rejectWithValue }) => {
+        try {
+            const response = await axios.post('http://164.92.190.147:8880/users/refresh/', {
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
+                }
+            })
+            console.log(response);
+            const data = await response.data
+            localStorage.setItem('user', JSON.stringify(data))
+            return data.access
+        } catch (error) {
+            if (!error.response) {
+                throw error
+            }
+            const { data } = error.response
+            return rejectWithValue(data)
+        }
+    }
+)
+export const fetchUser = createAsyncThunk(
+    'fetchUser',
+    async (_, { dispatch, getState, rejectWithValue }) => {
+        const { access } = JSON.parse(localStorage.getItem('user'))
+        try {
+            const response = await axios.get('http://164.92.190.147:8880/profiles/profile/', {
+                headers: { Authorization: `Bearer ${access}` }
+            })
+            return response.data
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                try {
+                    await dispatch(refreshToken())
+                    const newAccessToken = getState().auth.accessToken
+                    const response = await axios.get('/user', {
+                        headers: { Authorization: `Bearer ${newAccessToken}` }
+                    })
+                    return response.data
+                } catch (error) {
+                    return rejectWithValue(error.response.data)
+                }
+            } else {
+                return rejectWithValue(error.response.data)
+            }
+        }
+    }
+)
 const registerSlice = createSlice({
     name: 'registerSlice',
     initialState: {
