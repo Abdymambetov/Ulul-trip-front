@@ -82,9 +82,9 @@
     border-radius: 20px;
 } */
 .span_email{
-    position: absolute;
-    top: -20px;
-    right: 1px;
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
 }
 .one_inputs_email{
     margin-bottom: 20px;
@@ -217,3 +217,8 @@
     padding-right: 2px;
 }
 
+.span_error{
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+}

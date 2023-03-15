@@ -3,7 +3,7 @@ import classes from '../SliderTours.module.css'
 import leftArrow from '../../../../../images/sliderImg/leftArrow.svg';
 import rightArrow from '../../../../../images/sliderImg/rightArrow.svg'
 import { useDispatch, useSelector } from 'react-redux';
-import {oneTour, veloTutAction} from '../../../../../store/slices/TourSlice';
+import {veloTutAction} from '../../../../../store/slices/TourSlice';
 import SmallTravelCard from '../../../../smallTravelCard/SmallTravelCard';
 import Slider from "react-slick";
 
@@ -40,14 +40,14 @@ function Velotur() {
         infinite: false,
         speed: 600,
         slidesToShow: 4,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
     const dispatch = useDispatch()
-    const {items} = useSelector(state => state.tours)
+    const {veloTurArr} = useSelector(state => state.tours)
     useEffect(() => {
-        dispatch(oneTour())
+        dispatch(veloTutAction())
     }, [])
   return (
       <div className={classes.slider}>
@@ -57,7 +57,7 @@ function Velotur() {
                   <div className={classes.cards_slider}>
                       <Slider {...settings}>
                           {
-                              items.map((item) => (
+                              veloTurArr.map((item) => (
                                   <SmallTravelCard  item={item}/>
                               ))
                           }

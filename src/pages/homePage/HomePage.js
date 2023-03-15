@@ -19,8 +19,6 @@ function HomePage() {
                     <SecondCards />
                     <PeshijTur/>
                     <Velotur/>
-                    <SecondCards />
-                    <SliderTours />
                     <CardModalPage />
                 </div>
             </div>

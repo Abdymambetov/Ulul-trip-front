@@ -52,9 +52,9 @@ function CardModalPage() {
 
     useEffect(() => {
       const fetchProducts = async () => {
-        const response  = await axios.get(`http://164.92.190.147:8880/home/tours/${cardInfo}`);
+        const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`);
         const data = await response.data
-        setProducts(data[0]);
+        setProducts(data);
         
       };
       fetchProducts();
@@ -108,7 +108,7 @@ const heandleOpenReviews = () => {
                             {
                                 products?.tour_images?.map(item=><img src={item?.images.replace(
                                     /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
-                                    '$1' + '147:8880'
+                                    '$1' + '147:8880' 
                                 )} alt='hello'/>)
                             }                        
                             
@@ -169,10 +169,7 @@ const heandleOpenReviews = () => {
                     </div>
                     <div className={classes.user_choice}>
 
-                                {/* <div className={classes.region_name}>{products?.region[0]?.name}</div> */}
-
-                                {/*<div className={classes.region_name}>{products?.region?.name}</div>*/}
-
+                                <div className={classes.region_name}>Чуй</div>
                                 <div className={classes.level_name}>{products?.complexity}</div>
                             </div>
                             <hr className={classes.line_two}></hr>
@@ -224,12 +221,8 @@ const heandleOpenReviews = () => {
                         <div className={classes.google}>
                             <div className={classes.google_text_and_image}>
                                 <img src ={googleImg} alt ='g' className={classes.google_image}/>
-                                <div className={classes.google_text_main}>
-                                    <div className={classes.google_text}>Google</div>
-                                    <div className={classes.google_text_two}>карты</div>
-                                </div>
                                 
-                            </div>
+                            </div> 
                             
                         </div>
                         </div>

@@ -41,7 +41,7 @@ function SliderTours() {
         infinite: false,
         speed: 600,
         slidesToShow: 4,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };

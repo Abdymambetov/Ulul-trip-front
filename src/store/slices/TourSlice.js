@@ -37,7 +37,25 @@ export const categoryAction = createAsyncThunk(
         }
     }
  )
- 
+
+export const peshijTurAction = createAsyncThunk(
+    'peshijTurAction',
+    async (param, {dispatch, rejectWithValue}) => {
+        try{
+            const response = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur')
+            if(response.status === 200) {
+                const data = await response.data.results
+                console.log(data)
+                dispatch(getPeshijTutArr(data))
+            } else {
+                throw Error (`error: ${response.status}`)
+            }
+        } catch(e) {
+
+        }
+    }
+)
+
  export const jeepsToursAction = createAsyncThunk(
     'jeepsToursSlice',
     async (param, {dispatch, rejectWithValue}) => {
@@ -55,24 +73,6 @@ export const categoryAction = createAsyncThunk(
         }
     }
  )
-export const peshijTurAction = createAsyncThunk(
-    'peshijTurAction', 
-    async (param, {dispatch, rejectWithValue}) => {
-        try{
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur')
-            if(response.status === 200) {
-                const data = await response.data.results
-                console.log(data)
-                dispatch(getPeshijTutArr(data))
-
-            } else{
-                throw Error (`error: ${response.status}`)
-            }
-        } catch(e) {
-
-        }
-    }
-)
 export const veloTutAction = createAsyncThunk(
     'veloTutAction',
     async (param, {dispatch, rejectWithValue}) => {
@@ -94,7 +94,7 @@ export const oneTour = createAsyncThunk(
     'oneTour',
     async(param,{dispatch,rejectedWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours/')
+            const response = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur')
             if(response.status === 200) {
                 const data = await response.data.results
                 console.log(data)
@@ -117,8 +117,7 @@ const tourSlice = createSlice({
         peshijTurArr: [],
         veloTurArr: [],
         items: [],
-        visible: 8,
-        visibleCard:8
+        visible: 4
     }, reducers: {
         addTour: (state, action) => {
             state.tourArr = action.payload
@@ -128,8 +127,7 @@ const tourSlice = createSlice({
         },
         getHorseArr: (state, action) => {
             state.horseArr = action.payload
-            state.visibleCard = action.payload
-        }, 
+        },
         getJeepToursArr: (state, action) => {
             state.jeepTourArr = action.payload
         },
