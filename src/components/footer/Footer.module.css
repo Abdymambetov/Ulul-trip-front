@@ -1,6 +1,11 @@
 .footer {
     background-color: #ffffff;
 }
+@media  screen and (max-width:1080px){
+  .footer{
+   min-width: 1200px;
+  }
+}
 .footer_inner {
     display: flex;
     flex-direction: column;
@@ -12,6 +17,18 @@
     width: 1060px;
     height: 193px;
     margin: 0 auto;
+}
+@media  screen and (max-width:1080px){
+  .container{
+    width:800px;
+    margin: 0 auto;
+  }
+}
+@media  screen and (max-width:700px){
+  .container{
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 .social_media {
     display: flex;

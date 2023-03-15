@@ -169,9 +169,9 @@ const heandleOpenReviews = () => {
                     </div>
                     <div className={classes.user_choice}>
 
-                                {/*<div className={classes.region_name}>{products?.region?.name}</div>*/}
-
                                 {/* <div className={classes.region_name}>{products?.region[0]?.name}</div> */}
+
+                                {/*<div className={classes.region_name}>{products?.region?.name}</div>*/}
 
                                 <div className={classes.level_name}>{products?.complexity}</div>
                             </div>

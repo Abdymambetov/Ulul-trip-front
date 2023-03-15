@@ -1,3 +1,8 @@
+
+.slider{
+    position: relative;
+    height: 100%;
+}
 .container{
     width: 1060px;
     margin: 0 auto;
@@ -20,25 +25,28 @@
     display: flex;
     justify-content: end;
 }
-.left_btn{
-    width: 40px;
-    height: 42.15px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 0;
-}
 .right_btn{
     width: 40px;
     height: 42.15px;
     background: #FFFFFF;
     border-radius: 10px;
     border: 0;
-    margin-left: 5px;
+    margin-left: 50px;
+    margin-top: -550px;
 }
-.cards_slider{
-    margin-top: 28px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 58px;
+.left_btn{
+    width: 40px;
+    height: 42.15px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 0;
+    margin-right: 45px;
+    margin-bottom:13px;
 }
+/*.cards_slider{*/
+/*    margin-top: 28px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    flex-wrap: wrap;*/
+/*    margin-bottom: 58px;*/
+/*}*/
