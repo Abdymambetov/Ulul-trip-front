@@ -5,37 +5,48 @@ const FilterSlice = createSlice({
     name: 'mainSlice',
     initialState: {
         value: {
-            valueWhere: '',
+            region: '',
             duration: '',
-            valuePrice: '',
-            valueDay: ''
+            price_max: '',
+            date_departure: '',
+            complexity: ''
         }
     },
     reducers: {
         setValueWhere: (state, action) => {
-            state.value.valueWhere = action.payload
+            state.value.region = action.payload
         },
         setValueDuration: (state, action) => {
-            state.duration = action.payload
+            state.value.duration = action.payload
         },
         setValuePrice: (state, action) => {
-            state.value.valuePrice = action.payload
+            state.value.price_max = action.payload
         },
         setValueDay: (state, action) => {
-            state.value.valueDay = action.payload
+            state.value.date_departure = action.payload
+        },
+        setComplexity: (state, action) => {
+            if (state.value.complexity === action.payload) {
+                state.value.complexity = ''
+            } else {
+                state.value.complexity = action.payload
+            }
         }
     }
 })
 export const filterSearch = createAsyncThunk('filterSearch', async param => {
     console.log(param)
     axios.get('http://164.92.190.147:8880/home/tours/', {
-        params: {
-            duration: '3'
-        }
+        params: param
     })
 })
 
-export const { setValueWhere, setValueDuration, setValuePrice, setValueDay } =
-    FilterSlice.actions
+export const {
+    setValueWhere,
+    setValueDuration,
+    setValuePrice,
+    setValueDay,
+    setComplexity
+} = FilterSlice.actions
 
 export default FilterSlice.reducer

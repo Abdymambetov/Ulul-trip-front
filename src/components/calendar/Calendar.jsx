@@ -29,11 +29,11 @@ const BootstrapTooltip = styled(({ className, ...props }) => (
 function Calendar() {
     const { value } = useSelector(state => state.filtered)
     const dispatch = useDispatch()
+    const { date_departure } = value
     const [activeInput, setActiveInput] = useState(true)
     const handleChange = newValue => {
         dispatch(setValueDay(newValue))
     }
-    console.log(value.valueDay)
     return (
         <LocalizationProvider adapterLocale="ru" dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -81,7 +81,7 @@ function Calendar() {
                 }}
                 disablePast={true}
                 views={['day']}
-                value={value.valueDay}
+                value={date_departure}
                 onChange={handleChange}
                 dayOfWeekFormatter={day =>
                     day.charAt(0).toUpperCase() + day.charAt(1)

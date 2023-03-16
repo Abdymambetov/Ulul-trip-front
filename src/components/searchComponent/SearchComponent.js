@@ -1,6 +1,6 @@
-import { Autocomplete, Box, InputBase, Select, Slider } from '@mui/material'
+import { Box, InputBase, Select, Slider } from '@mui/material'
 import React, { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Calendar from '../calendar/Calendar'
 import classes from '../firstBlockHome/FirstBlockHome.module.css'
 import searchImg from '../../images/firstBlockImg/search.svg'
@@ -52,7 +52,8 @@ function SearchComponent() {
     const nav = useNavigate()
     const location = useLocation()
     const { value } = useSelector(state => state.filtered)
-    const { duration } = value
+    const { duration, region, price_max } = value
+
     const handleSubmit = e => {
         e.preventDefault()
         if (location.pathname !== '/search') {
@@ -96,7 +97,7 @@ function SearchComponent() {
                             fontSize: '18px !important'
                         }
                     }}
-                    value={value.valueWhere}
+                    value={region}
                     onChange={handleChangeWhere}
                     className={classes.inputs_from_where}
                     onFocus={() => setActiveInput(1)}
@@ -164,7 +165,7 @@ function SearchComponent() {
                                     WebkitAppearance: 'slider-vertical'
                                 }
                             }}
-                            value={value.duration}
+                            value={duration}
                             onChange={handleChangeDuration}
                             marks={marks}
                             step={null}
@@ -196,7 +197,7 @@ function SearchComponent() {
                             fontSize: '18px !important'
                         }
                     }}
-                    value={value.valuePrice}
+                    value={price_max}
                     className={classes.inputs_from_price}
                     onFocus={() => setActiveInput(3)}
                     onBlur={() => setActiveInput(null)}
