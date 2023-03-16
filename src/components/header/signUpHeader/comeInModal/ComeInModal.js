@@ -98,7 +98,7 @@ function ComeInModal() {
                     passwordError === ''
             )
         } else {
-            setFormValid(username.trim().length > 0 && password.trim().length > 0)
+            setFormValid(username.trim().length > 0 && password.trim().length > 7)
         }
     }, [username, password, emailError, passwordError, isFormSubmitted])
     return (
@@ -129,15 +129,15 @@ function ComeInModal() {
                                 />
                             </div>
                         </div>
-
-                        <form>
-                            <div className={classes.all_inputs}>
-                                <div className={classes.inputs_ordinary}>
                                     {emailError && (
                                         <span className={classes.span_email}>
                                             {emailError}
                                         </span>
                                     )}
+
+                        <form>
+                            <div className={classes.all_inputs}>
+                                <div className={classes.inputs_ordinary}>
                                     <TextField
                                         id="outlined-basic"
                                         label="username"
@@ -153,12 +153,12 @@ function ComeInModal() {
                                         }}
                                     />
                                 </div>
+                                {passwordError && (
+                                    <span className={classes.password_error}>{passwordError}</span>
+                                )}
                                 <div
                                     className={classes.inputs_ordinary_password}
                                 >
-                                    {passwordError && (
-                                        <span>{passwordError}</span>
-                                    )}
                                     <TextField
                                         id="outlined-basic"
                                         label="Пароль"

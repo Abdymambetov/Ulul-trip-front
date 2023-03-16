@@ -407,6 +407,10 @@
 
 .vasya_image {
     margin-bottom: 3px;
+    width: 130px;
+height: 130px;
+border: 1px solid #CBCBCB;
+border-radius: 30px;
 }
 
 .vasya_text {

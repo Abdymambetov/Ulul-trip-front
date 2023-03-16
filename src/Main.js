@@ -8,8 +8,23 @@ import SearchPage from './pages/searchPage/SearchPage'
 import FaqLayouts from './layouts/FaqLayouts'
 import FAQPage from './pages/faqPage/FAQPage'
 import Cursor from './components/cursor/Cursor'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchUser } from './store/slices/registerSlice'
 
 function Main() {
+    const dispatch = useDispatch()
+
+  useEffect(() => {
+    const userTokens = JSON.parse(localStorage.getItem('user'));
+    const accessToken = userTokens?.access;
+    const refreshToken = userTokens?.refresh;
+    if (accessToken) {
+      dispatch(fetchUser());
+    }
+  }, [dispatch]);
+
+
     return (
         <>
             <Routes>
