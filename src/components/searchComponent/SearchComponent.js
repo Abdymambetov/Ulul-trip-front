@@ -1,12 +1,13 @@
 import { Autocomplete, Box, InputBase, Select, Slider } from '@mui/material'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Calendar from '../calendar/Calendar'
 import classes from '../firstBlockHome/FirstBlockHome.module.css'
 import searchImg from '../../images/firstBlockImg/search.svg'
 import coordinates from '../../images/firstBlockImg/coordinates (2).svg'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+    filterSearch,
     setValueDuration,
     setValuePrice,
     setValueWhere
@@ -48,12 +49,18 @@ const marksForPrice = [
 
 function SearchComponent() {
     const [activeInput, setActiveInput] = useState(null)
+    const nav = useNavigate()
+    const location = useLocation()
+    const { value } = useSelector(state => state.filtered)
+    const { duration } = value
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('hello')
+        if (location.pathname !== '/search') {
+            nav('/search')
+        }
+        dispatch(filterSearch(value))
     }
     const dispatch = useDispatch()
-    const { value } = useSelector(state => state.filtered)
 
     const handleChangeDuration = (event, newValue) => {
         dispatch(setValueDuration(newValue))
@@ -128,11 +135,11 @@ function SearchComponent() {
                         }
                     }}
                     value={
-                        value.valueDuration === ''
+                        duration === ''
                             ? ''
-                            : value.valueDuration / 10 === 7
+                            : duration / 10 === 7
                             ? `week`
-                            : `${value.valueDuration / 10} days`
+                            : `${duration / 10} days`
                     }
                     className={classes.inputs_from_duration}
                     onFocus={() => setActiveInput(2)}
@@ -157,7 +164,7 @@ function SearchComponent() {
                                     WebkitAppearance: 'slider-vertical'
                                 }
                             }}
-                            value={value.valueDuration}
+                            value={value.duration}
                             onChange={handleChangeDuration}
                             marks={marks}
                             step={null}

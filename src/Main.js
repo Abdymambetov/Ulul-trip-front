@@ -15,7 +15,7 @@ function Main() {
             <Routes>
                 <Route path="/" element={<Layouts />}>
                     <Route index element={<HomePage />} />
-                    <Route path="search" element={<SearchPage />} />
+                    <Route path="/search" element={<SearchPage />} />
                 </Route>
                 <Route path="profile" element={<LayoutsProfile />}>
                     <Route index element={<ProfilePage />} />

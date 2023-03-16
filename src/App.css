@@ -1,3 +1,5 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 * {
     margin: 0;
     padding: 0;
@@ -86,12 +88,4 @@ body {
     line-height: 19px;
     margin-left: 0;
 }
-.active {
-    border: solid blue;
-    border-width: 0 0 0 3px;
-    color: black;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 19px;
-    margin-left: 0;
-}
+
