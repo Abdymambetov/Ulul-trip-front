@@ -12,7 +12,7 @@ function HomePage() {
     return (
         <div>
             <FirstBlockHome />
-            <div className={classes.home}>
+            <div style={{minWidth:'1200px'}}className={classes.home}>
                 <div className={classes.container}>
                     <OneTour />
                     <SliderTours />

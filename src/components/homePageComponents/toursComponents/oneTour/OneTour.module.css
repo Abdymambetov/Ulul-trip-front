@@ -2,10 +2,28 @@
     padding-top: 100px;
     background-color: #e9f3ff;
 }
+@media  screen and (max-width:1080px){
+  .tour{
+   min-width: 1200px;
+  }
+}
 .container{
     width: 1060px;
     margin: 0 auto;
 }
+@media  screen and (max-width:1080px){
+  .container{
+    width:800px;
+    margin: 0 auto;
+  }
+}
+@media  screen and (max-width:700px){
+  .container{
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
 .tour_inner{
     padding-top: 150px;
     display: flex;
@@ -24,6 +42,17 @@
     margin-top: 34px;
     display: flex;
     flex-wrap: wrap;
+}
+@media  screen and (max-width:1080px){
+  .all_tours{
+    width: 600px;
+    margin-left: 101px;
+  }
+}
+@media  screen and (max-width:700px){
+  .all_tours{
+    padding-top: 20px;
+  }
 }
 .btn_tour{
     margin-top: 20px;
