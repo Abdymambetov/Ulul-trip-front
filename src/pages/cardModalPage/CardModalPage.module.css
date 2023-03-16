@@ -63,8 +63,8 @@
 .block_booking { 
     width: 360px;
     height: 900px;
-    left: 630px;
-    position: fixed;
+    /* left: 630px;
+    position: fixed; */
     
 }
 .slider {
