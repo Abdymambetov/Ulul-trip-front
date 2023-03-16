@@ -59,7 +59,7 @@ export const peshijTurAction = createAsyncThunk(
     'jeepsToursSlice',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios ('http://164.92.190.147:8880/home/tours/?category=d')
+            const response = await axios ('http://164.92.190.147:8880/home/tours/?category=jeep-tur')
             if(response.status === 200) {
                 const data = await response.data.results
                 console.log(data)

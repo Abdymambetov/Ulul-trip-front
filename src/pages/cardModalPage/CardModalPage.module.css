@@ -397,7 +397,7 @@ margin-top: 5px;
 
 
 .display {
-    display: flex;
+    display: flex; 
 }
 .guide {
     display: flex;
