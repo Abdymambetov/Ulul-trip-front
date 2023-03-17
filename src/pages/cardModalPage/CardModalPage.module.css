@@ -50,12 +50,14 @@
 } */
 .block_reviwes {
     width: 630px;
-    /* position: fixed; */
     background:   #EFF1F4;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
     
     
 }
@@ -63,22 +65,25 @@
 .block_booking { 
     width: 360px;
     height: 900px;
-    /* left: 630px;
-    position: fixed; */
-    
+    padding-right: 10px;
 }
-.slider {
-    width: 630px;
-    height: 413px;
-   
-    /* pointer-events: none; */
-}
+
 
 .slider_block {
     display: flex;
+    width: 630px;
+    height: 412px;
    
     
 
+}
+
+.swiper_images {
+    width: 630px;
+    height: 412px;
+   
+   
+    
 }
 
 .product_image {
@@ -102,10 +107,31 @@
     width: 630px;
     height: 30px;
     background: linear-gradient(270deg, rgba(158, 169, 183, 0) 0%, #0C73FE 14.95%, #0C73FE 83.65%, rgba(158, 169, 183, 0) 100%);
-    display: flex;
+
     justify-content: space-around;
     margin-bottom: 22px;
+    
+    
+    
 }
+
+
+.reviwes_title {
+display: flex;
+justify-content:space-around
+}
+.all_reviwes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* .reviews_title_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}й */
 
 .title {
 font-style: normal;
@@ -114,12 +140,15 @@ font-size: 16px;
 line-height: 18px;
 color: #FFFFFF;
 margin-top: 5px;
+
 }
 
 .people_reviwes {
     width: 430px;
     height: 150px;
     background-color:#FFFFFF;
+
+  
 }
 
 .header_review {
@@ -442,6 +471,10 @@ margin-top: 5px;
  
 }
 
+.guide_image {
+    margin-top: -9px;
+}
+
 .guide_text {
     margin-left: 13px;
     font-weight: 400;
@@ -462,7 +495,10 @@ margin-top: 5px;
 
 .vasya_image {
     margin-bottom: 3px;
-    margin-left: 30px;
+    width: 130px;
+height: 130px;
+border: 1px solid #CBCBCB;
+border-radius: 30px;
 }
 
 .vasya_text {

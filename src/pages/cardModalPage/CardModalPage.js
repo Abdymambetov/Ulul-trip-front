@@ -17,7 +17,8 @@ import crossImg from '../../images/modalImg/Cross2.svg'
 import timeImg from '../../images/cardModalImg/time.svg'
 import priceImg from '../../images/cardModalImg/price.svg'
 import warningImg from '../../images/cardModalImg/warning.svg'
-import "swiper/swiper-bundle.css";
+import gidImg from '../../images/cardModalImg/gid.svg'
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SwiperCore, { Navigation, Pagination } from "swiper";
@@ -27,7 +28,7 @@ import ModalReviews from './ModalReviews';
 import { tourInfoAction } from '../../store/slices/TourSlice';
 import { useParams } from 'react-router-dom';
 
-SwiperCore.use([Navigation, Pagination]);
+
 // import { useState } from 'react';
 // import Heart from 'react-heart';
 
@@ -55,9 +56,9 @@ function CardModalPage() {
 
     useEffect(() => {
       const fetchProducts = async () => {
-        const response  = await axios.get(`http://164.92.190.147:8880/home/tours/${cardInfo}`);
+        const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`);
         const data = await response.data
-        setProducts(data[0]);
+        setProducts(data);
         
       };
       fetchProducts();
@@ -100,32 +101,43 @@ const heandleOpenReviews = () => {
                     <img src = {crossImg} alt='cross' className={classes.cross_main} onClick ={closeMod} />
                     </div>
                     <div className={classes.block_reviwes}>
-                        <div className= {classes.slider}>
+
+
+                    <div className={classes.slider_block}>
+                    <div className= {classes.slider}>
+                        
                         <Swiper
                         spaceBetween={30}
                         slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
+                        
                     >
-                        <SwiperSlide >
+                        <SwiperSlide>
                             {
-                                products?.tour_images?.map(item=><img src={item?.images.replace(
-                                    /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
-                                    '$1' + '147:8880'
-                                )} alt='hello'/>)
-                            }                        
-                            
+                                products?.tour_image?.map(item=><img scr = {item?.images.replace(
+                                    /(\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                    '$1' + '147:8800'
+                                )} alt = 'hello' className={classes.swiper_images}/>)
+                            }
                         </SwiperSlide>
 
                         </Swiper>
                         </div>
                     
+                    </div>
+                       
                         <div className={classes.text}>
                            {products?.description}
                     </div>
                     <div className={classes.reviwes}>
+                        <div className={classes.reviwes_title}>
                         <div className={classes.title}>Отзывы</div>
                         <img src ={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
+                        </div>
+                       
+                        
+                        <div className={classes.all_reviwes}>
                         <Reviews/>  
                         <Reviews/>  
                         <Reviews/>  
@@ -133,8 +145,11 @@ const heandleOpenReviews = () => {
                         <Reviews/>  
                         <Reviews/>  
                         <Reviews/>  
-                        <Reviews/> 
-                    </div> 
+                        <Reviews/>
+                        </div>
+                        </div>
+                    
+                  
                          
                 
                     
@@ -224,11 +239,10 @@ const heandleOpenReviews = () => {
                             </div>
                         <div className={classes.google}>
                             <div className={classes.google_text_and_image}>
-                                <img src ={googleImg} alt ='g' className={classes.google_image}/>
-                                <div className={classes.google_text_main}>
-                                </div>
                                 
-                            </div>
+                                <img src ={googleImg} alt ='g' className={classes.google_image}/>
+                                
+                            </div> 
                             
                         </div>
                         </div>
@@ -236,10 +250,13 @@ const heandleOpenReviews = () => {
                         <div className={classes.guide}>
                                 <div className={classes.guide_text_and_image_h}>
                                     <div className={classes.guide_text_and_image}>
-                                        <img src ={guideImg} alt ='g' className={classes.guide_image}/>
+                                        <img src ={gidImg} alt ='g' className={classes.guide_image}/>
                                         <div className={classes.guide_text}>Гид</div>
                                     </div>
-                                    <img src ={vasyaImg} alt = 'vasya' className={classes.vasya_image}/>
+                                    <img src ={products?.guide?.photo.replace(
+                                    /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                    '$1' + '147:8880' 
+                                )} alt = 'vasya' className={classes.vasya_image}/>
                                     <div className={classes.vasya_text}>{products?.guide?.get_initials}</div>
                                 </div>
                             </div>
