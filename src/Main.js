@@ -11,6 +11,7 @@ import Cursor from './components/cursor/Cursor'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchUser } from './store/slices/registerSlice'
+import AboutUsPage from './pages/aboutUs/AboutUsPage'
 
 function Main() {
     const dispatch = useDispatch()
@@ -31,6 +32,7 @@ function Main() {
                 <Route path="/" element={<Layouts />}>
                     <Route index element={<HomePage />} />
                     <Route path="search" element={<SearchPage />} />
+                    <Route path='aboutUs' element={<AboutUsPage/>}/>
                 </Route>
                 <Route path="profile" element={<LayoutsProfile />}>
                     <Route index element={<ProfilePage />} />
