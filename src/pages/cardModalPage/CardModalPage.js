@@ -166,7 +166,7 @@ function CardModalPage() {
                     </div>
                     <div className={classes.user_choice}>
 
-                                <div className={classes.region_name}>Чуй</div>
+                                <div className={classes.region_name}>{products?.region?.map(par => <p>{par.name}</p>)}</div>
                                 <div className={classes.level_name}>{products?.complexity}</div>
                             </div>
                             <hr className={classes.line_two}></hr>

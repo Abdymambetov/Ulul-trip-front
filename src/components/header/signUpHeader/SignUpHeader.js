@@ -15,7 +15,7 @@ function SignUpHeader() {
     dispatch(openComeInModal())
   }
   const onClick = () => {
-    window.location.reload()
+    window.location.reload() 
 }
   return (
     <div>
