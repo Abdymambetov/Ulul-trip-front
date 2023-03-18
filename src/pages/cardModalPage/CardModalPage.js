@@ -1,8 +1,8 @@
 import { Box, Modal } from '@mui/material'
 // import React from 'react'
-import classes from './CardModalPage.module.css';
+import classes from './CardModalPage.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCardModal, openReviewsModal} from '../../store/slices/authSlice';
+import { closeCardModal, openReviewsModal } from '../../store/slices/authSlice'
 import penImg from '../../images/cardModalImg/pen.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
 import heartImg  from '../../images/cardModalImg/Heart.svg'
@@ -24,10 +24,7 @@ import ModalReviews from './ModalReviews';
 import { tourInfoAction } from '../../store/slices/TourSlice';
 import { useParams } from 'react-router-dom';
 
-SwiperCore.use([Navigation, Pagination]);
-// import { useState } from 'react';
-// import Heart from 'react-heart';
-
+SwiperCore.use([Navigation, Pagination])
 
 const style = {
     width: '990px',
@@ -40,8 +37,9 @@ const style = {
     borderRadius: '20px',
     boxShadow: 24,
     p: 4,
-    overflow: 'auto', 
-};
+    overflow: 'auto'
+}
+
 function CardModalPage() {
     const dispatch = useDispatch()
     const {cardModal, cardInfo} = useSelector(state => state.modalTour)
@@ -64,20 +62,19 @@ function CardModalPage() {
 //   const [notActive , setNotActive] =useState('heard');
 
 
-//   const heandleClick = () => {
-//     if(active === false){
-//       setActive(true)
-//       setNotActive('heard_focus')
-//     } else{
-//       setActive(false)
-//       setNotActive('heard')
-//     }
-//   }
+    //   const heandleClick = () => {
+    //     if(active === false){
+    //       setActive(true)
+    //       setNotActive('heard_focus')
+    //     } else{
+    //       setActive(false)
+    //       setNotActive('heard')
+    //     }
+    //   }
 
-const heandleOpenReviews = () => {
-    dispatch(openReviewsModal())
-}
-
+    const heandleOpenReviews = () => {
+        dispatch(openReviewsModal())
+    }
 
   return (
     <div>
