@@ -8,7 +8,7 @@ import './App.css'
 function App() {
    
     return (
-        <div className="App">
+        <div style={{"minWidth": '1350px'}} className="App">
             <div className="container">
                 <BrowserRouter>
                     <Provider store={store}>

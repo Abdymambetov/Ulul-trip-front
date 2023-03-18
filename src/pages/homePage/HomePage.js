@@ -13,7 +13,7 @@ function HomePage() {
     return (
         <div>
             <FirstBlockHome />
-            <div style={{minWidth:'1200px'}}className={classes.home}>
+            <div className={classes.home}>
                 <div className={classes.container}>
                     <PeshijTur/>
                     <IncreaseCards/>

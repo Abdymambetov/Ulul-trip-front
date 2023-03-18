@@ -1,11 +1,6 @@
 .tour{
-    padding-top: 50px;
+    padding-top: 150px;
     background-color: #e9f3ff;
-}
-@media  screen and (max-width:1080px){
-  .tour{
-   min-width: 1200px;
-  }
 }
 .container{
     width: 1060px;
@@ -25,7 +20,7 @@
 }
 
 .tour_inner{
-    padding-top: 150px;
+    padding-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,6 +28,7 @@
 }
 .tour_text{
     font-style: normal;
+    padding-top: 40px;
     font-weight: 600;
     font-size: 40px;
     line-height: 21px;

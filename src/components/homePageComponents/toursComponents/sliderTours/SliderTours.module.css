@@ -7,7 +7,7 @@
 
 @media  screen and (max-width:1080px){
   .slider{
-   min-width: 1200px;
+    margin-left: 38px;
   }
 }
 .container{
