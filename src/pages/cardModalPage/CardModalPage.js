@@ -2,7 +2,7 @@ import { Box, Modal } from '@mui/material'
 // import React from 'react'
 import classes from './CardModalPage.module.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCardModal, openReviewsModal} from '../../store/slices/authSlice';
+import { closeCardModal, openReservationModal, openReviewsModal} from '../../store/slices/authSlice';
 import penImg from '../../images/cardModalImg/pen.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
 import heartImg  from '../../images/cardModalImg/heart.svg'
@@ -18,11 +18,12 @@ import timeImg from '../../images/cardModalImg/time.svg'
 import priceImg from '../../images/cardModalImg/price.svg'
 import warningImg from '../../images/cardModalImg/warning.svg'
 import gidImg from '../../images/cardModalImg/gid.svg'
+import Reservetion from './ReservationComponent/Reservation'
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import SwiperCore, { Navigation, Pagination } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import Reviews from './Reviews';
 import ModalReviews from './ModalReviews';
 import { tourInfoAction } from '../../store/slices/TourSlice';
@@ -48,12 +49,15 @@ const style = {
 };
 function CardModalPage() {
     const dispatch = useDispatch()
-    const {cardModal, cardInfo} = useSelector(state => state.modalTour)
+    const {cardModal, cardInfo, reservationModal} = useSelector(state => state.modalTour)
+    
     const closeMod = () => {
         dispatch(closeCardModal())
     }
     const [products, setProducts] = useState({});
-
+    const openReservation = () => {
+        dispatch (openReservationModal())
+    }
     useEffect(() => {
       const fetchProducts = async () => {
         const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`);
@@ -106,7 +110,7 @@ const heandleOpenReviews = () => {
                     <div className={classes.slider_block}>
                     <div className= {classes.slider}>
                         
-                        <Swiper
+                        {/* <Swiper
                         spaceBetween={30}
                         slidesPerView={1}
                         navigation
@@ -122,7 +126,7 @@ const heandleOpenReviews = () => {
                             }
                         </SwiperSlide>
 
-                        </Swiper>
+                        </Swiper> */}
                         </div>
                     
                     </div>
@@ -187,7 +191,8 @@ const heandleOpenReviews = () => {
                             </div>    
                     </div>
                     <div className={classes.user_choice}>
-                                <div className={classes.region_name}>Чуй</div>
+
+                                <div className={classes.region_name}>{products?.region?.map(par => <p>{par.name}</p>)}</div>
                                 <div className={classes.level_name}>{products?.complexity}</div>
                                 <img src ={warningImg} alt = 'w' className={classes.warning_image}/>
                             </div>
@@ -268,11 +273,12 @@ const heandleOpenReviews = () => {
 
                         <div className={classes.calendar}></div>
 
-                        <button className={classes.reservation}>Забронировать</button>
+                        <button className={classes.reservation} onClick = {openReservation} >Забронировать</button>
                         
                     </div>
                 </div>
             <ModalReviews/>
+            <Reservetion/>
         </Box>  
         </Modal>
     </div>

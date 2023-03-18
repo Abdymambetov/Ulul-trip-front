@@ -8,6 +8,7 @@ const authSlice = createSlice({
         cardModal: false,
         likesModal: false,
         reviewsModal: false,
+        reservationModal: false,
         cardInfo: null
     }, 
     reducers: {
@@ -42,8 +43,14 @@ const authSlice = createSlice({
         closeReviewsModal: (state,action) => {
             state.reviewsModal = false
         },
+        openReservationModal: (state,action) => {
+            state.reservationModal = true
+        },
+        closeResevationModal: (state,action)=> {
+            state.reservationModal = false
+        },
     }
 })
 
-export const {openModal, closeModal, openComeInModal, closeComeInModal, openCardModal, closeCardModal, openLikesModal, closeLikesModal, openReviewsModal, closeReviewsModal} = authSlice.actions; 
+export const {openModal, closeModal, openComeInModal, closeComeInModal, openCardModal, closeCardModal, openLikesModal, closeLikesModal, openReviewsModal, closeReviewsModal, openReservationModal, closeResevationModal} = authSlice.actions; 
 export default authSlice.reducer

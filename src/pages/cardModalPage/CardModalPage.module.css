@@ -34,6 +34,16 @@
     
 
 }
+
+.cross_main {
+    position: absolute;
+    transition: 1s;
+}
+
+.cross_main:hover {
+    transform: rotate(-90deg);
+    
+}
 /* 
 .cross_main:hover  {
     transform: rotate(-90deg);
@@ -69,7 +79,7 @@
 }
 
 
-.slider_block {
+/* .slider_block {
     display: flex;
     width: 630px;
     height: 412px;
@@ -90,7 +100,7 @@
     width: 630px;
     height: 413px;
     
-}
+} */
 
 .text {
     margin-left: 42px;
@@ -485,7 +495,7 @@ margin-top: 5px;
 
 
 .display {
-    display: flex;
+    display: flex; 
 }
 .guide {
     display: flex;

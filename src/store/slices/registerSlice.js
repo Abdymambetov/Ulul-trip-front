@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { links } from "../../links/Links";
-import { openComeInModal } from "./authSlice";
+import { closeComeInModal, closeModal, openComeInModal } from "./authSlice";
 
 
 export const signUpAction = createAsyncThunk(
@@ -16,14 +16,15 @@ export const signUpAction = createAsyncThunk(
                 },
                 data: JSON.stringify(param)
             })
-            const data = await response.data
-            if(data.status>=200 && data.status<400){
+            const data = await response
+            if(data.status >= 201) {
                 // dispatch(CorrectSignUp())
+                console.log(data.data);
+                localStorage.setItem('token', JSON.stringify(data.data.user))
+                console.log(JSON.parse(localStorage.getItem('token')))
+                dispatch(closeModal())
                 dispatch(openComeInModal())
-            }else{
-                alert('try again')
-                throw Error('something is invalid')
-                
+                alert(data.data.message)
             }
         } catch(e){
             alert(e)
@@ -48,6 +49,7 @@ export const logAction = createAsyncThunk(
             
             if(data.status >= 200 && data.status < 400) {
                     // dispatch(CorrectLogIn())
+                    dispatch(closeComeInModal())
                     localStorage.setItem('user',data.data.tokens.replace(/'/g,'"'))
                     // localStorage.setItem('user', )
                     // const userTokens = JSON.parse(localStorage.getItem('user'));
@@ -71,7 +73,7 @@ export const refreshToken = createAsyncThunk(
             const response = await axios.post('http://164.92.190.147:8880/users/refresh/', {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
-                }
+                } 
             })
             console.log(response);
             const data = await response.data
@@ -125,7 +127,7 @@ const registerSlice = createSlice({
         },
         ErrorSignUp: (state, action) => {
             state.signUp = false
-        },
+        }
         // CorrectLogIn: (state, action) => {
         //     state.logIn = true
         // },
@@ -134,5 +136,5 @@ const registerSlice = createSlice({
         // }
     }
 })
-// export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
+export const {CorrectSignUp, ErrorSignUp, CorrectLogIn, ErrorLogIn} = registerSlice.actions
 export default registerSlice.reducer
