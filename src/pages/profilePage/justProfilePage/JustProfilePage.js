@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from '../ProfilePage.module.css'
 import { TextField } from '@mui/material'
 import crossSvg from '../../../images/profileImg/cross (2).svg'
 import lockSvg from '../../../images/profileImg/lock.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProfile } from '../../../store/slices/profileSlice'
 
 function JustProfilePage() {
+  const {id} = JSON.parse(localStorage.getItem('token'))
+  const {userInfo} = useSelector(state => state.profile)
+  console.log(id);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getProfile(id))
+  }, [])
   return (
     <div className={classes.profile}>
       <div className={classes.container}>
@@ -14,7 +23,17 @@ function JustProfilePage() {
                 <h3 className={classes.personal_text_data}>Личные данные</h3>
               </div>
               <div className={classes.profile_inputs}>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{
+                <TextField id="outlined-basic"  variant="outlined" value={userInfo.name} sx={{
+                  '& .MuiInputBase-root':{
+                    borderRadius: '10px',
+                    marginRight: '20px',
+                    marginBottom: '20px',
+                    width: '400px',
+                    height: '60px'
+                  }
+                }}
+                />
+                <TextField id="outlined-basic"  variant="outlined" value={userInfo.username} sx={{
                   '& .MuiInputBase-root':{
                     borderRadius: '10px',
                     marginRight: '20px',
@@ -23,16 +42,7 @@ function JustProfilePage() {
                     height: '60px'
                   }
                 }}/>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{
-                  '& .MuiInputBase-root':{
-                    borderRadius: '10px',
-                    marginRight: '20px',
-                    marginBottom: '20px',
-                    width: '400px',
-                    height: '60px'
-                  }
-                }}/>
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{
+                <TextField id="outlined-basic"  variant="outlined" value={userInfo.email} sx={{
                   '& .MuiInputBase-root':{
                     borderRadius: '10px',
                     marginRight: '20px',

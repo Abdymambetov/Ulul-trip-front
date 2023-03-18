@@ -1,11 +1,11 @@
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 * {
     margin: 0;
     padding: 0;
     font-family: 'Rubik', sans-serif;
     box-sizing: border-box;
-    cursor: none;
+    cursor: none !important;
 }
 body {
     background: black;
@@ -13,9 +13,12 @@ body {
 a {
     text-decoration: none;
 }
-a:hover .custom-circle {
-    transform: scale(1.5);
+a:hover .custom-cursor {
+    background-color: red;
 }
+/* a:hover .custom-circle {
+    transform: scale(1.5);
+} */
 li {
     list-style: none;
 }
@@ -84,16 +87,4 @@ body {
     font-weight: 600;
     line-height: 19px;
     margin-left: 0;
-}
-.active{
-  border: solid blue;
-  border-width: 0 0 0 3px;
-  color: black;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 19px;
-  margin-left: 0;
-}
-getactiveer{
-  color:black;
 }

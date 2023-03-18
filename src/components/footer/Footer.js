@@ -29,7 +29,7 @@ function Footer() {
     const listSecond = [
         {
             el: (
-                <Link to="/" className={classes.about_us_text}>
+                <Link to="aboutUs" className={classes.about_us_text}>
                     {' '}
                     О нас{' '}
                 </Link>
