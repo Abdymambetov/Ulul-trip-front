@@ -1,6 +1,11 @@
 .home {
 	background-color: #0c73fe;
 }
+@media screen and (max-width: 1080px) {
+	.home {
+		min-width: 1200px;
+	}
+}
 .container {
 	width: 1060px;
 	height: 650px;
@@ -18,6 +23,16 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+@media screen and (max-width: 1080px) {
+	.two_text_home .first_text {
+		font-size: 30px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.two_text_home .first_text {
+		font-size: 20px;
+	}
 }
 .first_text {
 	font-family: 'Rubik';
@@ -37,6 +52,16 @@
 	color: #ffffff;
 	margin-top: 20px;
 }
+@media screen and (max-width: 1080px) {
+	.two_text_home .second_text {
+		font-size: 30px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.two_text_home .second_text {
+		font-size: 20px;
+	}
+}
 .search_form {
 	margin-top: 51px;
 	width: 968px;
@@ -45,16 +70,40 @@
 	box-shadow: 0px 0px 44px rgba(0, 0, 0, 0.25);
 	border-radius: 12px;
 }
+@media screen and (max-width: 1080px) {
+	.search_form {
+		width: 800px;
+		height: 200px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.search_form {
+		width: 650px;
+		height: 185px;
+	}
+}
 .form_inputs {
 	margin-top: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+@media screen and (max-width: 1080px) {
+	.form_inputs {
+		display: flex;
+		flex-wrap: wrap;
+		padding-left: 25px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.form_inputs {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
 .parent_input_where {
 	position: relative;
 }
-
 .parent_input_duration {
 	position: relative;
 }
@@ -81,24 +130,13 @@
 	border-radius: 0px 0px 0px 1px;
 	background: #ffffff;
 }
+@media screen and (max-width: 700px) {
+	.inputs_from_where {
+		width: 150px;
+		height: 60px;
+	}
+}
 
-.inputs_from_where:focus {
-	border: 2px solid #ff6f32;
-}
-input:focus-visible {
-	outline: none;
-}
-.slugPos {
-	position: relative;
-}
-datalist {
-	position: absolute !important;
-	top: 60px !important;
-	left: 0;
-}
-input::-webkit-calendar-picker-indicator {
-	display: none !important;
-}
 /* .inputs_from_where {
     outline-color: #ff6f32 !important;
     border: 1px solid #ff6f32 !important;
@@ -186,6 +224,13 @@ input::-webkit-calendar-picker-indicator {
 	margin-right: 20px;
 	padding-left: 20px;
 }
+@media screen and (max-width: 700px) {
+	.inputs_from_date {
+		width: 150px;
+		height: 60px;
+	}
+}
+
 .inputs_from_date:focus {
 	border: 3px solid #ff6f32;
 }
@@ -216,4 +261,14 @@ input::-webkit-calendar-picker-indicator {
 	line-height: 0px;
 	letter-spacing: 0.01em;
 	color: #ffffff;
+}
+@media screen and (max-width: 1080px) {
+	.form_inputs .form_btn {
+		margin-top: 30px;
+	}
+}
+@media screen and (max-width: 1080px) {
+	.form_inputs .form_btn {
+		margin-top: 25px;
+	}
 }

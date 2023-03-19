@@ -5,16 +5,17 @@ import Main from './Main'
 import { store } from './store'
 
 function App() {
-	return (
-		<div className='App'>
-			<div className='container'>
-				<BrowserRouter>
-					<Provider store={store}>
-						<Main />
-					</Provider>
-				</BrowserRouter>
-			</div>
-		</div>
-	)
+   
+    return (
+        <div style={{"minWidth": '1350px'}} className="App">
+            <div className="container">
+                <BrowserRouter>
+                    <Provider store={store}>
+                        <Main />
+                    </Provider>
+                </BrowserRouter>
+            </div>
+        </div>
+    )
 }
 export default App
