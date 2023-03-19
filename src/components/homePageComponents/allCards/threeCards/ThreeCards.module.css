@@ -7,18 +7,42 @@
     justify-content: center;
     align-items: center;
 }
+@media screen and (max-width:1080px) {
+  .cards{
+    width:800px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+}
+@media screen and (max-width:700px) {
+  .cards{
+    width: 700px;
+  }
+}
 .small_card{
     width: 300px;
     height: 300px;
     border-radius: 30px;
     background-color: black;
     margin-right: 20px;
-    
 }
+@media screen and (max-width:1080px) {
+  .small_card{
+    width:250px;
+    height:200px;
+  }
+}
+
 .big_card{
     width: 420px;
     height: 420px;
     border-radius: 26px;
     background-color: black;
     margin-right: 20px;
+}
+@media screen and (max-width:1080px) {
+  .big_card{
+   width:400px;
+   height:300px;
+  }
 }
