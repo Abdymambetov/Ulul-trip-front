@@ -5,15 +5,28 @@ import crossSvg from '../../../images/profileImg/cross (2).svg'
 import lockSvg from '../../../images/profileImg/lock.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from '../../../store/slices/profileSlice'
+import DeleteProfileModal from './deleteProfileModal/DeleteProfileModal'
+import { openChangePasswordModal, openDeleteModal, openEditProfileModal } from '../../../store/slices/authSlice'
+import ChangePasswordModa from './changePasswordModal/ChangePasswordModa'
+import EditProfileModal from './editProfileModal/EditProfileModal'
 
 function JustProfilePage() {
   const {id} = JSON.parse(localStorage.getItem('token'))
-  const {userInfo} = useSelector(state => state.profile)
-  console.log(id);
+  const {userInfo} = useSelector(state => state.profile) 
+  console.log(id)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProfile(id))
   }, [])
+  const openDelete = () => {
+    dispatch(openDeleteModal())
+  }
+  const openChangeMod = () => {
+    dispatch(openChangePasswordModal())
+  }
+  const openEditModal = () => {
+    dispatch(openEditProfileModal())
+  }
   return (
     <div className={classes.profile}>
       <div className={classes.container}>
@@ -23,16 +36,6 @@ function JustProfilePage() {
                 <h3 className={classes.personal_text_data}>Личные данные</h3>
               </div>
               <div className={classes.profile_inputs}>
-                <TextField id="outlined-basic"  variant="outlined" value={userInfo.name} sx={{
-                  '& .MuiInputBase-root':{
-                    borderRadius: '10px',
-                    marginRight: '20px',
-                    marginBottom: '20px',
-                    width: '400px',
-                    height: '60px'
-                  }
-                }}
-                />
                 <TextField id="outlined-basic"  variant="outlined" value={userInfo.username} sx={{
                   '& .MuiInputBase-root':{
                     borderRadius: '10px',
@@ -51,13 +54,14 @@ function JustProfilePage() {
                     height: '60px'
                   }
                 }}/>
+                <button onClick={openEditModal}>Редактировать профиль</button>
               </div>
               <div className={classes.user_info_block}>
                 <div className={classes.user_password}>
-                    <p className={classes.change_password_text}>Изменить пароль</p>
+                    <p className={classes.change_password_text} onClick={openChangeMod}>Изменить пароль</p>
                     <img src={crossSvg} alt="cross_password" className={classes.cross_img_password}/>
                 </div>
-                <div className={classes.delete_profile}>
+                <div className={classes.delete_profile} onClick={openDelete}>
                   <p className={classes.delete_profile_text}>Удалить мой профиль</p>
                   <img src={crossSvg} alt="cross" className={classes.cross_img}/>
               </div>
@@ -75,6 +79,9 @@ function JustProfilePage() {
             </div>
         </div>
       </div>
+      <EditProfileModal/>
+      <ChangePasswordModa/>
+      <DeleteProfileModal/>
     </div>
   )
 }

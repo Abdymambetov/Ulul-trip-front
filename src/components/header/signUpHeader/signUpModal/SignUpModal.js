@@ -69,7 +69,6 @@ function SignUpModal() {
     }
 
     // Валидация
-    const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -83,9 +82,6 @@ function SignUpModal() {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
     // Обработчики изменения состояния для каждого поля формы.
-    function handleFirstNameChange(event) {
-        setName(event.target.value)
-    }
 
     function handleLastNameChange(event) {
         setUsername(event.target.value)
@@ -180,14 +176,13 @@ function SignUpModal() {
         }
 
         setIsFormSubmitted(true)
-        const user = { name, username, email, password, password_again }
+        const user = { username, email, password, password_again }
         dispatch(signUpAction(user))
     }
 
     useEffect(() => {
         if (isFormSubmitted) {
             setFormValid(
-                    name.trim().length > 0 &&
                     username.trim().length > 0 &&
                     email.trim().length > 0 &&
                     password.trim().length > 0 &&
@@ -198,7 +193,6 @@ function SignUpModal() {
             )
         } else {
             setFormValid(
-                    name.trim().length > 0 &&
                     username.trim().length > 0 &&
                     email.trim().length > 0 &&
                     password.trim().length > 0 &&
@@ -206,7 +200,7 @@ function SignUpModal() {
             )
         }
     }, [
-        name,
+        
         username,
         email,
         password,
@@ -250,23 +244,6 @@ function SignUpModal() {
                             </div>
 
                             <div className={classes.all_inputs}>
-                                <div className={classes.one_inputs}>
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="Имя"
-                                        variant="outlined"
-                                        name="name"
-                                        className={classes.inputs_modal}
-                                        value={name}
-                                        sx={{
-                                            '& .MuiInputBase-root': {
-                                                borderRadius: '10px',
-                                                width: '402px'
-                                            }
-                                        }}
-                                        onChange={handleFirstNameChange}
-                                    />
-                                </div>
                                 <div className={classes.one_inputs}>
                                     <TextField
                                         id="outlined-basic"
