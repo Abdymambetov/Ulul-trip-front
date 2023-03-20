@@ -21,6 +21,7 @@ function SmallTravelCard({item}) {
             setNotActive('heard')
         }
     }
+
     const dispatch = useDispatch()
 
     const openModal = e => {
@@ -36,12 +37,7 @@ function SmallTravelCard({item}) {
         }
     }
     return (
-        <div
-            className={classes.small_card}
-            onClick={e => {
-                openModal(e)
-            }}
-        >
+        <div className={classes.small_card} onClick={openModal}>
             <div className={classes.parent_card}>
                 <div className={classes.photo_block}>
                     <div className="photo">
@@ -78,7 +74,7 @@ function SmallTravelCard({item}) {
                 <div className={classes.location_info}>
                     <div className={classes.location_region}>
                         <div className={classes.region_tour}>
-                            <p className={classes.region_text}>{item?.region[0]?.name}</p>
+                            <p className={classes.region_text}>{item?.region?.name}</p>
                             <img
                                 src={point}
                                 alt="point"

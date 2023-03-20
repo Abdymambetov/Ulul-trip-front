@@ -1,8 +1,9 @@
 import { Box, Modal } from '@mui/material'
 // import React from 'react'
-import classes from './CardModalPage.module.css';
+import classes from './CardModalPage.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeCardModal, openReservationModal, openReviewsModal} from '../../store/slices/authSlice';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import penImg from '../../images/cardModalImg/pen.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
 import heartImg  from '../../images/cardModalImg/heart.svg'
@@ -19,6 +20,9 @@ import priceImg from '../../images/cardModalImg/price.svg'
 import warningImg from '../../images/cardModalImg/warning.svg'
 import gidImg from '../../images/cardModalImg/gid.svg'
 import Reservetion from './ReservationComponent/Reservation'
+// import rideImg from '../../images/cardModalImg/rider.svg'
+// import jeepImg from '../../images/cardModalImg/jeep.svg'
+// import bikerImg from '../../images/cardModalImg/biker.svg'
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -28,6 +32,8 @@ import Reviews from './Reviews';
 import ModalReviews from './ModalReviews';
 import { tourInfoAction } from '../../store/slices/TourSlice';
 import { useParams } from 'react-router-dom';
+import Calendar from '../../components/calendar/Calendar';
+import AboutUsPage from '../aboutUs/AboutUsPage';
 
 
 // import { useState } from 'react';
@@ -68,24 +74,43 @@ function CardModalPage() {
       fetchProducts();
     }, [cardInfo]);
     console.log(products)
+
+//     const [imageSrc, setImageSrc] = useState('');
+
+//   const setImage = (text) => {
+//     if (text === 'Пеший тур') {
+//       setImageSrc(walkerImg);
+//     } else if (text === 'Конный тур') {
+//       setImageSrc(rideImg);
+//     } else if (text === 'Джип тур') {
+//       setImageSrc(jeepImg);
+//     } else {
+//         setImageSrc (bikerImg)
+//     }
+//   };
+
+//   if (products && products?.category && products?.category?.name) {
+//     setImage(products?.category?.name)
+//   } else {
+//     console.warn('Unable to set image - products or category name is undefined')
+//   }
 //     const [active ,setActive] = useState(false);
 //   const [notActive , setNotActive] =useState('heard');
 
 
-//   const heandleClick = () => {
-//     if(active === false){
-//       setActive(true)
-//       setNotActive('heard_focus')
-//     } else{
-//       setActive(false)
-//       setNotActive('heard')
-//     }
-//   }
+    //   const heandleClick = () => {
+    //     if(active === false){
+    //       setActive(true)
+    //       setNotActive('heard_focus')
+    //     } else{
+    //       setActive(false)
+    //       setNotActive('heard')
+    //     }
+    //   }
 
-const heandleOpenReviews = () => {
-    dispatch(openReviewsModal())
-}
-
+    const heandleOpenReviews = () => {
+        dispatch(openReviewsModal())
+    }
 
   return (
     <div>
@@ -196,7 +221,7 @@ const heandleOpenReviews = () => {
                                 <div className={classes.level_name}>{products?.complexity}</div>
                                 <img src ={warningImg} alt = 'w' className={classes.warning_image}/>
                             </div>
-                            <hr className={classes.line_two}></hr>
+                            <hr className={classes.line_two}></hr>  
         
         
         
@@ -238,7 +263,7 @@ const heandleOpenReviews = () => {
                         <div className={classes.walker_and_google}>
                         <div className={classes.display}>
                         <div className={classes.walker}>
-                                <img src ={walkerImg} alt = 'w' className={classes.walker_image}/>
+                            {/* <img src ={imageSrc} alt = 'w' className={classes.walker_image}/> */}
                                 <div className={classes.walker_text}>{products?.category?.name}</div>
                                 {/* <div className={classes.walker_text_two}>тур</div> */}
                             </div>
@@ -271,16 +296,19 @@ const heandleOpenReviews = () => {
                         </div>
         
 
-                        <div className={classes.calendar}></div>
+                        <div className={classes.calendar}>
+        
+                        </div>
 
                         <button className={classes.reservation} onClick = {openReservation} >Забронировать</button>
                         
                     </div>
                 </div>
             <ModalReviews/>
-            <Reservetion/>
+            <Reservetion item={products}/>
         </Box>  
         </Modal>
+        
     </div>
   )
 }

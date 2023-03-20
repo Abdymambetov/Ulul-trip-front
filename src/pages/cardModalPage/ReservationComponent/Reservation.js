@@ -17,7 +17,7 @@ const style = {
     zIndex: 2
 
 }
-function Reservation() {
+function Reservation({item}) {
     const {reservationModal} = useSelector(state=>state.modalTour)
     const dispatch = useDispatch()
     const closeModal = ()=> {
@@ -44,7 +44,7 @@ function Reservation() {
             </div>
         </div>
         <hr className={classes.qr_line}/>
-        <div className={classes.qr}>QE35UUYJ5</div>
+        <div className={classes.qr}>{item?.qr_code}</div>
     </div>
    
     </Box>

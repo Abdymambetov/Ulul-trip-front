@@ -24,6 +24,7 @@ export const getProfile = createAsyncThunk(
         }
     }
 )
+
 const profileSlice = createSlice({
     name: 'profileSlice',
     initialState: {

@@ -7,10 +7,25 @@
     backdrop-filter: blur(7.5px);
     z-index: 2;
 }
+@media  screen and (max-width:1080px){
+  .header{
+    min-width:1200px;
+  }
+}
 .container {
     width: 1060px;
     height: 50px;
     margin: 0 auto;
+}
+@media  screen and (max-width:1080px){
+  .container{
+    width:800px;
+  }
+}
+@media  screen and (max-width:700px){
+  .container{
+    width: 500px;
+  }
 }
 .header_inner {
     opacity: 0.9;

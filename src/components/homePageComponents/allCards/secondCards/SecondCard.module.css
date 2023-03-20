@@ -3,10 +3,22 @@
     justify-content: center;
     align-items: center;
 }
+@media screen and ( max-width:1080px){
+  .card_inner{
+    padding-top: 40px;
+    margin-left: 45px;
+  }
+}
 .card_img{
     width: 420px;
     height: 420px;
     border-radius: 30px;
     background-color: black;
     margin-right: 20px;
+}
+@media screen and ( max-width:1080px){
+  .card_img{
+   width:300px;
+   height:300px;
+  }
 }

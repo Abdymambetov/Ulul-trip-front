@@ -183,7 +183,6 @@ function FAQPage() {
                       </AccordionDetails>
                     </Accordion>
 
-
                     <Accordion  className={classes.accordion_input}>
                       <AccordionSummary
                       sx={{
@@ -210,6 +209,7 @@ function FAQPage() {
                     </Accordion>
 
                 </div>   
+                
                 </div> 
                 ))}
           </div>

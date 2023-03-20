@@ -3,9 +3,7 @@ import classes from './FirstBlockHome.module.css'
 import SearchComponent from '../searchComponent/SearchComponent'
 import ThreeCards from '../homePageComponents/allCards/threeCards/ThreeCards'
 
-
 function FirstBlockHome() {
-    console.log(JSON.parse(localStorage.getItem('user')))
     return (
         <div className={classes.home}>
             <div className={classes.container}>
@@ -19,10 +17,10 @@ function FirstBlockHome() {
                         </h2>
                     </div>
                     <div className={classes.search_form}>
-                        <SearchComponent/>
+                        <SearchComponent />
                     </div>
                 </div>
-                <ThreeCards/>
+                <ThreeCards />
             </div>
         </div>
     )

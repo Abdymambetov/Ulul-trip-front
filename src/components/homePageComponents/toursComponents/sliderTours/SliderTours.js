@@ -44,14 +44,14 @@ function SliderTours() {
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
-    };
+    };  
     const dispatch = useDispatch()
     const {jeepTourArr } = useSelector(state => state.tours)
     useEffect(() => {
         dispatch(jeepsToursAction())
     }, [])
   return (
-    <div className={classes.slider}>
+    <div  style={{  Minwidth:" 1400px"}} className={classes.slider}>
             <div className={classes.container}>
                     <div className={classes.slider_inner}>
                         <h1 className={classes.tours_text}>Джип туры</h1>

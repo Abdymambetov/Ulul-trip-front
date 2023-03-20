@@ -1,7 +1,6 @@
 .modal_inner {
     display: flex;
-
-    
+    height: 825px;
     /* position: relative; */
 }
 
@@ -59,6 +58,7 @@
     right: 13px;
 } */
 .block_reviwes {
+    flex: 1;
     width: 630px;
     background:   #EFF1F4;
     display: flex;
@@ -67,6 +67,8 @@
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
+    flex-flow: column nowrap;
+    
 
     
     
@@ -74,7 +76,6 @@
 
 .block_booking { 
     width: 360px;
-    height: 900px;
     padding-right: 10px;
 }
 
@@ -167,9 +168,9 @@ margin-top: 5px;
 }
 
 .unwanted_line {
-  height:3px;
-  width: 430px;
-  background-color: #e6e6e6
+    height: 3px;
+    width: 430px;
+    background-color: #e6e6e6;
 }
 
 .name {
@@ -217,14 +218,27 @@ margin-top: 5px;
 }
 
 
-
 .heart_header {
     display: flex;
 }
 
 .heart {
+    background: rgba(239, 241, 244, 0.7)
+        url('../../images/cardModalImg/heart.svg') no-repeat center;
+    width: 32px;
+    height: 32px;
     margin-top: 18px;
     margin-left: 15px;
+    border-radius: 50%;
+}
+.heart_focus {
+    background: rgba(239, 241, 244, 0.7)
+        url('../../images/cardModalImg/heart.svg') no-repeat center;
+    width: 32px;
+    height: 32px;
+    margin-top: 18px;
+    margin-left: 15px;
+    border-radius: 50%;
 }
 
 .heart_text {
@@ -258,13 +272,11 @@ margin-top: 5px;
 
 .location_and_level {
     display: flex;
-    justify-content:space-between ;
+    justify-content: space-between;
 }
 
-
 .level {
-    display:flex
-    
+    display: flex;
 }
 
 /* .group_image {
@@ -282,7 +294,7 @@ margin-top: 5px;
     line-height: 21px;
 }
 
-.user_choice{
+.user_choice {
     display: flex;
     justify-content: space-between;
 }
@@ -296,7 +308,6 @@ margin-top: 5px;
     line-height: 21px;
     margin-top: 12px;
     margin-left: 20px;
-
 }
 
 .level_name {
@@ -317,12 +328,13 @@ margin-top: 5px;
 
 .line_two {
     width: 360px;
-    border: 1px solid #D9D9D9;
+    border: 1px solid #d9d9d9;
+    margin-top: 10px;
 }
 
 .duration_and_price {
     display: flex;
-    justify-content:space-between ;
+    justify-content: space-between;
 }
 
 .duration {
@@ -368,7 +380,6 @@ margin-top: 5px;
     height: 22px;
     margin-top: 20px;
     margin-bottom: 7px;
-   
 }
 
 .days_number {
@@ -377,25 +388,22 @@ margin-top: 5px;
     line-height: 21px;
     margin-right: 10px;
     margin-left: 20px;
-   
 }
 
 .choice_price {
     display: flex;
     margin-top: 22px;
-
 }
 
 .price_number {
     font-weight: 400;
     font-size: 32px;
     line-height: 21px;
-    color: #FF6F32;
+    color: #ff6f32;
     margin-right: 6px;
 }
 
 .price_som {
-    
 }
 
 .rating {
@@ -404,7 +412,6 @@ margin-top: 5px;
 }
 
 .rating_and_guide {
-    
 }
 .rating_image {
     margin-left: 20px;
@@ -414,7 +421,7 @@ margin-top: 5px;
 .rating_text {
     width: 66px;
     height: 11px;
-    color: #7E7E7E
+    color: #7e7e7e;
 }
 
 .stars_image {
@@ -439,17 +446,17 @@ margin-top: 5px;
     font-weight: 800;
     font-size: 20px;
     line-height: 13px;
-    color:  #484848
+    color: #484848;
 }
 
 .walker_text_two {
-    margin-left:51px;
+    margin-left: 51px;
     margin-top: 4px;
-    color:  #484848;
+    color: #484848;
 }
 
 .google_text_and_image {
-    display: flex
+    display: flex;
 }
 
 .google_text_main {
@@ -462,7 +469,7 @@ margin-top: 5px;
     font-weight: 400;
     font-size: 20px;
     line-height: 13px;
-    color:  #403F41
+    color: #403f41;
 }
 
 .google_text_two {
@@ -471,7 +478,7 @@ margin-top: 5px;
     font-weight: 400;
     font-size: 15px;
     line-height: 13px;
-    color:  #8F8F8F
+    color: #8f8f8f;
 }
 
 .guide_text_and_image {
@@ -490,9 +497,8 @@ margin-top: 5px;
     font-weight: 400;
     font-size: 22px;
     line-height: 21px;
-    color: #7E7E7E;
+    color: #7e7e7e;
 }
-
 
 .display {
     display: flex; 
@@ -525,15 +531,14 @@ border-radius: 30px;
 .title_reviews {
     width: 500px;
     height: 51px;
-    background-color: #EBF3FF;
+    background-color: #ebf3ff;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 .title_text {
-color: #323232;
-
+    color: #323232;
 }
 
 .cross {
@@ -551,21 +556,19 @@ color: #323232;
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
-    color: #737E8B;
+    color: #737e8b;
     margin-top: 9px;
-    margin-left:8px ;
+    margin-left: 8px;
     border: none;
     outline: none;
 }
 
 .text_and_stars {
-    background-color:#EBF3FF;
+    background-color: #ebf3ff;
     width: 365px;
     height: 50px;
     display: flex;
-
 }
-
 
 .rating_and_btn {
     display: flex;
@@ -588,7 +591,7 @@ color: #323232;
 .btn {
     width: 135px;
     height: 50px;
-    background: #0C73FE;
+    background: #0c73fe;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -598,7 +601,7 @@ color: #323232;
     }
 
     .calendar {
-        background: red;
+
         width: 360px;
         height: 298px;
     }

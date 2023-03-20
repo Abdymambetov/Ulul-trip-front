@@ -1,6 +1,11 @@
 .cards{
     margin-top: 50px;
 }
+@media screen and (max-width: 1080px){
+  .cards{
+    margin-left: 60px;
+  }
+}
 .cards_inner{
     display: flex;
     justify-content: center;

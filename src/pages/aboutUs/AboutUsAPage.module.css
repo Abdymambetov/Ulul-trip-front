@@ -1,0 +1,153 @@
+
+
+.about_us_inner {
+    width: 1170px;
+    margin: 0 auto;
+    
+}
+
+.container{
+    background-color: white;
+}
+
+.about_us_block {
+    display: flex;
+    margin-bottom: 50px;
+   
+
+}
+
+.abt_all_text {
+    margin-right: 30px;
+    margin-top: 126px;
+   
+}
+.caption_text {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    color: #000000;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.stick_image {
+    margin-bottom: 40px;
+}
+
+.abt_text_caption {
+    display: flex;
+}
+
+.text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 18px;
+    }
+.abt_image {
+    width: 475px;
+    height: 488px;
+    margin-top: 209px;
+}
+
+.numbers_block {
+    margin-top: 100px;
+    width: 100%;
+    height: 400px;
+    background-image: url(../../images/aboutUsImg/numbers.png);
+}
+
+.service_block {
+    background-color: white;
+    width: 1170px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 80px;
+    
+}
+ 
+
+.service_caption {
+  
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    color: #000000;
+    margin-top: 150px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color:  #0C73FE;
+
+    
+
+}
+
+.favors_block {
+    width: 370px;
+    height: 510px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.favors_li {
+    list-style-type: disc;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+}
+
+.favors_caption {
+    margin-bottom: 42px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: #0C73FE
+}
+
+.list {
+    width: 230px;
+    height: 333px;
+}
+
+.tour_caption {
+    display: flex;
+    margin-top: 90px;
+}
+
+.line {
+    margin-bottom: 148px;
+    border-color:  #0C73FE;
+}
+.tour_caption_text {
+    
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    
+}
+
+.tour_li {
+    list-style-type: disc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+
+}
+
+/* .tour_block {
+
+} */
+
+.list_two {
+   
+}
