@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { closeEditProfileModal } from '../../../../store/slices/authSlice'
 import { useState } from 'react'
 import { editProfileAction } from '../../../../store/slices/profileSlice'
+import classes from "./EditProfileModal.module.css"
 const style = {
     width: '400px',
     height: '500px',
@@ -41,10 +42,11 @@ function EditProfileModal() {
     <Modal
     open={editProfileModal}
     onClose={closeEdit}
+    
     >
         <Box sx={style}>
-            <div>
-                <form onSubmit={handleSubmit}>
+            <div className={classes.editProfile}>
+                <form className={classes.form} onSubmit={handleSubmit}>
                     <input type="text" name='username' placeholder='username' onChange={changeUsername}/>
                     <input type="text" name='email' placeholder='email' onChange={changeEmail} />
                     <button onClick={handleSubmit}>Изменить профиль</button>

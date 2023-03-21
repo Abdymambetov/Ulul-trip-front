@@ -1,0 +1,22 @@
+*{
+  box-sizing: border-box;
+}
+.delete{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 150px;
+}
+.button button{
+  margin-top: 30px;
+  background: none;
+  font-size: 20px;
+  border: 0px solid black;
+  padding: 10px;
+  background-color: rgb(21, 141, 189);
+  color: white;
+  border-radius: 4px;
+  width: 180px;
+}
+.buton{
+  margin-right: 20px;
+}
