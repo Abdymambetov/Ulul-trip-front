@@ -119,13 +119,10 @@
 	left: -23px;
 }
 .inputs_from_where {
-	position: relative;
 	width: 220px;
 	height: 60px;
-	font-size: 18px;
 	margin-right: 3px;
 	padding-left: 30px;
-	padding-right: 30px;
 	border: 0px;
 	border-radius: 0px 0px 0px 1px;
 	background: #ffffff;
