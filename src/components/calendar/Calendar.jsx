@@ -127,7 +127,9 @@ function Calendar() {
 							type='date'
 							sx={{
 								mr: '20px',
-								borderRadius: '0px 14px 14px 0px',
+								border: activeInput === 4 ? '2px solid #FF6F32':'',
+								borderRadius: activeInput === 4 ?'0px 0 14px 0px':'0px 14px 14px 0px',
+
 								'& .MuiFormControl-root': {},
 								'& .MuiButtonBase-root': {
 									cursor: 'none !important',
@@ -138,10 +140,7 @@ function Calendar() {
 								},
 								'& .MuiOutlinedInput-notchedOutline': {
 									border: 'none',
-								},
-								'& .Mui-focused': {
-									border: '2px solid #FF6F32',
-								},
+								}
 							}}
 							className={classes.inputs_from_date}
 							onFocus={() => setActiveInput(4)}
