@@ -53,7 +53,8 @@
 .small_card_label{
     position: absolute;
     top: 21px;
-    left: 21px
+    left: 21px;
+    right: 21px;
 
 }
 .small_card_title{
@@ -93,7 +94,8 @@
 .big_card_label{
     position: absolute;
     top: 30px;
-    left: 30px
+    left: 30px;
+    right: 30px;
 
 }
 .big_card_title{
