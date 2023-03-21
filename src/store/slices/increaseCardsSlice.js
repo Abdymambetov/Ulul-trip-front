@@ -8,12 +8,12 @@ export const increaseCardsAction = createAsyncThunk(
     'increaseCardsAction',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur&limit=12')
-            if(reponse.status === 200) {
-                const data = await reponse.data.results
-                dispatch(increaseCardsPhotos(data))
+            const response = await axios('http://164.92.190.147:8880/home/tours?limit=50')
+            if(response.status === 200) {
+                const data = await response.data.results
+                dispatch(increaseCardsPhotos(data.filter(item => item.is_hot === true))) //only Hot tours
             } else{
-                throw Error (`error: ${reponse.status}`)
+                throw Error (`error: ${response.status}`)
             }
         } catch(e) {
             alert(e)
@@ -32,11 +32,12 @@ const increaseCardsSlice = createSlice({
     ,reducers: {
         increaseCardsPhotos: (state, action) => {
             if (state.cnt < action.payload.length) {
-                let filterPhotos = action.payload.map(item=>item.tour_images.filter(img => img.is_main === false)); //отфильтровать только фотографии и только main false?
-                state.photos = filterPhotos.slice(state.cnt, state.cnt += 3) //каждые три фотографии
+                state.photos = action.payload.slice(state.cnt, state.cnt += 3) //каждые три фотографии
             } else {
                 state.cnt = 0;
+                state.photos = action.payload.slice(state.cnt, state.cnt += 3)
             }
+
         }
     }
 
