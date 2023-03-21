@@ -18,33 +18,48 @@ function SecondCards() {
     }, []);
 
 
+    const firstImg = jeep.map(item=>item.tour_images.filter(image => image.is_main)[0].images.replace(/(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,'$1' + '147:8880'));
+    const firstDesc = jeep.map(item=>item.title);
+    const secondImg = pesh.map(item=>item.tour_images.filter(image => image.is_main)[0].images.replace(/(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,'$1' + '147:8880'));
+    const secondDesc = pesh.map(item=>item.title);
+
     return (
         <div className={classes.card_inner}>
-            {/*<div className={classes.card_img}></div>*/}
-            {/*<div className={classes.card_img}></div>*/}
 
-            <div className={classes.card_img}>
+            <div className={classes.big_card}>
                 <img
-                    src={jeep.map(item => item.tour_images[0].images.replace(
-                        /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
-                        '$1' + '147:8880'))}
-                    className={classes.card_img}
+                    src={firstImg}
+                    className={classes.big_card}
                     onClick={() => {
                         dispatch(openCardModal(jeep.map(item => item.slug)))
                     }}
                 />
+                <div className={classes.big_card_label}>
+                    <h2 className={classes.big_card_title}>
+                        Джип туры
+                    </h2>
+                    <p className={classes.big_card_desc}>
+                        {firstDesc}
+                    </p>
+                </div>
             </div>
 
-            <div className={classes.card_img}>
+            <div className={classes.big_card}>
                 <img
-                    src={pesh.map(item => item.tour_images[0].images.replace(
-                        /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
-                        '$1' + '147:8880'))}
-                    className={classes.card_img}
+                    src={secondImg}
+                    className={classes.big_card}
                     onClick={() => {
                         dispatch(openCardModal(pesh.map(item => item.slug)))
                     }}
                 />
+                <div className={classes.big_card_label}>
+                    <h2 className={classes.big_card_title}>
+                        Пешие туры
+                    </h2>
+                    <p className={classes.big_card_desc}>
+                        {secondDesc}
+                    </p>
+                </div>
             </div>
 
         </div>
