@@ -85,8 +85,10 @@ export const filterSearch = createAsyncThunk('filterSearch', async param => {
 			reg = rus_to_latin(param.region).toLowerCase()
 		}
 	}
+	const complex =rus_to_latin(param.complexity).toLowerCase()
+	const category = rus_to_latin(param.category).toLowerCase()
 	const { data } = await axios.get('http://164.92.190.147:8880/home/tours/', {
-		params: {...param,region:reg},
+		params: {...param,region:reg,complexity:complex,category:category},
 	})
 	return data
 })
