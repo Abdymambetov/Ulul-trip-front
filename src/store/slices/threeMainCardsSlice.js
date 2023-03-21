@@ -25,11 +25,10 @@ export const hotCardAction = createAsyncThunk(
     'hotCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours') //?limit=10&offset=10
+            const response = await axios('http://164.92.190.147:8880/home/tours?limit=50') //?limit=10&offset=10
             if (response.status === 200) {
                 const data = await response.data.results
-                console.log("yes")
-                dispatch(getHotCardPhotos(data))
+                dispatch(getHotCardPhotos(data.filter(item => item.is_hot)))
             } else {
                 throw Error(`error: ${response.status}`)
             }
@@ -81,6 +80,7 @@ const threeMainCardsSlice = createSlice({
                 state.leftPhotos.photos = action.payload.slice(state.leftPhotos.cnt, state.leftPhotos.cnt += 1)
             } else {
                 state.leftPhotos.cnt = 0;
+                state.leftPhotos.photos = action.payload.slice(state.leftPhotos.cnt, state.leftPhotos.cnt += 1)
             }
         },
         getRightCardPhotos: (state, action) => {
@@ -88,14 +88,16 @@ const threeMainCardsSlice = createSlice({
                 state.rightPhotos.photos = action.payload.slice(state.rightPhotos.cnt, state.rightPhotos.cnt += 1)
             } else {
                 state.rightPhotos.cnt = 0;
+                state.rightPhotos.photos = action.payload.slice(state.rightPhotos.cnt, state.rightPhotos.cnt += 1)
             }
         },
         getHotCardPhotos: (state, action) => {
-            let photos = action.payload.filter(item => item.is_hot === true)
+            let photos = action.payload //.filter(item => item.is_hot === true)
             if (state.hotPhotos.cnt < photos.length) {
-                state.hotPhotos.photos = action.payload.filter(tour => tour.is_hot).slice(state.hotPhotos.cnt, state.hotPhotos.cnt += 1)
+                state.hotPhotos.photos = photos.slice(state.hotPhotos.cnt, state.hotPhotos.cnt += 1)
             } else {
                 state.hotPhotos.cnt = 0;
+                state.hotPhotos.photos = photos.slice(state.hotPhotos.cnt, state.hotPhotos.cnt += 1)
             }
         }
     }

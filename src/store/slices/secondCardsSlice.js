@@ -9,7 +9,7 @@ export const jeepCardAction = createAsyncThunk(
     'jeepCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=jeep-tur&limit=5')
+            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=jeep-tur&limit=1&offset=5')
             if (reponse.status === 200) {
                 const data = await reponse.data.results
                 dispatch(jeepCardsPhotos(data))
@@ -27,7 +27,7 @@ export const peshCardAction = createAsyncThunk(
     'peshCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur&limit=5')
+            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur&limit=1&offset=5')
             if (reponse.status === 200) {
                 const data = await reponse.data.results
                 dispatch(peshCardsPhotos(data))
@@ -49,12 +49,12 @@ const secondCardsSlice = createSlice({
     }
     , reducers: {
         jeepCardsPhotos: (state, action) => {
-            let filterPhotos = action.payload.slice(3, 4); //taking only one photo?
+            let filterPhotos = action.payload
             state.jeep = filterPhotos;
         },
 
         peshCardsPhotos: (state, action) => {
-            let filterPhotos = action.payload.slice(3, 4);
+            let filterPhotos = action.payload
             state.pesh = filterPhotos;
         }
     }

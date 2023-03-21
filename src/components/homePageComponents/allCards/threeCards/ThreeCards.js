@@ -16,14 +16,21 @@ function ThreeCards() {
     const dispatch = useDispatch();
     const {leftPhotos, rightPhotos , hotPhotos} = useSelector(state => state.threeMainCards);
 
+
     useEffect(() => {
+
+        dispatch(leftCardAction());
+        dispatch(rightCardAction());
+        dispatch(hotCardAction());
+
+
         const testInterval = setInterval(() => {
 
             dispatch(leftCardAction());
             dispatch(rightCardAction());
             dispatch(hotCardAction());
 
-        }, 7000);
+        }, 5000);
         return () => clearInterval(testInterval);
     }, []);
 

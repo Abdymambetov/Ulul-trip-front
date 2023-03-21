@@ -4,21 +4,71 @@
     align-items: center;
 }
 @media screen and ( max-width:1080px){
-  .card_inner{
-    padding-top: 40px;
-    margin-left: 45px;
-  }
+    .card_inner{
+        padding-top: 40px;
+        margin-left: 45px;
+    }
 }
-.card_img{
+.big_card{
     width: 420px;
     height: 420px;
     border-radius: 30px;
-    background-color: black;
     margin-right: 20px;
+    transition: 0.5s; /*Added: Zhamal 18.03.23*/
+    position: relative; /*Zhamal 21.03.23*/
 }
 @media screen and ( max-width:1080px){
-  .card_img{
-   width:300px;
-   height:300px;
-  }
+    .big_card{
+        width:300px;
+        height:300px;
+    }
+}
+
+/*Added: Zhamal 21.03.23*/
+.big_card_label{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+
+}
+.big_card_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 11px;
+    /*white-space: nowrap;*/
+}
+.big_card_desc{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.7);
+
+}
+
+@media screen and (max-width:1080px) {
+    .big_card_title{
+        font-size: 27px;
+        line-height: 13px;
+
+    }
+    .big_card_desc{
+        font-size: 19px;
+        line-height: 20px;
+    }
+}
+
+.big_card:hover{
+    width: 450px;
+    height: 450px;
+    border-radius: 30px;
+    margin-right: 20px;
 }
