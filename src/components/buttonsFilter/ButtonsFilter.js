@@ -10,6 +10,7 @@ function ButtonsFilter() {
 		dispatch(categoryAction())
 	}, [])
 	const { categoryArr } = useSelector(state => state.tours)
+	const {value} = useSelector(state=> state.filtered)
 	const handleSetComplexity = param => {
 		dispatch(setComplexity(param))
 	}
@@ -27,7 +28,7 @@ function ButtonsFilter() {
 								onClick={() => {
 									handleSetComplexity(item)
 								}}
-								className={classes.tours_btn}
+								className={`${classes.tours_btn} ${value?.complexity === item ? classes.selected_color : ''}`}
 							>
 								{item}
 							</button>
@@ -39,7 +40,7 @@ function ButtonsFilter() {
 								onClick={() => {
 									handleSetCategory(item.name)
 								}}
-								className={classes.tours_btn}
+								className={`${classes.tours_btn} ${value?.category === item?.name ? classes.selected_color : ''}`}
 								key={item?.id}
 							>
 								{item?.name}

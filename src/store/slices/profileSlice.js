@@ -88,7 +88,7 @@ export const editProfileAction = createAsyncThunk(
             const data = await response.data
             if(response.status === 201) {
                 localStorage.setItem('newUser', JSON.stringify(data))
-                JSON.parse(localStorage.getItem('newUser'))
+                JSON.parse(localStorage.getItem('newUser'))  
                 dispatch(closeEditProfileModal())
             }
         } catch(e) {

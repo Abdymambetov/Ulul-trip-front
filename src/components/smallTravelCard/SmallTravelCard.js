@@ -74,7 +74,7 @@ function SmallTravelCard({item}) {
                 <div className={classes.location_info}>
                     <div className={classes.location_region}>
                         <div className={classes.region_tour}>
-                            <p className={classes.region_text}>{item?.region?.name}</p>
+                            <p className={classes.region_text}>{item?.region[0]?.name}</p>
                             <img
                                 src={point}
                                 alt="point"
