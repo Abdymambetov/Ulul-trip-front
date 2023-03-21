@@ -5,7 +5,6 @@ import { PickersDay } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 import { memo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,7 +31,9 @@ function Calendar() {
 	const dispatch = useDispatch()
 	const [activeInput, setActiveInput] = useState(true)
 	const handleChange = newValue => {
-		dispatch(setValueDay(newValue.toJSON().slice(0, 10)))
+		const month = newValue.$d.getMonth()+1
+		const date = `${newValue.$d.getFullYear()}-${month<10 ?'0'+month:month}-${newValue.$d.getDate()}`
+		dispatch(setValueDay(date))
 	}
 	return (
 		<LocalizationProvider adapterLocale='ru' dateAdapter={AdapterDayjs}>
@@ -86,9 +87,7 @@ function Calendar() {
 				dayOfWeekFormatter={day =>
 					day.charAt(0).toUpperCase() + day.charAt(1)
 				}
-				shouldDisableDate={day => {
-					return day === dayjs().date()
-				}}
+				
 				showDaysOutsideCurrentMonth={true}
 				renderDay={(day, _value, DayComponentProps) => {
 					if (DayComponentProps.disabled) {
