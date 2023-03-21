@@ -102,7 +102,7 @@ function ComeInModal() {
                     passwordError === ''
             )
         } else {
-            setFormValid(username.trim().length > 0 && password.trim().length > 7)
+            setFormValid(username.trim().length > 3 && password.trim().length > 7)
         }
     }, [username, password, emailError, passwordError, isFormSubmitted])
     return (

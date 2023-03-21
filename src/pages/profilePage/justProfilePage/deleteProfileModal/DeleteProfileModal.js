@@ -3,6 +3,7 @@ import { Modal, Box } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeDeleteModal } from '../../../../store/slices/authSlice'
 import { deleteProfileAction } from '../../../../store/slices/profileSlice'
+import classes from "./DeleteProfileModal.module.css"
 const style = {
     width: '600px',
     height: '602px',
@@ -33,10 +34,10 @@ function DeleteProfileModal() {
         sx={{ backdropFilter: 'blur(5px)' }}
     >
         <Box sx={style}>
-            <div>
+            <div className={classes.delete}>
                 <h1>Вы точно хотите удалить свой пофиль?</h1>
-                <div>
-                    <button onClick={deleteUser}>Да</button>
+                <div className={classes.button}>
+                    <button className={classes.buton} onClick={deleteUser}>Да</button>
                     <button>Нет</button>
                 </div>
             </div>
