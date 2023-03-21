@@ -25,6 +25,8 @@
     border-radius: 30px;
     background-color: black;
     margin-right: 20px;
+    position: relative; /*Zhamal 20.03.23*/
+    transition: 0.5s;
 }
 @media screen and (max-width:1080px) {
   .small_card{
@@ -39,10 +41,81 @@
     border-radius: 26px;
     background-color: black;
     margin-right: 20px;
+    position: relative; /*Zhamal 20.03.23*/
 }
 @media screen and (max-width:1080px) {
   .big_card{
    width:400px;
    height:300px;
   }
+}
+
+
+/*Zhamal 20.03.23*/
+.small_card_label{
+    position: absolute;
+    top: 21px;
+    left: 21px
+
+}
+.small_card_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 11px;
+    /*white-space: nowrap;*/
+}
+.small_card_desc{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width:1080px) {
+    .small_card_title{
+        font-size: 27px;
+        line-height: 13px;
+
+    }
+    .small_card_desc{
+        font-size: 19px;
+        line-height: 20px;
+    }
+}
+
+
+.big_card_label{
+    position: absolute;
+    top: 30px;
+    left: 30px
+
+}
+.big_card_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 11px;
+    /*white-space: nowrap;*/
+}
+.big_card_desc{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+
 }

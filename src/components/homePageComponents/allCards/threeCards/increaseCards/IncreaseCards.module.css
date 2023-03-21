@@ -17,12 +17,21 @@
     border-radius: 30px;
     background-color: black;
     margin-right: 20px;
+    transition: 0.5s; /*Added: Zhamal 18.03.23*/
     
 }
 .big_card{
     width: 420px;
     height: 420px;
     border-radius: 26px;
+    background-color: black;
+    margin-right: 20px;
+}
+
+.small_card:hover{ /*Added: Zhamal 18.03.23*/
+    width: 370px;
+    height: 370px;
+    border-radius: 30px;
     background-color: black;
     margin-right: 20px;
 }

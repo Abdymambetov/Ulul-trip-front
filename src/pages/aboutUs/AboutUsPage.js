@@ -7,7 +7,7 @@ function AboutUsPage() {
         <div className={classes.container}>
             <div className={classes.about_us_inner}>
                 <p>hello</p>
-            </div>
+            </div> 
         </div>
     </div>
   )

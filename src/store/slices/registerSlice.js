@@ -73,9 +73,9 @@ export const refreshToken = createAsyncThunk(
             const response = await axios.post('http://164.92.190.147:8880/users/refresh/', {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
-                } 
+                }
             })
-            console.log(response);
+            console.log(response)
             const data = await response.data
             localStorage.setItem('user', JSON.stringify(data))
             return data.access
