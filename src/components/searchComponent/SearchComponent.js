@@ -212,7 +212,7 @@ function SearchComponent() {
 							position: 'absolute',
 							py: '20px',
 							zIndex:100,
-							width: 145,
+							width: 155,
 							height: 200,
 						}}
 						onFocus={() => setActiveInput(3)}
@@ -234,7 +234,7 @@ function SearchComponent() {
 							orientation='vertical'
 						/>
 					</Box>
-				)}
+				)} 
 			</div>
 			<Calendar />
 			<input
