@@ -2,9 +2,9 @@
     margin-top: 50px;
 }
 @media screen and (max-width: 1080px){
-  .cards{
-    margin-left: 60px;
-  }
+    .cards{
+        margin-left: 60px;
+    }
 }
 .cards_inner{
     display: flex;
@@ -15,14 +15,62 @@
     width: 300px;
     height: 300px;
     border-radius: 30px;
-    background-color: black;
     margin-right: 20px;
-    
+    transition: 0.5s; /*Added: Zhamal 21.03.23*/
+    position: relative; /*Zhamal 21.03.23*/
+
 }
 .big_card{
     width: 420px;
     height: 420px;
     border-radius: 26px;
-    background-color: black;
+    margin-right: 20px;
+}
+
+
+/*Zhamal 21.03.23*/
+.small_card_label{
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    right: 46px;
+
+}
+.small_card_title{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 11px;
+}
+.small_card_desc{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width:1080px) {
+    .small_card_title{
+        font-size: 27px;
+        line-height: 13px;
+
+    }
+    .small_card_desc{
+        font-size: 19px;
+        line-height: 20px;
+    }
+}
+
+.small_card:hover{
+    width: 370px;
+    height: 370px;
+    border-radius: 30px;
     margin-right: 20px;
 }

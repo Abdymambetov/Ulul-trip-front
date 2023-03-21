@@ -1,37 +1,32 @@
 *{
   box-sizing: border-box;
 }
-.modal_inner{
+.editProfile{
   margin: 0 auto;
 }
-
 .form{
   padding: 30px;
+  margin: 120px auto ;
   text-align: center;
 }
-.form input{
+.form input[type="text"]{
   background: none;
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   display:  block;
   margin: 20px auto;
   padding: 10px;
   text-align: center;
-  width: 350px;
+  width: 250px;
   border: 2px solid black;
   outline: none;
 }
 .form button{
   background: none;
-  font-size: 20px;
+  font-size: 16px;
   border: 0px solid black;
   padding: 10px;
   background-color: rgb(21, 141, 189);
   color: white;
   border-radius: 4px;
-  width: 220px;
-}
-.error{
-  color: red;
-
 }

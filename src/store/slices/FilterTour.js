@@ -1,5 +1,29 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+function rus_to_latin ( str ) {
+    
+	var ru = {
+			'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 
+			'е': 'e', 'ё': 'e', 'ж': 'j', 'з': 'z', 'и': 'i', 
+			'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 
+			'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 
+			'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 
+			'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'u', 'я': 'ya'
+	}, n_str = [];
+	
+	str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
+	
+	for ( var i = 0; i < str.length; ++i ) {
+		 n_str.push(
+						ru[ str[i] ]
+				 || ru[ str[i].toLowerCase() ] == undefined && str[i]
+				 || ru[ str[i].toLowerCase() ].toUpperCase()
+		 );
+	}
+	
+	return n_str.join('');
+}
+
 const FilterSlice = createSlice({
 	name: 'mainSlice',
 	initialState: {
@@ -9,13 +33,13 @@ const FilterSlice = createSlice({
 			date_departure: '',
 			complexity: '',
 			category: '',
+			region:'',
 		},
-		search: '',
 		filtered: {},
 	},
 	reducers: {
 		setValueWhere: (state, action) => {
-			state.search = action.payload
+			state.value.region = action.payload
 		},
 		setValueDuration: (state, action) => {
 			state.value.duration = action.payload
@@ -45,28 +69,39 @@ const FilterSlice = createSlice({
 		builder.addCase(filterSearch.fulfilled, (state, action) => {
 			state.filtered = action.payload
 		})
-		builder.addCase(filterWhereSearch.fulfilled, (state, action) => {
-			state.filtered = action.payload
-		})
+		// builder.addCase(filterWhereSearch.fulfilled, (state, action) => {
+		// 	state.filtered = action.payload
+		// })
 	},
 })
 export const filterSearch = createAsyncThunk('filterSearch', async param => {
 	// console.log(param)
+	
+	let reg 
+	if(param.region){
+		if(rus_to_latin(param.region).toLowerCase()==='chui'){
+			reg = 'chuy'
+		}else{
+			reg = rus_to_latin(param.region).toLowerCase()
+		}
+	}
+	const complex =rus_to_latin(param.complexity).toLowerCase()
+	const category = rus_to_latin(param.category).toLowerCase()
 	const { data } = await axios.get('http://164.92.190.147:8880/home/tours/', {
-		params: param,
+		params: {...param,region:reg,complexity:complex,category:category},
 	})
 	return data
 })
 
-export const filterWhereSearch = createAsyncThunk(
-	'filterWhereSearch',
-	async (param, { dispatch }) => {
-		const { data } = await axios.get(
-			`http://164.92.190.147:8880/home/tour/${param}`
-		)
-		return data
-	}
-)
+// export const filterWhereSearch = createAsyncThunk(
+// 	'filterWhereSearch',
+// 	async (param, { dispatch }) => {
+// 		const { data } = await axios.get(
+// 			`http://164.92.190.147:8880/home/tour/${param}`
+// 		)
+// 		return data
+// 	}
+// )
 
 export const {
 	setValueWhere,
