@@ -1,16 +1,15 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {closeEditProfileModal} from "./authSlice";
 const API_URL = 'http://164.92.190.147';
 
 export const fetchFavorite = createAsyncThunk(
     'favorites/fetchFavorite',
-    async (id,user,{dispatch, rejectWithValue}) => {
+    async (id,favorites,{dispatch, rejectWithValue}) => {
         try{
             const response = await axios.get(`${API_URL}/profiles/${id}/favorites/`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')).access}`                    }
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`                    }
                 })
             const data = await response.data
             if(response.status === 200) {
@@ -23,17 +22,16 @@ export const fetchFavorite = createAsyncThunk(
 )
 export const fetchFavoriteProducts = createAsyncThunk(
     'favorites/fetchFavoriteProducts',
-    async (slug,token ,{dispatch, rejectWithValue}) => {
+    async (slug,favorites,{dispatch, rejectWithValue}) => {
         try{
             const response = await axios.post(`${API_URL}/home/tours/${slug}/favorite`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`,
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`,
                     }
                 })
             if (response.status === 200) {
                 const data = await response.data
-                console.log(data);
                 dispatch(addProduct(data))
             }else {
                 throw Error (`error: ${response.status}`)
@@ -45,12 +43,12 @@ export const fetchFavoriteProducts = createAsyncThunk(
 )
 export const removeFavorite = createAsyncThunk(
     'favorites/removeFavorite',
-    async (slug, token,{dispatch, rejectWithValue}) => {
+    async (slug,favorites, {dispatch, rejectWithValue}) => {
         try{
             const response = await axios.delete(`${API_URL}/home/tours/${slug}/favorite`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`
                     }
                 })
             if (response.status === 200) {
@@ -69,21 +67,30 @@ const favorites = createSlice({
     name: 'favorites',
     initialState: {
         card: [],
-        user:{},
+        userIno:null
 
     },
     reducers: {
         setUser: (state, action) => {
-            state.user = action.payload;
-            localStorage.setItem('favorites', JSON.stringify(state.user))
+            state.userInfo = action.payload;
+            localStorage.setItem('favorites', JSON.stringify(state.userInfo))
         },
         addProduct: (state, action) => {
-            state.card = [...state.card, action.payload]
+            const item = action.payload;
+            const existingItem = state.card.find((i) => i.id === item.id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                state.card.push({ ...item, quantity: 1 });
+            }
             localStorage.setItem('favorites', JSON.stringify(state.card))
+
         },
         removeProduct: (state, action) => {
-            state.card = state.card.filter((item) => item.id !== action.payload.id);
+            const el = action.payload;
+            state.card = state.card.filter((item) => item.id !== el.id);
             localStorage.setItem('favorites', JSON.stringify(state.card))
+
         }
 
     },
