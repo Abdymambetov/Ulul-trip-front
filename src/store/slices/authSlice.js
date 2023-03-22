@@ -9,6 +9,9 @@ const authSlice = createSlice({
         likesModal: false,
         reviewsModal: false,
         reservationModal: false,
+        deleteModal: false,
+        changePasswordModal: false,
+        editProfileModal: false,
         cardInfo: null
     }, 
     reducers: {
@@ -43,14 +46,53 @@ const authSlice = createSlice({
         closeReviewsModal: (state,action) => {
             state.reviewsModal = false
         },
-        openReservationModal: (state,action) => {
+        openDeleteModal: (state, action) => {
+            state.deleteModal = true
+        }, 
+        closeDeleteModal: (state, action) => {
+            state.deleteModal = false
+        },
+        openChangePasswordModal: (state, action) => {
+            state.changePasswordModal = true
+        },
+        closeChangePassword: (state, action) => {
+            state.changePasswordModal = false
+        },
+        openEditProfileModal: (state, action) => {
+            state.editProfileModal = true
+        },
+        closeEditProfileModal: (state, acition) => {
+            state.editProfileModal = false
+        },
+        openReservationModal : (state, action) => {
             state.reservationModal = true
         },
-        closeResevationModal: (state,action)=> {
+        closeResevationModal: (state,action) => {
             state.reservationModal = false
         },
     }
 })
 
-export const {openModal, closeModal, openComeInModal, closeComeInModal, openCardModal, closeCardModal, openLikesModal, closeLikesModal, openReviewsModal, closeReviewsModal, openReservationModal, closeResevationModal} = authSlice.actions; 
+export const {
+    openModal, 
+    closeModal, 
+    openComeInModal, 
+    closeComeInModal, 
+    openCardModal, 
+    closeCardModal, 
+    openLikesModal, 
+    closeLikesModal, 
+    openReviewsModal, 
+    closeReviewsModal, 
+    openDeleteModal, 
+    closeDeleteModal,
+    openChangePasswordModal,
+    openReservationModal,
+    closeResevationModal,
+    closeChangePassword,
+    openEditProfileModal,
+    closeEditProfileModal,
+    closeResrevationModal,
+    
+} = authSlice.actions; 
 export default authSlice.reducer

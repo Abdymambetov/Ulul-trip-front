@@ -4,17 +4,18 @@ const FilterSlice = createSlice({
 	name: 'mainSlice',
 	initialState: {
 		value: {
-			region: '',
 			duration: '',
 			price_max: '',
 			date_departure: '',
 			complexity: '',
 			category: '',
 		},
+		search: '',
+		filtered: {},
 	},
 	reducers: {
 		setValueWhere: (state, action) => {
-			state.value.region = action.payload
+			state.search = action.payload
 		},
 		setValueDuration: (state, action) => {
 			state.value.duration = action.payload
@@ -40,13 +41,32 @@ const FilterSlice = createSlice({
 			}
 		},
 	},
+	extraReducers: builder => {
+		builder.addCase(filterSearch.fulfilled, (state, action) => {
+			state.filtered = action.payload
+		})
+		builder.addCase(filterWhereSearch.fulfilled, (state, action) => {
+			state.filtered = action.payload
+		})
+	},
 })
 export const filterSearch = createAsyncThunk('filterSearch', async param => {
-	console.log(param)
-	axios.get('http://164.92.190.147:8880/home/tours/', {
+	// console.log(param)
+	const { data } = await axios.get('http://164.92.190.147:8880/home/tours/', {
 		params: param,
 	})
+	return data
 })
+
+export const filterWhereSearch = createAsyncThunk(
+	'filterWhereSearch',
+	async (param, { dispatch }) => {
+		const { data } = await axios.get(
+			`http://164.92.190.147:8880/home/tour/${param}`
+		)
+		return data
+	}
+)
 
 export const {
 	setValueWhere,

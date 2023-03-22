@@ -2,6 +2,10 @@ import React from 'react'
 import classes from './AboutUsAPage.module.css'
 import AboutusImg from '../../images/aboutUsImg/aboutus.png'
 import stickImg from '../../images/aboutUsImg/stick.svg'
+import expertsImg from '../../images/aboutUsImg/experts.svg'
+import clientImg from '../../images/aboutUsImg/client.svg'  
+import monthlyImg from '../../images/aboutUsImg/monthly.svg'
+import yearsImg from '../../images/aboutUsImg/years.svg'
 
 function AboutUsPage() {
   return (
@@ -29,14 +33,38 @@ function AboutUsPage() {
                 <img src = {AboutusImg} alt ='aboutus' className={classes.abt_image} />
                 </div>
 
+                <div className={classes.we_in_numbers}>Мы в цифрах</div>
                 <div className={classes.numbers_block}>
+                  <div className={classes.icon_and_text}>
+                    <img src ={expertsImg} alt = 'experts' className={classes.icon_image}/>
+                    <div className={classes.number}>42</div>
+                    <div className={classes.number_text}>Специалистов</div>
+                  </div>
+
+                  <div className={classes.icon_and_text}>
+                    <img src ={clientImg} alt = 'client' className={classes.icon_image}/>
+                    <div className={classes.number}>1255</div>
+                    <div className={classes.number_text}>Счастливых клиентов</div>
+                  </div>
+
+                  <div className={classes.icon_and_text}>
+                    <img src ={monthlyImg} alt = 'monthly' className={classes.icon_image}/>
+                    <div className={classes.number}>22</div>
+                    <div className={classes.number_text}>Туров ежемесячно</div>
+                  </div>
+
+                  <div className={classes.icon_and_text}>
+                    <img src ={yearsImg} alt = 'years' className={classes.icon_image}/>
+                    <div className={classes.number}>5</div>
+                    <div className={classes.number_text}>Лет на рынке</div>
+                  </div>
                 </div>
 
                 <div className={classes.service_caption}>Наши услуги</div>
                 <div className={classes.service_block}>
-                  {/* <div className={classes.service_bgc}></div> */}
-                
+              
                   <div className={classes.favors_block}>
+                    <div className={classes.favors_columns}>
                     <div className={classes.favors_caption}>
                       Наш спектр услуг
                     </div>
@@ -54,9 +82,12 @@ function AboutUsPage() {
                     <li className={classes.favors_li}>Встреча делегаций;</li>
                     <li className={classes.favors_li}>Организация мероприятий и ивентов;</li>
                   </ul>
+                    </div>
+                  
                   </div>
                  
                   <div className={classes.favors_block}>
+                    <div className={classes.favors_columns}>
                     <div className={classes.favors_caption}>
                       Наши преимущества
                     </div>
@@ -71,9 +102,12 @@ function AboutUsPage() {
                     <li className={classes.favors_li}>Возможность изменения маршрута или программы тура в кратчайшие сроки;</li>
                     <li className={classes.favors_li}>Предоставления страховых услуг</li>
                   </ul>
+                    </div>
+                    
                   </div>
                  
                   <div className={classes.favors_block}>
+                    <div className={classes.favors_columns}>
                     <div className={classes.favors_caption}>
                       Наша миссия
                     </div>
@@ -83,6 +117,8 @@ function AboutUsPage() {
                     <li className={classes.favors_li}>Добиться признания Кыргызстана как заслуживающего доверия направления в мировой туристической индустрии</li>
                     <li className={classes.favors_li}>Содействие развития сервиса и обслуживание в Кыргызстане</li>
                   </ul>
+                    </div>
+                    
                   </div>
                  
                 </div>

@@ -53,12 +53,46 @@
 }
 
 .numbers_block {
-    margin-top: 100px;
-    width: 100%;
-    height: 400px;
-    background-image: url(../../images/aboutUsImg/numbers.png);
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-around;
 }
 
+.number {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 36px;
+}
+
+.number_text{
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -1.5px;
+
+}
+
+.icon_and_text {
+    text-align: center;
+}
+.icon_image {
+    margin-bottom: 40px;
+}
+
+/* .numbers_block ::before {
+  
+} */
+.we_in_numbers {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    color:black;
+    text-align: center;
+    
+    
+}
 .service_block {
     background-color: white;
     width: 1170px;
@@ -95,6 +129,15 @@
     
 }
 
+.favors_columns {
+    width: 340px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 35px;
+    border: 1px solid #9EA9B7;
+    border-radius: 10px;
+}
+
 .favors_li {
     list-style-type: disc;
     font-weight: 400;
@@ -104,7 +147,7 @@
 }
 
 .favors_caption {
-    margin-bottom: 42px;
+    margin-bottom: 25px;
     font-weight: 700;
     font-size: 22px;
     line-height: 27px;
@@ -114,6 +157,7 @@
 .list {
     width: 230px;
     height: 333px;
+    list-style-position: inside;
 }
 
 .tour_caption {
