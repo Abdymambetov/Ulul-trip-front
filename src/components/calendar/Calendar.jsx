@@ -31,7 +31,9 @@ function Calendar() {
 	const dispatch = useDispatch()
 	const [activeInput, setActiveInput] = useState(true)
 	const handleChange = newValue => {
-		dispatch(setValueDay(newValue?.toJSON()?.slice(0, 10)))
+		const month = newValue.$d.getMonth()+1
+		const date = `${newValue.$d.getFullYear()}-${month<10 ?'0'+month:month}-${newValue.$d.getDate()}`
+		dispatch(setValueDay(date))
 	}
 	return (
 		<LocalizationProvider adapterLocale='ru' dateAdapter={AdapterDayjs}>
@@ -85,29 +87,27 @@ function Calendar() {
 				dayOfWeekFormatter={day =>
 					day.charAt(0).toUpperCase() + day.charAt(1)
 				}
-				// shouldDisableDate={day => {
-				// 	return day === dayjs().date()
-				// }}
+				
 				showDaysOutsideCurrentMonth={true}
 				renderDay={(day, _value, DayComponentProps) => {
 					if (DayComponentProps.disabled) {
 						return <CustomPicker {...DayComponentProps} />
 					} else if (day) {
 						return (
-							// <BootstrapTooltip
-							// 	key={DayComponentProps.day}
-							// 	title='Delete'
-							// >
-							<Box>
-								<CustomPicker
-									style={{
-										border: '1px solid #EAEAEA',
-										borderRadius: '10px',
-									}}
-									{...DayComponentProps}
-								/>
-							</Box>
-							// </BootstrapTooltip>
+							<BootstrapTooltip
+								key={DayComponentProps.day}
+								title='Delete'
+							>
+								<Box>
+									<CustomPicker
+										style={{
+											border: '1px solid #EAEAEA',
+											borderRadius: '10px',
+										}}
+										{...DayComponentProps}
+									/>
+								</Box>
+							</BootstrapTooltip>
 						)
 					}
 				}}
@@ -126,7 +126,9 @@ function Calendar() {
 							type='date'
 							sx={{
 								mr: '20px',
-								borderRadius: '0px 14px 14px 0px',
+								border: activeInput === 4 ? '2px solid #FF6F32':'',
+								borderRadius: activeInput === 4 ?'0px 0 14px 0px':'0px 14px 14px 0px',
+
 								'& .MuiFormControl-root': {},
 								'& .MuiButtonBase-root': {
 									cursor: 'none !important',
@@ -137,10 +139,7 @@ function Calendar() {
 								},
 								'& .MuiOutlinedInput-notchedOutline': {
 									border: 'none',
-								},
-								'& .Mui-focused': {
-									border: '2px solid #FF6F32',
-								},
+								}
 							}}
 							className={classes.inputs_from_date}
 							onFocus={() => setActiveInput(4)}
@@ -171,7 +170,7 @@ function CustomPicker(props) {
 				color: '#9F9F9F',
 				'&.Mui-selected': {
 					width: '45px',
-					height: '40px',
+					height: '45px',
 					background: '#6AA9FF !important',
 					borderRadius: '6px',
 					border: 'none',

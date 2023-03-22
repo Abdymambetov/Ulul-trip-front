@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './AboutUsAPage.module.css'
 import AboutusImg from '../../images/aboutUsImg/aboutus.png'
 import stickImg from '../../images/aboutUsImg/stick.svg'
@@ -7,7 +7,26 @@ import clientImg from '../../images/aboutUsImg/client.svg'
 import monthlyImg from '../../images/aboutUsImg/monthly.svg'
 import yearsImg from '../../images/aboutUsImg/years.svg'
 
+
+function Counter({ value }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (count < value) {
+        setCount(count + 1);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [count, value]);
+
+  return <h1>{count}</h1>;
+}
+
+
 function AboutUsPage() {
+
   return (
     <div className={classes.aboutUs}>
         <div className={classes.container}>
@@ -36,26 +55,30 @@ function AboutUsPage() {
                 <div className={classes.we_in_numbers}>Мы в цифрах</div>
                 <div className={classes.numbers_block}>
                   <div className={classes.icon_and_text}>
+                  
+                    
+               
+                
                     <img src ={expertsImg} alt = 'experts' className={classes.icon_image}/>
-                    <div className={classes.number}>42</div>
+                    <Counter value={42} />
                     <div className={classes.number_text}>Специалистов</div>
                   </div>
 
                   <div className={classes.icon_and_text}>
                     <img src ={clientImg} alt = 'client' className={classes.icon_image}/>
-                    <div className={classes.number}>1255</div>
+                    <Counter value={1255}/>
                     <div className={classes.number_text}>Счастливых клиентов</div>
                   </div>
 
                   <div className={classes.icon_and_text}>
                     <img src ={monthlyImg} alt = 'monthly' className={classes.icon_image}/>
-                    <div className={classes.number}>22</div>
+                  <Counter value = {22}/>
                     <div className={classes.number_text}>Туров ежемесячно</div>
                   </div>
 
                   <div className={classes.icon_and_text}>
                     <img src ={yearsImg} alt = 'years' className={classes.icon_image}/>
-                    <div className={classes.number}>5</div>
+                   <Counter value ={5}/>
                     <div className={classes.number_text}>Лет на рынке</div>
                   </div>
                 </div>

@@ -1,16 +1,13 @@
 import { Box, InputBase, Slider } from '@mui/material'
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import coordinates from '../../images/firstBlockImg/coordinates (2).svg'
 import searchImg from '../../images/firstBlockImg/search.svg'
 import {
-	filterSearch,
-	filterWhereSearch,
-	setValueDuration,
+	filterSearch, setValueDuration,
 	setValuePrice,
-	setValueWhere,
+	setValueWhere
 } from '../../store/slices/FilterTour'
 import Calendar from '../calendar/Calendar'
 import classes from '../firstBlockHome/FirstBlockHome.module.css'
@@ -53,8 +50,8 @@ function SearchComponent() {
 	const [activeInput, setActiveInput] = useState(null)
 	const nav = useNavigate()
 	const location = useLocation()
-	const { value, search } = useSelector(state => state.filtered)
-	const { duration, price_max } = value
+	const { value } = useSelector(state => state.filtered)
+	const { duration, price_max,region } = value
 	const handleSubmit = e => {
 		e.preventDefault()
 		if (location.pathname !== '/search') {
@@ -67,40 +64,15 @@ function SearchComponent() {
 	const handleChangeDuration = (event, newValue) => {
 		dispatch(setValueDuration(newValue))
 	}
-	const [slugs, setSlugs] = useState([])
-	useEffect(() => {
-		axios
-			.get('http://164.92.190.147:8880/home/slugs/?limit=0&offset=0')
-			.then(resp => setSlugs(resp.data.results))
-	}, [])
 
 	const handleChangeWhere = ({ target }) => {
-		if (location.pathname !== '/search') {
-			nav('/search')
-		}
 		dispatch(setValueWhere(target.value))
-		const slugsSearch = slugs.find(item =>
-			item.title.includes(target.value)
-		)
-		dispatch(filterWhereSearch(slugsSearch?.slug))
+		
 	}
 
 	const handleChangePrice = (event, newValue) => {
 		dispatch(setValuePrice(newValue))
 	}
-	const top100Films = [
-		{ title: 'The Shawshank Redemption', year: 1994 },
-		{ title: 'The Godfather', year: 1972 },
-		{ title: 'The Godfather: Part II', year: 1974 },
-		{ title: 'The Dark Knight', year: 2008 },
-		{ title: '12 Angry Men', year: 1957 },
-		{ title: "Schindler's List", year: 1993 },
-		{ title: 'Pulp Fiction', year: 1994 },
-		{
-			title: 'The Lord of the Rings: The Return of the King',
-			year: 2003,
-		},
-	]
 	return (
 		<form onSubmit={handleSubmit} className={classes.form_inputs}>
 			<div className={classes.parent_input_where}>
@@ -114,7 +86,7 @@ function SearchComponent() {
 				)}
 
 				<div className={classes.slugPos}>
-					<input
+					<InputBase
 						type='text'
 						placeholder='Куда'
 						sx={{
@@ -126,20 +98,12 @@ function SearchComponent() {
 								fontSize: '18px !important',
 							},
 						}}
-						value={search}
-						list='slugSearch'
+						value={region}
 						onChange={handleChangeWhere}
 						className={classes.inputs_from_where}
 						onFocus={() => setActiveInput(1)}
 						onBlur={() => setActiveInput(null)}
 					/>
-					<datalist className={classes.slugsSearch} id='slugSearch'>
-						{slugs.map(slug => (
-							<option key={slug.id} value={slug.title}>
-								{slug.title}
-							</option>
-						))}
-					</datalist>
 				</div>
 				<img
 					src={searchImg}
@@ -189,6 +153,7 @@ function SearchComponent() {
 							background:
 								'linear-gradient(0deg, #FFFFFF 90.37%, #000 120%, rgba(255, 255, 255, 0) 100%)',
 							position: 'absolute',
+							zIndex:100,
 							py: '20px',
 							width: 145,
 							height: 200,
@@ -246,7 +211,8 @@ function SearchComponent() {
 								'linear-gradient(0deg, #FFFFFF 90.37%, #000 120%, rgba(255, 255, 255, 0) 100%)',
 							position: 'absolute',
 							py: '20px',
-							width: 145,
+							zIndex:100,
+							width: 155,
 							height: 200,
 						}}
 						onFocus={() => setActiveInput(3)}
@@ -268,11 +234,9 @@ function SearchComponent() {
 							orientation='vertical'
 						/>
 					</Box>
-				)}
+				)} 
 			</div>
-
 			<Calendar />
-
 			<input
 				type='submit'
 				onSubmit={handleSubmit}

@@ -1,12 +1,13 @@
 .modal_inner {
     display: flex;
-    height: 825px;
+
+
     /* position: relative; */
 }
 
 .cross_block {
     position: absolute;
-    top: 12px;
+    top: 7px;
     right: 1px;
     width: 30px;
     height: 30px;
@@ -220,6 +221,12 @@ margin-top: 5px;
 
 .heart_header {
     display: flex;
+    position: absolute;
+    left: 10.75%;
+    right: 84.75%;
+    top: -2%;
+    bottom: 18.75%;
+
 }
 
 .heart {
@@ -403,16 +410,13 @@ margin-top: 5px;
     margin-right: 6px;
 }
 
-.price_som {
-}
+
 
 .rating {
     display: flex;
     margin-top: 16px;
 }
 
-.rating_and_guide {
-}
 .rating_image {
     margin-left: 20px;
     margin-right: 2px;

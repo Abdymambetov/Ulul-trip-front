@@ -2,8 +2,7 @@ import { Box, Modal } from '@mui/material'
 // import React from 'react'
 import classes from './CardModalPage.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCardModal, openReservationModal, openReviewsModal} from '../../store/slices/authSlice';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import {closeCardModal, openCardModal, openReservationModal, openReviewsModal} from '../../store/slices/authSlice'
 import penImg from '../../images/cardModalImg/pen.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
 import heartImg  from '../../images/cardModalImg/heart.svg'
@@ -32,19 +31,16 @@ import Reviews from './Reviews';
 import ModalReviews from './ModalReviews';
 import { tourInfoAction } from '../../store/slices/TourSlice';
 import { useParams } from 'react-router-dom';
-import Calendar from '../../components/calendar/Calendar';
-import AboutUsPage from '../aboutUs/AboutUsPage';
-
-
-// import { useState } from 'react';
-// import Heart from 'react-heart';
+import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
+import Heart from "react-heart";
+import {Favorite} from "@mui/icons-material";
 
 
 const style = {
     width: '990px',
     height: '100vh',
     position: 'absolute',
-    top: '50%',
+    top: '55%',
     left: '50%',
     transform: 'translate(-50%, -50%) scale(1.05)',
     bgcolor: 'background.paper',
@@ -71,48 +67,39 @@ function CardModalPage() {
         setProducts(data);
         
       };
+
       fetchProducts();
     }, [cardInfo]);
     console.log(products)
 
-//     const [imageSrc, setImageSrc] = useState('');
-
-//   const setImage = (text) => {
-//     if (text === 'Пеший тур') {
-//       setImageSrc(walkerImg);
-//     } else if (text === 'Конный тур') {
-//       setImageSrc(rideImg);
-//     } else if (text === 'Джип тур') {
-//       setImageSrc(jeepImg);
-//     } else {
-//         setImageSrc (bikerImg)
-//     }
-//   };
-
-//   if (products && products?.category && products?.category?.name) {
-//     setImage(products?.category?.name)
-//   } else {
-//     console.warn('Unable to set image - products or category name is undefined')
-//   }
-//     const [active ,setActive] = useState(false);
-//   const [notActive , setNotActive] =useState('heard');
-
-
-    //   const heandleClick = () => {
-    //     if(active === false){
-    //       setActive(true)
-    //       setNotActive('heard_focus')
-    //     } else{
-    //       setActive(false)
-    //       setNotActive('heard')
-    //     }
-    //   }
 
     const heandleOpenReviews = () => {
         dispatch(openReviewsModal())
     }
+    const {card} = useSelector(state => state.favorites)
+    const [active, setActive] = useState(true)
+    const [notActive, setNotActive] = useState('heard_focus')
+    const isFavorite = card.findIndex(el =>el.id === products.id)
+    const handleClick = (el) => {
+        if (isFavorite, active === true) {
+            dispatch(removeProduct(el));
+            setActive(true);
+            setNotActive('heard_focus');
+        } else if (isFavorite , active === false) {
+            dispatch(addProduct(el));
+            setActive(true);
+            setNotActive('heard_focus')
+        } else {
+            dispatch(addProduct(el));
+            setActive(true);
+            setNotActive('heard_focus');
+        }
+    }
+    const Favorite = card.some((el) => el.id === products.id);
+    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
 
-  return (
+
+    return (
     <div>
         <Modal
             open={cardModal}
@@ -142,20 +129,19 @@ function CardModalPage() {
                         pagination={{ clickable: true }}
                         
                     >
-                        <SwiperSlide>
-                            {
-                                products?.tour_image?.map(item=><img scr = {item?.images.replace(
-                                    /(\d{1,3}\.\d{1,3}\.)\d{1,3}/,
-                                    '$1' + '147:8800'
-                                )} alt = 'hello' className={classes.swiper_images}/>)
-                            }
-                        </SwiperSlide>
+                        {/*<SwiperSlide >*/}
+                            {/* {
+                                products?.tour_images?.map(item=><img src={item?.images.replace(
+                                    /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                    '$1' + '147:8880' 
+                                )} alt='hello'/>)
+                            }                         */}
+                            
+                        {/*</SwiperSlide>*/}
 
-                        </Swiper> */}
+                        {/* </Swiper> */}
                         </div>
                     
-                    </div>
-                       
                         <div className={classes.text}>
                            {products?.description}
                     </div>
@@ -175,36 +161,25 @@ function CardModalPage() {
                         <Reviews/>  
                         <Reviews/>  
                         <Reviews/>
-                        </div>
-                        </div>
-                    
-                  
-                         
-                
-                    
-                        
                 
                     </div>
+                    </div>
                     <div className={classes.block_booking}>
-                        {/* <div className={classes.heart_header}>
+                         <div className={classes.heart_header}>
                         <div className={notActive} style={{width: "32px", height: "32px", }}>
-                            <Heart  className='heard-back' 
-                            isActive={active} 
-                            onClick={heandleClick}
-                            animationTrigger = "both" 
-                            inactiveColor='red'
-                            activeColor = "red"
-                            animationDuration={0.1} style={{width: '20px', height: '18px'}}/>
+                            <Heart  c className="heard-back"
+                                    isActive={Favorite}
+                                    onClick={() => handleClick(products)}
+                                    animationTrigger="both"
+                                    activeColor='#FF6F32'
+                                    inactiveColor="#FF6F32"
+                                    animationDuration={0.1}
+                                    style={{ width: '20px', height: '18px' }}
+                                    color={heartColor}
+                            />
                         </div>
-                    </div> */}
-                        
-                        <div className={classes.heart_header}>
-                            <img src ={heartImg} alt ='h' className={classes.heart}/>
-                            <h1 className={classes.heart_text}>{products?.title}</h1>
-                        </div>
-        
-        
-        
+                    </div>
+
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
                                 <img src ={regionImg} alt = 'r' className={classes.region_image}/>
@@ -303,14 +278,17 @@ function CardModalPage() {
                         <button className={classes.reservation} onClick = {openReservation} >Забронировать</button>
                         
                     </div>
+
+
+
+                </div>
                 </div>
             <ModalReviews/>
-            <Reservetion item={products}/>
+            </div>
         </Box>  
         </Modal>
-        
     </div>
-  )
+ )
 }
 
 export default CardModalPage
