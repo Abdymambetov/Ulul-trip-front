@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import FirstBlockHome from '../../components/firstBlockHome/FirstBlockHome'
+import CheckDigits from '../../components/header/signUpHeader/comeInModal/requestResetComponent/CheckDigits'
 import SecondCards from '../../components/homePageComponents/allCards/secondCards/SecondCards'
 import IncreaseCards from '../../components/homePageComponents/allCards/threeCards/increaseCards/IncreaseCards'
 import LastBlock from '../../components/homePageComponents/lastBlock/LastBlock'
@@ -26,6 +27,7 @@ function HomePage() {
                     <PeshijTur/>
                     <Velotur/> */}
                     <CardModalPage />
+                    <CheckDigits/>
                 </div>
             </div>
             <LastBlock />

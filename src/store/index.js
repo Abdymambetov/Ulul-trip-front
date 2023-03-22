@@ -15,7 +15,6 @@ export const store = configureStore({
 		regis: registerReducer,
 		tours: tourReducer,
 		profile: profileReducer,
-		// tours: tourReducer,
 		filtered: FilterTourReducer,
 		increasedCards: increaseCardsReducer, //Zhamal 18.03.23
 		secondCards: secondCardsReducer, //Zhamal 18.03.23

@@ -40,24 +40,24 @@ function ChangePasswordModa() {
   const changePasswordAgain = (event) => {
     setPasswordNewAgain(event.target.value)
   }
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const user = {email, password_old,  password_new, password_new_again}
-  //   dispatch(changeProfileAction(user))
-  // }
-  const {
-    register,
-    formState:{errors},
-    handleSubmit,
-    reset,
-  } = useForm({
-    mode: "all"
-  });
-
-  const onSubmit = (data)=>{
-    alert(JSON.stringify(data))
-    reset()
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const user = {email, password_old,  password_new, password_new_again}
+    dispatch(changeProfileAction(user))
   }
+  // const {
+  //   register,
+  //   formState:{errors},
+  //   handleSubmit,
+  //   reset,
+  // } = useForm({
+  //   mode: "all"
+  // });
+
+  // const onSubmit = (data)=>{
+  //   alert(JSON.stringify(data))
+  //   reset()
+  // }
  
  
   return (
@@ -67,14 +67,14 @@ function ChangePasswordModa() {
     >
       <Box sx={style}>
           <div className={classes.modal_inner}>
-            <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-            {/* <input type="text" name='email' placeholder='email' onChange={changeEmail}/>
+            <form className={classes.form} onSubmit={handleSubmit}>
+            <input type="text" name='email' placeholder='email' onChange={changeEmail}/>
               <input type="text" name='password_old' placeholder='old_password' onChange={changePassword}/>
               <input type="text" name='password_new' placeholder='new' onChange={changeNewPassword}/>
               <input type="text" name='password_new_again' placeholder='again' onChange={changePasswordAgain}/>
-              <button onClick={handleSubmit}>Отпрвить</button> */}
+              <button onClick={handleSubmit}>Отпрвить</button>
             
-            <div className={classes.error}>{errors?.Email && <p>{errors?.Email?.message}</p>}</div>
+            {/* <div className={classes.error}>{errors?.Email && <p>{errors?.Email?.message}</p>}</div>
             <input placeholder='Email'
            {...register("Email",{
             required: "Email обязательно к заполнению",
@@ -113,8 +113,8 @@ function ChangePasswordModa() {
               message: "пароль не может содержать символов, только цифры и буквы, должен быть не меньше 8 и не больше 16"
             }
            })}
-            /> 
-            <button >отправить</button>
+            />  */}
+            {/* <button >отправить</button> */}
             </form>
           </div>
       </Box>
