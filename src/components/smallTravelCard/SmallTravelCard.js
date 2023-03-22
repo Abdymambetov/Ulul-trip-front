@@ -6,23 +6,30 @@ import point from '../../images/smallCardImg/Vector (3).svg'
 import star from '../../images/smallCardImg/star.svg'
 import { useDispatch } from 'react-redux'
 import { openCardModal } from '../../store/slices/authSlice'
+import {useSelector} from "react-redux";
+import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
 
 
 function SmallTravelCard({item}) {
+    const dispatch = useDispatch()
+    const {card }= useSelector(state => state.favorites)
     const [active, setActive] = useState(false)
     const [notActive, setNotActive] = useState('heard')
-
-    const heandleClick = e => {
-        if (active === false) {
-            setActive(true)
-            setNotActive('heard_focus')
+    const isFavorite = card.findIndex(el =>el.id === item.id)
+       const handleClick = (el) => {
+        if (isFavorite , active === false) {
+            dispatch(addProduct(el));
+            setActive(true);
+            setNotActive('heard_focus');
         } else {
-            setActive(false)
-            setNotActive('heard')
+            dispatch(removeProduct(el));
+            setActive(false);
+            setNotActive('heard');
         }
     }
+    const Favorite = card.some((el) => el.id === item.id);
+    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
 
-    const dispatch = useDispatch()
 
     const openModal = e => {
         if (
@@ -55,13 +62,14 @@ function SmallTravelCard({item}) {
                         >
                             <Heart
                                 className="heard-back"
-                                isActive={active}
-                                onClick={heandleClick}
+                                isActive={Favorite}
+                                onClick={() => handleClick(item)}
                                 animationTrigger="both"
+                                activeColor='#FF6F32'
                                 inactiveColor="#FF6F32"
-                                activeColor="#FF6F32"
                                 animationDuration={0.1}
                                 style={{ width: '20px', height: '18px' }}
+                                color={heartColor}
                             />
                         </div>
                     </div>

@@ -1,12 +1,13 @@
 .modal_inner {
     display: flex;
 
+
     /* position: relative; */
 }
 
 .cross_block {
     position: absolute;
-    top: 12px;
+    top: 7px;
     right: 1px;
 }
 .block_reviwes {
@@ -137,9 +138,16 @@
 
 .block_booking {
     /* position: fixed; */
+
 }
 .heart_header {
     display: flex;
+    position: absolute;
+    left: 10.75%;
+    right: 84.75%;
+    top: -2%;
+    bottom: 18.75%;
+
 }
 
 .heart {

@@ -28,14 +28,14 @@ function CheckDigits() {
       console.log(`Submitting number ${number} to server...`);
       // здесь можно отправить число на сервер с помощью fetch или других методов
       const filteredDigits = digits.filter(digit => digit !== '').map(digit => Number(digit));
-      const passDigit = {digits: filteredDigits}
+      const passDigit = {filteredDigits}
       dispatch(chechDigitsAction(passDigit))
     };
     
   return (
     <Modal 
         open={checkDigitsModal}
-        onClose = {() => dispatch(closeCheckDigitsModal)}
+        onClose = {() => dispatch(closeCheckDigitsModal())}
     >
         <Box sx={style}>
           <div>
