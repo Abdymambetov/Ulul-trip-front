@@ -138,7 +138,7 @@
 
 .block_booking {
     /* position: fixed; */
-
+    width:350px
 }
 .heart_header {
     display: flex;
@@ -422,8 +422,6 @@ border-radius: 30px;
 }
 
 .vasya_text {
-    width: 75px;
-    height: 21px;
     font-weight: 400;
     font-size: 12px;
     line-height: 21px;
@@ -499,4 +497,25 @@ border-radius: 30px;
     line-height: 17px;
     text-align: center;
     color: #ebf3ff;
+}
+
+
+/* data */
+.data{
+    margin-top:7px;
+    border-top:1px solid #EEEEEE;
+    padding-top:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+.data_title{
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 17px;
+color: #ABABAB;
+margin-bottom:15px;
 }

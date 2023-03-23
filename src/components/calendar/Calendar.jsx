@@ -87,17 +87,16 @@ function Calendar() {
 				dayOfWeekFormatter={day =>
 					day.charAt(0).toUpperCase() + day.charAt(1)
 				}
-				
 				showDaysOutsideCurrentMonth={true}
 				renderDay={(day, _value, DayComponentProps) => {
 					if (DayComponentProps.disabled) {
 						return <CustomPicker {...DayComponentProps} />
 					} else if (day) {
 						return (
-							<BootstrapTooltip
-								key={DayComponentProps.day}
-								title='Delete'
-							>
+							// <BootstrapTooltip
+							// 	key={DayComponentProps.day}
+							// 	title='Delete'
+							// >
 								<Box>
 									<CustomPicker
 										style={{
@@ -107,7 +106,7 @@ function Calendar() {
 										{...DayComponentProps}
 									/>
 								</Box>
-							</BootstrapTooltip>
+							// </BootstrapTooltip>
 						)
 					}
 				}}
@@ -157,27 +156,27 @@ export default memo(Calendar)
 function CustomPicker(props) {
 	return (
 		<PickersDay
-			disableMargin={true}
+			// disableMargin={true}
 			today={true}
 			sx={{
 				cursor: 'none',
-				width: '45px',
-				height: '45px',
+				width: '42px',
+				height: '42px',
 				fontFamily: 'Rubik',
 				fontStyle: 'normal',
 				fontWeight: 400,
 				fontSize: '20px',
 				color: '#9F9F9F',
 				'&.Mui-selected': {
-					width: '45px',
-					height: '45px',
+					width: '42px',
+					height: '42px',
 					background: '#6AA9FF !important',
 					borderRadius: '6px',
 					border: 'none',
 				},
 				'&:hover': {
-					width: '45px',
-					height: '45px',
+					width: '42px',
+					height: '42px',
 					borderRadius: '6px',
 					background: '#C3DCFF',
 					color: '#4C97FE',
