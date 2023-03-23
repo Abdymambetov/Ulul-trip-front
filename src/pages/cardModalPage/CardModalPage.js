@@ -25,7 +25,8 @@ import { tourInfoAction } from '../../store/slices/TourSlice';
 import { useParams } from 'react-router-dom';
 import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
 import Heart from "react-heart";
-import {Favorite} from "@mui/icons-material";
+import { getReviwesAction } from '../../store/slices/reviwesSlice'
+
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -46,6 +47,7 @@ const style = {
 function CardModalPage() {
     const dispatch = useDispatch()
     const {cardModal, cardInfo} = useSelector(state => state.modalTour)
+    const {reviews} = useSelector(state => state.review)
     const closeMod = () => {
         dispatch(closeCardModal())
     }
@@ -60,6 +62,7 @@ function CardModalPage() {
       };
 
       fetchProducts();
+      dispatch(getReviwesAction())
     }, [cardInfo]);
     console.log(products)
 
@@ -115,7 +118,7 @@ function CardModalPage() {
                         navigation
                         pagination={{ clickable: true }}
                     >
-                        {/*<SwiperSlide >*/}
+                        <SwiperSlide >
                             {/* {
                                 products?.tour_images?.map(item=><img src={item?.images.replace(
                                     /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
@@ -123,7 +126,7 @@ function CardModalPage() {
                                 )} alt='hello'/>)
                             }                         */}
                             
-                        {/*</SwiperSlide>*/}
+                        </SwiperSlide>
 
                         </Swiper>
                         </div>
@@ -135,14 +138,12 @@ function CardModalPage() {
                         <div className={classes.title}>Отзывы</div>
                         <img src ={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
                     </div> 
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>  
-                        <Reviews/>
+                    {
+                        reviews.map(info => 
+                            <Reviews key={info?.id} info={info}/>  
+                        )
+                    }
+                       
                 
                     </div>
                     </div>

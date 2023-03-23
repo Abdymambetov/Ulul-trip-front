@@ -9,7 +9,7 @@ import likesModalReducer from "./slices/likesModalSlice"
 import increaseCardsReducer from "./slices/increaseCardsSlice";
 import secondCardsReducer from "./slices/secondCardsSlice";
 import threeMainCardsReducer from "./slices/threeMainCardsSlice";
-
+import reviwesReducer from './slices/reviwesSlice'
 
 
 export const store = configureStore({
@@ -23,6 +23,7 @@ export const store = configureStore({
 		favorites:likesModalReducer,
 		increasedCards: increaseCardsReducer,
 		secondCards: secondCardsReducer,
-		threeMainCards: threeMainCardsReducer
+		threeMainCards: threeMainCardsReducer,
+		review: reviwesReducer
 	},
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Modal } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { closeReviewsModal } from '../../store/slices/authSlice';
@@ -8,6 +8,7 @@ import starsImg from '../../images/cardModalImg/Stars.svg'
 import { BentoTwoTone } from '@mui/icons-material';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
+import { addReviewAction } from '../../store/slices/reviwesSlice';
 
 
 const style = {
@@ -26,10 +27,19 @@ function ModalReviews() {
 
     const {reviewsModal} = useSelector(state=> state.modalTour)
     const dispatch = useDispatch()
-
+    const [rating,setRating]=useState(1)
+    const [text, setText] = useState('')
     const heandleCloseMod = () => {
         dispatch(closeReviewsModal())
     }
+    const changeTextArea = (e) => {
+        setText(e.target.value)
+    } 
+    const handleSubmitReview = (e) =>{
+        e.preventDefault()
+        const param = {text, rating}
+        dispatch(addReviewAction(param))
+    }      
   return (
     <Modal open = {reviewsModal} onClose = {heandleCloseMod}>
         <Box sx ={style}>
@@ -40,17 +50,20 @@ function ModalReviews() {
                 </div>
                 
                 <div className={classes.user_reviwes}>
-                    <textarea className={classes.post_text} placeholder='Напишите о своих впечатлениях' rows="11" cols="50"/>
+                    <textarea className={classes.post_text} placeholder='Напишите о своих впечатлениях' rows="11" cols="50" onChange={changeTextArea}/>
                 </div>
 
                 <div className={classes.rating_and_btn}>
                     <div className={classes.text_and_stars}>
                         <div className={classes.text_rating}>Вася Пупкин</div>
                         <Stack spacing={1}>
-                        <Rating name="size-large" defaultValue={2} size="large" />
+                        <Rating name="size-large"  value={rating} onChange={(e,value)=>{
+                            console.log(value)
+                            setRating(value)
+                        }} size="large" />
     </Stack>
                     </div>
-                    <button className={classes.btn}>Опубликовать</button>
+                    <button className={classes.btn} onClick={handleSubmitReview}>Опубликовать</button> 
                 </div>
             </div>
         </Box>
