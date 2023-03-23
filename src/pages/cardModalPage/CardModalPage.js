@@ -1,40 +1,32 @@
 import { Box, Modal } from '@mui/material'
 // import React from 'react'
-import classes from './CardModalPage.module.css'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import Heart from "react-heart"
 import { useDispatch, useSelector } from 'react-redux'
-import {closeCardModal, openCardModal, openReservationModal, openReviewsModal} from '../../store/slices/authSlice'
-import penImg from '../../images/cardModalImg/pen.svg'
-import starsImg from '../../images/cardModalImg/Stars.svg'
-import heartImg  from '../../images/cardModalImg/heart.svg'
-import regionImg from '../../images/cardModalImg/region.svg'
-import groupImg from '../../images/cardModalImg/Group.svg'
-import ratingImg from '../../images/cardModalImg/rating.svg'
-import guideImg from '../../images/cardModalImg/guide.svg'
-import walkerImg from '../../images/cardModalImg/walker.svg'
+import SwiperCore, { Navigation, Pagination } from "swiper"
+import { Swiper } from "swiper/react"
+import "swiper/swiper-bundle.css"
+// import CardModalCalendar from '../../components/calendar/CardModalCalendar'
 import googleImg from '../../images/cardModalImg/GoogleTwo.svg'
-import vasyaImg from '../../images/cardModalImg/vasya.png'
-import crossImg from '../../images/modalImg/Cross2.svg'
+import groupImg from '../../images/cardModalImg/Group.svg'
+import guideImg from '../../images/cardModalImg/guide.svg'
+import penImg from '../../images/cardModalImg/pen.svg'
+import ratingImg from '../../images/cardModalImg/rating.svg'
+import regionImg from '../../images/cardModalImg/region.svg'
+import starsImg from '../../images/cardModalImg/Stars.svg'
+import walkerImg from '../../images/cardModalImg/walker.svg'
+import warningImg from '../../images/cardModalImg/warning.svg'
 import timeImg from '../../images/cardModalImg/time.svg'
 import priceImg from '../../images/cardModalImg/price.svg'
-import warningImg from '../../images/cardModalImg/warning.svg'
 import gidImg from '../../images/cardModalImg/gid.svg'
-import Reservetion from './ReservationComponent/Reservation'
-// import rideImg from '../../images/cardModalImg/rider.svg'
-// import jeepImg from '../../images/cardModalImg/jeep.svg'
-// import bikerImg from '../../images/cardModalImg/biker.svg'
-
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-// import SwiperCore, { Navigation, Pagination } from "swiper";
-// import { Swiper, SwiperSlide } from "swiper/react";
-import Reviews from './Reviews';
-import ModalReviews from './ModalReviews';
+import crossImg from '../../images/modalImg/Cross2.svg'
+import { closeCardModal, openReservationModal, openReviewsModal } from '../../store/slices/authSlice'
+import { addProduct, removeProduct } from "../../store/slices/likesModalSlice"
+import classes from './CardModalPage.module.css'
+import ModalReviews from './ModalReviews'
+import Reviews from './Reviews'
 import Reservation from './ReservationComponent/Reservation'
-// import { tourInfoAction } from '../../store/slices/TourSlice';
-// import { useParams } from 'react-router-dom';
-// import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
-// import Heart from "react-heart";
-// import {Favorite} from "@mui/icons-material";
 
 
 const style = {
@@ -77,29 +69,32 @@ function CardModalPage() {
     const heandleOpenReviews = () => {
         dispatch(openReviewsModal())
     }
-    // const {card} = useSelector(state => state.favorites)
-    // const [active, setActive] = useState(true)
-    // const [notActive, setNotActive] = useState('heard_focus')
-    // const isFavorite = card.findIndex(el =>el.id === products.id)
-    // const handleClick = (el) => {
-    //     if (isFavorite, active === true) {
-    //         dispatch(removeProduct(el));
-    //         setActive(true);
-    //         setNotActive('heard_focus');
-    //     } else if (isFavorite , active === false) {
-    //         dispatch(addProduct(el));
-    //         setActive(true);
-    //         setNotActive('heard_focus')
-    //     } else {
-    //         dispatch(addProduct(el));
-    //         setActive(true);
-    //         setNotActive('heard_focus');
-    //     }
-    // }
-    // const Favorite = card.some((el) => el.id === products.id);
-    // const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
-
-
+    const {card} = useSelector(state => state.favorites)
+    const [active, setActive] = useState(true)
+    const [notActive, setNotActive] = useState('heard_focus')
+    const isFavorite = card.findIndex(el =>el.id === products.id)
+    const handleClick = (el) => {
+        if (isFavorite, active === true) {
+            dispatch(removeProduct(el));
+            setActive(true);
+            setNotActive('heard_focus');
+        } else if (isFavorite , active === false) {
+            dispatch(addProduct(el));
+            setActive(true);
+            setNotActive('heard_focus')
+        } else {
+            dispatch(addProduct(el));
+            setActive(true);
+            setNotActive('heard_focus');
+        }
+    }
+    const Favorite = card.some((el) => el.id === products.id);
+    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
+    console.log(products)
+    const date = {
+        back:products.date_arrival,
+        gone:products.date_departure
+    }
     return (
     <div>
         <Modal
@@ -227,7 +222,7 @@ function CardModalPage() {
                     </div>
                             <hr className={classes.line_two}></hr>
                             
-                        <div className={classes.rating_and_guide}>
+                    <div className={classes.rating_and_guide}>
         
                     
         
@@ -270,20 +265,16 @@ function CardModalPage() {
                                 </div>
                             </div>
                         </div>
-                    
                         
-                        </div>
-        
-
-                        <div className={classes.calendar}>
-        
-                        </div>
-
-                        <button className={classes.reservation} onClick = {openReservation} >Забронировать</button>
-                        <Reservation/>
-                    </div>
-
+                    </div> 
+                     {/* <div className={classes.data}>
+                        <span className={classes.data_title}>ДОСТУПНЫЕ ДАТЫ</span>
+                        <CardModalCalendar propsDate={date}/>
+                     </div> */}
+                     <button className={classes.btn_reservation} onClick  ={openReservation}>Забронировать</button>
+                </div>
             <ModalReviews/>
+            <Reservation item={products}/>
             </div>
         </Box>  
         </Modal>
