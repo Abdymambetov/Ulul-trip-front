@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import { addReviewAction } from '../../store/slices/reviwesSlice';
 
 
+
 const style = {
     width: '500px',
     height: '300px',
@@ -41,16 +42,16 @@ function ModalReviews({products}) {
         dispatch(addReviewAction(param))
     }      
   return (
-    <Modal open = {reviewsModal} onClose = {heandleCloseMod}>
+    <Modal className = {classes.modal_reviews} open = {reviewsModal} onClose = {heandleCloseMod}>
         <Box sx ={style}>
             <div className={classes.reviews}>
                 <div className={classes.title_reviews}>
                     <div className={classes.title_text}>Название тура</div>
-                    <img src = {crossImg} alt='cross' className={classes.cross}/>
+                    <img src = {crossImg} alt='cross' className={classes.cross} onClick= {()=> dispatch(closeReviewsModal())}/>
                 </div>
                 
                 <div className={classes.user_reviwes}>
-                    <textarea className={classes.post_text} placeholder='Напишите о своих впечатлениях' rows="11" cols="50" onChange={changeTextArea}/>
+                    <textarea className={classes.post_text} placeholder='Напишите о своих впечатлениях' rows="11" cols="45" onChange={changeTextArea}/>
                 </div>
 
                 <div className={classes.rating_and_btn}>

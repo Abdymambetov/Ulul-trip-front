@@ -1,4 +1,198 @@
-.container{
-    width: 1060px;
+
+
+.about_us_inner {
+    width: 1170px;
     margin: 0 auto;
+    
+}
+
+.container{
+    background-color: white;
+}
+
+.about_us_block {
+    display: flex;
+    margin-bottom: 50px;
+   
+
+}
+
+.abt_all_text {
+    margin-right: 30px;
+    margin-top: 126px;
+   
+}
+.caption_text {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    color: #000000;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.stick_image {
+    margin-bottom: 40px;
+}
+
+.abt_text_caption {
+    display: flex;
+}
+
+.text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 18px;
+    }
+.abt_image {
+    width: 475px;
+    height: 488px;
+    margin-top: 209px;
+}
+
+.numbers_block {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.number {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 36px;
+}
+
+.number_text{
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -1.5px;
+    margin-top: 30px;
+
+}
+
+.icon_and_text {
+    text-align: center;
+}
+.icon_image {
+    margin-bottom: 40px;
+}
+
+/* .numbers_block ::before {
+  
+} */
+.we_in_numbers {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    color:black;
+    text-align: center;
+    
+    
+}
+.service_block {
+    background-color: white;
+    width: 1170px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 80px;
+    
+}
+ 
+
+.service_caption {
+  
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    color: #000000;
+    margin-top: 150px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color:  #0C73FE;
+
+    
+
+}
+
+.favors_block {
+    width: 370px;
+    height: 510px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.favors_columns {
+    width: 340px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 35px;
+    border: 1px solid #9EA9B7;
+    border-radius: 10px;
+}
+
+.favors_li {
+    list-style-type: disc;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+}
+
+.favors_caption {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: #0C73FE
+}
+
+.list {
+    width: 230px;
+    height: 333px;
+    list-style-position: inside;
+}
+
+.tour_caption {
+    display: flex;
+    margin-top: 90px;
+}
+
+.line {
+    margin-bottom: 148px;
+    border-color:  #0C73FE;
+}
+.tour_caption_text {
+    
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    
+}
+
+.tour_li {
+    list-style-type: disc;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+
+}
+
+/* .tour_block {
+
+} */
+
+.list_two {
+   
 }

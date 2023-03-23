@@ -8,6 +8,7 @@ const authSlice = createSlice({
         cardModal: false,
         likesModal: false,
         reviewsModal: false,
+        reservationModal: false,
         deleteModal: false,
         changePasswordModal: false,
         editProfileModal: false,
@@ -78,6 +79,12 @@ const authSlice = createSlice({
         closeCheckDigitsModal: (state, action) => {
             state.checkDigitsModal = false
         },
+        openReservationModal : (state, action) => {
+            state.reservationModal = true
+        },
+        closeResevationModal: (state,action) => {
+            state.reservationModal = false
+        },
         openPasswordResetModal: (state, action) => {
             state.passwordResetModal = true
         }, 
@@ -101,6 +108,8 @@ export const {
     openDeleteModal, 
     closeDeleteModal,
     openChangePasswordModal,
+    openReservationModal,
+    closeResevationModal,
     closeChangePassword,
     openEditProfileModal,
     closeEditProfileModal,

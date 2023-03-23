@@ -44,7 +44,7 @@ function SliderTours() {
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
-    };
+    };  
     const dispatch = useDispatch()
     const {jeepTourArr } = useSelector(state => state.tours)
     useEffect(() => {

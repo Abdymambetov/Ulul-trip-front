@@ -27,6 +27,7 @@
     flex-direction: column;
 }
 .tour_text{
+    margin-bottom: 70px;
     font-style: normal;
     padding-top: 40px;
     font-weight: 600;
@@ -38,6 +39,7 @@
     margin-top: 34px;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 70px;
 }
 @media  screen and (max-width:1080px){
   .all_tours{

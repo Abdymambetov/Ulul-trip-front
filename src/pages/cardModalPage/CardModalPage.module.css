@@ -1,5 +1,6 @@
 .modal_inner {
     display: flex;
+   
 
 
     /* position: relative; */
@@ -9,37 +10,105 @@
     position: absolute;
     top: 7px;
     right: 1px;
+    width: 30px;
+    height: 30px;
+    
+    
+    
 }
+.cross_block:hover {
+    background: #EFF1F4;
+    border-radius: 8px;
+
+}
+.cross{
+    width: 16px;
+    height: 16px;
+    transition: 500ms;
+    position: absolute;
+    top: 14px;
+    right: 13px;
+
+}
+.cross:hover{
+    transform: rotate(-90deg);
+    
+
+}
+
+.cross_main {
+    position: absolute;
+    transition: 1s;
+}
+
+.cross_main:hover {
+    transform: rotate(-90deg);
+    
+}
+/* 
+.cross_main:hover  {
+    transform: rotate(-90deg);
+
+} */
+
+/* .cross_main{
+    width: 16px;
+    height: 16px;
+    transition: 500ms;
+    position: absolute;
+    top: 14px;
+    right: 13px;
+} */
 .block_reviwes {
     width: 630px;
-    background: #eff1f4;
+    background:   #EFF1F4;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* flex-flow: column nowrap; */
+    
+
+    
+    
 }
 
-.block_booking {
-    position: fixed;
-    top: 0;
-    right: 0;
+.block_booking { 
+    width: 360px;
+    padding-right: 10px;
+    padding-top: 30px;
 }
-.slider {
+/* .slider_block {
+  
     width: 630px;
-    height: 413px;
+    height: 412px;
+   
+    
 
-    /* pointer-events: none; */
-}
+} 
 
-.slider_block {
-    display: flex;
-}
+
+.swiper_images {
+    width: 630px;
+    height: 412px;
+   
+   
+    
+} 
 
 .product_image {
     width: 630px;
     height: 413px;
-}
+    
+}  */
 
+.slider {
+    width: 500px;
+    height: 500px;
+    background-color: #0c73fe;
+}
 .text {
     margin-left: 42px;
     margin-right: 30px;
@@ -54,31 +123,48 @@
 .reviwes {
     width: 630px;
     height: 30px;
-    background: linear-gradient(
-        270deg,
-        rgba(158, 169, 183, 0) 0%,
-        #0c73fe 14.95%,
-        #0c73fe 83.65%,
-        rgba(158, 169, 183, 0) 100%
-    );
-    display: flex;
+    background: linear-gradient(270deg, rgba(158, 169, 183, 0) 0%, #0C73FE 14.95%, #0C73FE 83.65%, rgba(158, 169, 183, 0) 100%);
     justify-content: space-around;
     margin-bottom: 22px;
+    
+    
+    
 }
 
+
+.reviwes_title {
+display: flex;
+justify-content:space-around
+}
+.all_reviwes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* .reviews_title_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}й */
+
 .title {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
-    color: #ffffff;
-    margin-top: 5px;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 18px;
+color: #FFFFFF;
+margin-top: 5px;
+
 }
 
 .people_reviwes {
     width: 430px;
     height: 150px;
-    background-color: #ffffff;
+    background-color:#FFFFFF;
+
+  
 }
 
 .header_review {
@@ -147,12 +233,11 @@
     right: 84.75%;
     top: -2%;
     bottom: 18.75%;
+} 
 
-}
-
-.heart {
+/* .heart {
     background: rgba(239, 241, 244, 0.7)
-        url('../../images/cardModalImg/Heart.svg') no-repeat center;
+        url('../../images/cardModalImg/heart.svg') no-repeat center;
     width: 32px;
     height: 32px;
     margin-top: 18px;
@@ -161,7 +246,7 @@
 }
 .heart_focus {
     background: rgba(239, 241, 244, 0.7)
-        url('../../images/cardModalImg/Heart.svg') no-repeat center;
+        url('../../images/cardModalImg/heart.svg') no-repeat center;
     width: 32px;
     height: 32px;
     margin-top: 18px;
@@ -171,13 +256,14 @@
 
 .heart_text {
     width: 250px;
-    height: 34px;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 22px;
     line-height: 21px;
     margin-top: 18px;
     margin-right: 30px;
-}
+    margin-bottom: 6px;
+    margin-left: 10px;
+} */
 
 .region {
     display: flex;
@@ -191,7 +277,10 @@
 .region_text {
     width: 56px;
     height: 10.96px;
-    color: #7e7e7e;
+    color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .location_and_level {
@@ -212,7 +301,10 @@
     margin-left: 13px;
     width: 56px;
     height: 10.96px;
-    color: #7e7e7e;
+    color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .user_choice {
@@ -232,7 +324,7 @@
 }
 
 .level_name {
-    width: 155px;
+    width: 50px;
     height: 19px;
     font-weight: 400;
     font-size: 20px;
@@ -240,12 +332,17 @@
     color: #000000;
     /* margin-right: 25px; */
     margin-top: 12px;
-    margin-left: 30px;
+    margin-left: 60px;
+}
+
+.warning_image {
+    margin-top: 10px;
 }
 
 .line_two {
     width: 360px;
     border: 1px solid #d9d9d9;
+    margin-top: 10px;
 }
 
 .duration_and_price {
@@ -265,7 +362,10 @@
 .duration_text {
     width: 56px;
     height: 10.96px;
-    color: #7e7e7e;
+    color: #7E7E7E;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
 }
 
 .price {
@@ -278,7 +378,8 @@
     margin-left: 13px;
     width: 56px;
     height: 10.96px;
-    color: #7e7e7e;
+    color: #7E7E7E;
+    
 }
 
 .user_choice_two {
@@ -315,16 +416,13 @@
     margin-right: 6px;
 }
 
-.price_som {
-}
+
 
 .rating {
     display: flex;
     margin-top: 16px;
 }
 
-.rating_and_guide {
-}
 .rating_image {
     margin-left: 20px;
     margin-right: 2px;
@@ -340,6 +438,8 @@
     margin-left: 20px;
     margin-top: 11px;
     margin-bottom: 33px;
+    width: 150px;
+
 }
 
 .walker_and_google {
@@ -394,6 +494,12 @@
 .guide_text_and_image {
     display: flex;
     margin-bottom: 8px;
+    
+ 
+}
+
+.guide_image {
+    margin-top: -9px;
 }
 
 .guide_text {
@@ -426,7 +532,9 @@ border-radius: 30px;
     font-size: 12px;
     line-height: 21px;
     color: #444444;
-}
+    margin-bottom: 20px;
+    margin-left: 40px;
+    }
 
 .title_reviews {
     width: 500px;
@@ -519,3 +627,22 @@ line-height: 17px;
 color: #ABABAB;
 margin-bottom:15px;
 }
+
+.btn_reservation {
+    width: 200px;
+    height: 50px;
+    background: #FF6B32;
+    border-radius: 6px;
+    display: flex;
+   margin-left: 80px;
+   margin-right: 80px;
+   font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #E9F3FF;
+    border: none;
+    }

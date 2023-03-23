@@ -1,4 +1,4 @@
-import { Box, Modal } from '@mui/material'
+import { Box, Modal, Rating, Stack } from '@mui/material'
 // import React from 'react'
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -16,18 +16,19 @@ import ratingImg from '../../images/cardModalImg/rating.svg'
 import regionImg from '../../images/cardModalImg/region.svg'
 import starsImg from '../../images/cardModalImg/Stars.svg'
 import walkerImg from '../../images/cardModalImg/walker.svg'
+import warningImg from '../../images/cardModalImg/warning.svg'
+import timeImg from '../../images/cardModalImg/time.svg'
+import priceImg from '../../images/cardModalImg/price.svg'
+import gidImg from '../../images/cardModalImg/gid.svg'
 import crossImg from '../../images/modalImg/Cross2.svg'
-import "swiper/swiper-bundle.css";
+import { closeCardModal, openReservationModal, openReviewsModal } from '../../store/slices/authSlice'
+import { addProduct, removeProduct } from "../../store/slices/likesModalSlice"
 import classes from './CardModalPage.module.css'
-import Reviews from './Reviews';
-import ModalReviews from './ModalReviews';
-import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
+import ModalReviews from './ModalReviews'
+import Reviews from './Reviews'
+import Reservation from './ReservationComponent/Reservation'
 import { getReviwesAction } from '../../store/slices/reviwesSlice'
-import { closeCardModal, openReviewsModal } from '../../store/slices/authSlice'
 
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-SwiperCore.use([Navigation, Pagination])
 
 const style = {
     width: '990px',
@@ -40,9 +41,8 @@ const style = {
     borderRadius: '20px',
     boxShadow: 24,
     p: 4,
-    overflow: 'auto'
-}
-
+    
+};
 function CardModalPage() {
     const dispatch = useDispatch()
     const {cardModal, cardInfo} = useSelector(state => state.modalTour)
@@ -51,7 +51,9 @@ function CardModalPage() {
         dispatch(closeCardModal())
     }
     const [products, setProducts] = useState({});
-
+    const openReservation = () => {
+        dispatch (openReservationModal())
+    }
     useEffect(() => {
       const fetchProducts = async () => {
         const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`)
@@ -102,7 +104,7 @@ function CardModalPage() {
             onClose={closeMod}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            sx={{backdropFilter: 'blur(5px)', overflow: 'auto',
+            sx={{backdropFilter: 'blur(5px)',
         '& .MuiBox-root ':{
             padding: '0px'
         }}}
@@ -110,15 +112,18 @@ function CardModalPage() {
         <Box sx={style}>
                 <div className={classes.modal_inner}>
                     <div className={classes.cross_block}>
-                    <img src = {crossImg} alt='cross' className={classes.cross}/>
+                    <img src = {crossImg} alt='cross' className={classes.cross_main} onClick ={closeMod} />
                     </div>
                     <div className={classes.block_reviwes}>
-                        <div className= {classes.slider}>
-                        <Swiper
+                    {/* <div className={classes.slider_block}> */}
+                    {/* <div className= {classes.slider}> */}
+                        
+                        {/* <Swiper
                         spaceBetween={30}
                         slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
+                        
                     >
                             {/* {
                                 products?.tour_images?.map(item=>
@@ -131,13 +136,14 @@ function CardModalPage() {
                             }                         */}
                             
 
-                        </Swiper>
-                        </div>
+                        {/* </Swiper> */}
+                        {/* </div> */}
                     
                         <div className={classes.text}>
                            {products?.description}
                     </div>
                     <div className={classes.reviwes}>
+                        <div className={classes.reviwes_title}>
                         <div className={classes.title}>Отзывы</div>
                         <img src ={penImg} alt='pen' className={classes.icon_pen} onClick={heandleOpenReviews}/> 
                     </div> 
@@ -150,8 +156,13 @@ function CardModalPage() {
                 
                     </div>
                     </div>
-                    <div className={classes.block_booking}>
-                         <div className={classes.heart_header}>
+                    
+
+
+                {/* </div> */}
+                
+                <div className={classes.block_booking}>
+                         {/* <div className={classes.heart_header}>
                         <div className={notActive} style={{width: "32px", height: "32px", }}>
                             <Heart  c className="heard-back"
                                     isActive={Favorite}
@@ -164,7 +175,7 @@ function CardModalPage() {
                                     color={heartColor}
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
@@ -179,19 +190,20 @@ function CardModalPage() {
                     <div className={classes.user_choice}>
 
                                 <div className={classes.region_name}>{products?.region?.map(par => <p>{par.name}</p>)}</div>
-                                <div className={classes.level_name}>{products?.complexity}</div> 
+                                <div className={classes.level_name}>{products?.complexity}</div>
+                                <img src ={warningImg} alt = 'w' className={classes.warning_image}/>
                             </div>
-                            <hr className={classes.line_two}></hr>
+                            <hr className={classes.line_two}></hr>  
         
         
         
                     <div className={classes.duration_and_price}>
                             <div className={classes.duration}>
-                                <img src ={regionImg} alt = 'r' className={classes.duration_image}/>
+                                <img src ={timeImg} alt = 'time' className={classes.duration_image}/>
                                 <div className={classes.duration_text}>Длительность</div>
                             </div>
                             <div className={classes.price}>
-                                <img src ={groupImg} alt ='g' className={classes.price_image}/>
+                                <img src ={priceImg} alt ='g' className={classes.price_image}/>
                                 <div className={classes.price_text}>Цена</div>
                             </div>    
                     </div>
@@ -227,12 +239,13 @@ function CardModalPage() {
                         <div className={classes.walker_and_google}>
                         <div className={classes.display}>
                         <div className={classes.walker}>
-                                <img src ={walkerImg} alt = 'w' className={classes.walker_image}/>
+                            {/* <img src ={imageSrc} alt = 'w' className={classes.walker_image}/> */}
                                 <div className={classes.walker_text}>{products?.category?.name}</div>
                                 {/* <div className={classes.walker_text_two}>тур</div> */}
                             </div>
                         <div className={classes.google}>
                             <div className={classes.google_text_and_image}>
+                                
                                 <img src ={googleImg} alt ='g' className={classes.google_image}/>
                                 
                             </div> 
@@ -243,7 +256,7 @@ function CardModalPage() {
                         <div className={classes.guide}>
                                 <div className={classes.guide_text_and_image_h}>
                                     <div className={classes.guide_text_and_image}>
-                                        <img src ={guideImg} alt ='g' className={classes.guide_image}/>
+                                        <img src ={gidImg} alt ='g' className={classes.guide_image}/>
                                         <div className={classes.guide_text}>Гид</div>
                                     </div>
                                     <img src ={products?.guide?.photo.replace(
@@ -260,12 +273,15 @@ function CardModalPage() {
                         <span className={classes.data_title}>ДОСТУПНЫЕ ДАТЫ</span>
                         <CardModalCalendar propsDate={date}/>
                      </div> */}
+                     <button className={classes.btn_reservation} onClick  ={openReservation}>Забронировать</button>
                 </div>
-            <ModalReviews products={products}/>
+            <ModalReviews/>
+            <Reservation item={products}/>
+            </div>
         </Box>  
         </Modal>
-    </div> 
-  )
+    </div>
+ )
 }
 
 export default CardModalPage
