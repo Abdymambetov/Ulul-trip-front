@@ -14,7 +14,8 @@ const authSlice = createSlice({
         editProfileModal: false,
         cardInfo: null,
         requestResetEmailModal: false,
-        checkDigitsModal: false
+        checkDigitsModal: false,
+        passwordResetModal: false
     }, 
     reducers: {
         openModal: (state, action) => {
@@ -84,6 +85,12 @@ const authSlice = createSlice({
         closeResevationModal: (state,action) => {
             state.reservationModal = false
         },
+        openPasswordResetModal: (state, action) => {
+            state.passwordResetModal = true
+        }, 
+        closePasswordResetModal: (state, action) => {
+            state.passwordResetModal = false
+        }
     }
 })
 
@@ -109,6 +116,8 @@ export const {
     openRequestResetEmailModal,
     closeRequestResetEmailModal,
     openCheckDigitsModal,
-    closeCheckDigitsModal    
+    closeCheckDigitsModal, 
+    openPasswordResetModal,
+    closePasswordResetModal    
 } = authSlice.actions; 
 export default authSlice.reducer
