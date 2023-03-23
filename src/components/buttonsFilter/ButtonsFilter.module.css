@@ -42,6 +42,13 @@
     justify-content: center;
     transition: 1ьs;
 }
+.tours_btn:focus{
+    background-color: blcak;
+}
 .tours_btn:hover{
     background-color: #b5d4ff;
+}
+.selected_color{
+    background-color: #1b7cff;
+    color: aliceblue;
 }

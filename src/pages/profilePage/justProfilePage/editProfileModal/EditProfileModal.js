@@ -46,7 +46,7 @@ function EditProfileModal() {
     >
         <Box sx={style}>
             <div className={classes.editProfile}>
-                <form className={classes.form} onSubmit={handleSubmit}>
+                <form className={classes.form} onSubmit={handleSubmit}>f
                     <input type="text" name='username' placeholder='username' onChange={changeUsername}/>
                     <input type="text" name='email' placeholder='email' onChange={changeEmail} />
                     <button onClick={handleSubmit}>Изменить профиль</button>

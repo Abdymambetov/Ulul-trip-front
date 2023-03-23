@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './ComeInModal.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { closeComeInModal } from '../../../../store/slices/authSlice'
+import { closeComeInModal, openRequestResetEmailModal } from '../../../../store/slices/authSlice'
 import { Box, Modal, TextField } from '@mui/material'
 import ulul from '../../../../images/modalImg/Ulul.svg'
 import croosImg from '../../../../images/modalImg/Cross2.svg'
@@ -12,6 +12,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import googleSvg from '../../../../images/modalImg/Google.svg'
 import { logAction } from '../../../../store/slices/registerSlice'
 import { useEffect } from 'react'
+import RequestResetEmail from './requestResetComponent/RequestResetEmail'
 
 const style = {
     width: '600px',
@@ -31,6 +32,9 @@ function ComeInModal() {
     const { comeInModal } = useSelector(state => state.modalTour)
     const handleCloseModal = () => {
         dispatch(closeComeInModal())
+    }
+    const openRequestEmail = () => {
+        dispatch(openRequestResetEmailModal())
     }
     const handleTypePassword = () => {
         if (passwordType === 'password') {
@@ -196,6 +200,8 @@ function ComeInModal() {
                                 >
                                     Войти
                                 </button>
+                                <p onClick={openRequestEmail}>Забыли пароль?</p>
+                                <RequestResetEmail/>
                                 <span className={classes.or_text}>ИЛИ</span>
                                 <button className={classes.google_btn}>
                                     <span

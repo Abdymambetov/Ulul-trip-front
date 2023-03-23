@@ -1,5 +1,6 @@
 .modal_inner {
     display: flex;
+   
 
 
     /* position: relative; */
@@ -59,7 +60,6 @@
     right: 13px;
 } */
 .block_reviwes {
-    flex: 1;
     width: 630px;
     background:   #EFF1F4;
     display: flex;
@@ -68,7 +68,7 @@
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
-    flex-flow: column nowrap;
+    /* flex-flow: column nowrap; */
     
 
     
@@ -78,17 +78,17 @@
 .block_booking { 
     width: 360px;
     padding-right: 10px;
+    padding-top: 30px;
 }
-
-
 /* .slider_block {
-    display: flex;
+  
     width: 630px;
     height: 412px;
    
     
 
-}
+} 
+
 
 .swiper_images {
     width: 630px;
@@ -96,14 +96,19 @@
    
    
     
-}
+} 
 
 .product_image {
     width: 630px;
     height: 413px;
     
-} */
+}  */
 
+.slider {
+    width: 500px;
+    height: 500px;
+    background-color: #0c73fe;
+}
 .text {
     margin-left: 42px;
     margin-right: 30px;
@@ -119,7 +124,6 @@
     width: 630px;
     height: 30px;
     background: linear-gradient(270deg, rgba(158, 169, 183, 0) 0%, #0C73FE 14.95%, #0C73FE 83.65%, rgba(158, 169, 183, 0) 100%);
-
     justify-content: space-around;
     margin-bottom: 22px;
     
@@ -219,7 +223,7 @@ margin-top: 5px;
 }
 
 
-.heart_header {
+/* .heart_header {
     display: flex;
     position: absolute;
     left: 10.75%;
@@ -227,9 +231,9 @@ margin-top: 5px;
     top: -2%;
     bottom: 18.75%;
 
-}
+} */
 
-.heart {
+/* .heart {
     background: rgba(239, 241, 244, 0.7)
         url('../../images/cardModalImg/heart.svg') no-repeat center;
     width: 32px;
@@ -257,7 +261,7 @@ margin-top: 5px;
     margin-right: 30px;
     margin-bottom: 6px;
     margin-left: 10px;
-}
+} */
 
 .region {
     display: flex;

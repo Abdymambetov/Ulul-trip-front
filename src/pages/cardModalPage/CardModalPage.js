@@ -29,11 +29,12 @@ import axios from "axios";
 // import { Swiper, SwiperSlide } from "swiper/react";
 import Reviews from './Reviews';
 import ModalReviews from './ModalReviews';
-import { tourInfoAction } from '../../store/slices/TourSlice';
-import { useParams } from 'react-router-dom';
-import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
-import Heart from "react-heart";
-import {Favorite} from "@mui/icons-material";
+import Reservation from './ReservationComponent/Reservation'
+// import { tourInfoAction } from '../../store/slices/TourSlice';
+// import { useParams } from 'react-router-dom';
+// import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
+// import Heart from "react-heart";
+// import {Favorite} from "@mui/icons-material";
 
 
 const style = {
@@ -76,27 +77,27 @@ function CardModalPage() {
     const heandleOpenReviews = () => {
         dispatch(openReviewsModal())
     }
-    const {card} = useSelector(state => state.favorites)
-    const [active, setActive] = useState(true)
-    const [notActive, setNotActive] = useState('heard_focus')
-    const isFavorite = card.findIndex(el =>el.id === products.id)
-    const handleClick = (el) => {
-        if (isFavorite, active === true) {
-            dispatch(removeProduct(el));
-            setActive(true);
-            setNotActive('heard_focus');
-        } else if (isFavorite , active === false) {
-            dispatch(addProduct(el));
-            setActive(true);
-            setNotActive('heard_focus')
-        } else {
-            dispatch(addProduct(el));
-            setActive(true);
-            setNotActive('heard_focus');
-        }
-    }
-    const Favorite = card.some((el) => el.id === products.id);
-    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
+    // const {card} = useSelector(state => state.favorites)
+    // const [active, setActive] = useState(true)
+    // const [notActive, setNotActive] = useState('heard_focus')
+    // const isFavorite = card.findIndex(el =>el.id === products.id)
+    // const handleClick = (el) => {
+    //     if (isFavorite, active === true) {
+    //         dispatch(removeProduct(el));
+    //         setActive(true);
+    //         setNotActive('heard_focus');
+    //     } else if (isFavorite , active === false) {
+    //         dispatch(addProduct(el));
+    //         setActive(true);
+    //         setNotActive('heard_focus')
+    //     } else {
+    //         dispatch(addProduct(el));
+    //         setActive(true);
+    //         setNotActive('heard_focus');
+    //     }
+    // }
+    // const Favorite = card.some((el) => el.id === products.id);
+    // const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
 
 
     return (
@@ -117,10 +118,8 @@ function CardModalPage() {
                     <img src = {crossImg} alt='cross' className={classes.cross_main} onClick ={closeMod} />
                     </div>
                     <div className={classes.block_reviwes}>
-
-
-                    <div className={classes.slider_block}>
-                    <div className= {classes.slider}>
+                    {/* <div className={classes.slider_block}> */}
+                    {/* <div className= {classes.slider}> */}
                         
                         {/* <Swiper
                         spaceBetween={30}
@@ -140,7 +139,7 @@ function CardModalPage() {
                         {/*</SwiperSlide>*/}
 
                         {/* </Swiper> */}
-                        </div>
+                        {/* </div> */}
                     
                         <div className={classes.text}>
                            {products?.description}
@@ -164,8 +163,13 @@ function CardModalPage() {
                 
                     </div>
                     </div>
-                    <div className={classes.block_booking}>
-                         <div className={classes.heart_header}>
+                    
+
+
+                {/* </div> */}
+                </div>
+                <div className={classes.block_booking}>
+                         {/* <div className={classes.heart_header}>
                         <div className={notActive} style={{width: "32px", height: "32px", }}>
                             <Heart  c className="heard-back"
                                     isActive={Favorite}
@@ -178,7 +182,7 @@ function CardModalPage() {
                                     color={heartColor}
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
@@ -276,13 +280,9 @@ function CardModalPage() {
                         </div>
 
                         <button className={classes.reservation} onClick = {openReservation} >Забронировать</button>
-                        
+                        <Reservation/>
                     </div>
 
-
-
-                </div>
-                </div>
             <ModalReviews/>
             </div>
         </Box>  

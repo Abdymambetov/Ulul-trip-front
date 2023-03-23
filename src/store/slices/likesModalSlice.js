@@ -4,12 +4,13 @@ const API_URL = 'http://164.92.190.147';
 
 export const fetchFavorite = createAsyncThunk(
     'favorites/fetchFavorite',
-    async (id,favorites,{dispatch, rejectWithValue}) => {
+    async (favorites,{dispatch, rejectWithValue}) => {
+        const {id} = JSON.parse(localStorage.getItem('token'))
         try{
             const response = await axios.get(`${API_URL}/profiles/${id}/favorites/`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`                    }
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`                    }
                 })
             const data = await response.data
             if(response.status === 200) {
@@ -27,7 +28,7 @@ export const fetchFavoriteProducts = createAsyncThunk(
             const response = await axios.post(`${API_URL}/home/tours/${slug}/favorite`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`,
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`,
                     }
                 })
             if (response.status === 200) {
@@ -48,7 +49,7 @@ export const removeFavorite = createAsyncThunk(
             const response = await axios.delete(`${API_URL}/home/tours/${slug}/favorite`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('favorites')).access}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
                     }
                 })
             if (response.status === 200) {
