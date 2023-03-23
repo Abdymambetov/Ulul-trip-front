@@ -1,28 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-function rus_to_latin ( str ) {
-    
-	var ru = {
-			'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 
-			'е': 'e', 'ё': 'e', 'ж': 'j', 'з': 'z', 'и': 'i', 
-			'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 
-			'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 
-			'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 
-			'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'u', 'я': 'ya'
-	}, n_str = [];
-	
-	str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
-	
-	for ( var i = 0; i < str.length; ++i ) {
-		 n_str.push(
-						ru[ str[i] ]
-				 || ru[ str[i].toLowerCase() ] == undefined && str[i]
-				 || ru[ str[i].toLowerCase() ].toUpperCase()
-		 );
-	}
-	
-	return n_str.join('');
-}
+
+
 
 const FilterSlice = createSlice({
 	name: 'mainSlice',
@@ -69,39 +48,68 @@ const FilterSlice = createSlice({
 		builder.addCase(filterSearch.fulfilled, (state, action) => {
 			state.filtered = action.payload
 		})
-		// builder.addCase(filterWhereSearch.fulfilled, (state, action) => {
-		// 	state.filtered = action.payload
-		// })
 	},
 })
-export const filterSearch = createAsyncThunk('filterSearch', async param => {
-	// console.log(param)
-	
-	let reg 
-	if(param.region){
-		if(rus_to_latin(param.region).toLowerCase()==='chui'){
-			reg = 'chuy'
-		}else{
-			reg = rus_to_latin(param.region).toLowerCase()
-		}
+
+const regionFilter =(param)=>{
+	const newWord = param.toLowerCase()
+	if(newWord.includes('чуй')){
+		return 'chuy'
+	}else if(newWord.includes('иссык куль')){
+		return 'issyk-kul'
+	}else if(newWord.includes('талас')){
+		return 'talas'
+	} else if(newWord.includes('джалал-абад')){
+		return 'dzhalal-abad'
+	}else if(newWord.includes('баткен')){
+		return 'batken'
+	}else if(newWord.includes('нарын')){
+		return 'naryn'
+	} else if(newWord.includes('ош')){
+		return 'osh'
+	}else{
+		return ''
 	}
-	const complex =rus_to_latin(param.complexity).toLowerCase()
-	const category = rus_to_latin(param.category).toLowerCase()
+}
+const complexFilter =(param) => {
+	const newWord = param.toLowerCase()
+	if(newWord.includes('легкий')){
+		return 'Easy'
+	}else if(newWord.includes('средний')){
+		return 'Medium'
+	}else if(newWord.includes('сложный')){
+		return 'Hard'
+	} else if(newWord.includes('экстремальный')){
+		return 'Extra'
+	}else{
+		return ''
+	}
+}
+
+const categoryFilter =(param)=>{
+	const newWord = param.toLowerCase()
+	if(newWord.includes('конный тур')){
+		return 'konnyj-tur'
+	}else if(newWord.includes('пеший тур')){
+		return 'peshij-tur'
+	} else if(newWord.includes('джип тур')){
+		return 'jeep-tur'
+	}else if(newWord.includes('велотур')){
+		return 'velotur'
+	}else{
+		return ''
+	}
+}
+
+export const filterSearch = createAsyncThunk('filterSearch', async param => {	
+	const reg = regionFilter(param.region)
+	const complex = complexFilter(param.complexity)
+	const category = categoryFilter(param.category)
 	const { data } = await axios.get('http://164.92.190.147:8880/home/tours/', {
 		params: {...param,region:reg,complexity:complex,category:category},
 	})
 	return data
 })
-
-// export const filterWhereSearch = createAsyncThunk(
-// 	'filterWhereSearch',
-// 	async (param, { dispatch }) => {
-// 		const { data } = await axios.get(
-// 			`http://164.92.190.147:8880/home/tour/${param}`
-// 		)
-// 		return data
-// 	}
-// )
 
 export const {
 	setValueWhere,

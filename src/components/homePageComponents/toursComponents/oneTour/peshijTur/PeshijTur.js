@@ -1,7 +1,6 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getPeshijTutArr, oneTour} from '../../../../../store/slices/TourSlice'
+import { getPeshijTutArr, oneTour } from '../../../../../store/slices/TourSlice'
 import SmallTravelCard from '../../../../smallTravelCard/SmallTravelCard'
 import classes from '../OneTour.module.css'
 
@@ -24,8 +23,8 @@ function PeshijTur() {
                         <h1 className={classes.tour_text}>Пешие туры</h1>
                         <div className={classes.all_tours}>
                             {
-                                slice.map((item) => (
-                                    <SmallTravelCard item={item}/>
+                                slice.map((item,i) => (
+                                    <SmallTravelCard key={i} item={item}/>
                                 ))
                             }
                         </div>
