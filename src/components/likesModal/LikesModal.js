@@ -1,13 +1,13 @@
 import { Box, Modal } from '@mui/material';
-import React, {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {closeLikesModal, openCardModal} from '../../store/slices/authSlice';
-import classes from './LikesModal.module.css';
-import crossSvg from '../../images/modalImg/Cross2.svg';
+import React, { useState } from 'react';
 import Heart from "react-heart";
-import point from "../../images/smallCardImg/Vector (3).svg";
+import { useDispatch, useSelector } from 'react-redux';
+import crossSvg from '../../images/modalImg/Cross2.svg';
 import star from "../../images/smallCardImg/star.svg";
-import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
+import point from "../../images/smallCardImg/Vector (3).svg";
+import { closeLikesModal, openCardModal } from '../../store/slices/authSlice';
+import { removeProduct } from "../../store/slices/likesModalSlice";
+import classes from './LikesModal.module.css';
 
 const style = {
   width: '900px',
@@ -43,7 +43,6 @@ function LikesModal() {
             setNotActive('heard_focus');
         }
     }
-
 
     const openModal = e => {
         if (

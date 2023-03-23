@@ -1,31 +1,27 @@
 import { Box, Modal } from '@mui/material'
 // import React from 'react'
-import classes from './CardModalPage.module.css'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import Heart from "react-heart"
 import { useDispatch, useSelector } from 'react-redux'
-import {closeCardModal, openCardModal, openReviewsModal} from '../../store/slices/authSlice'
-import penImg from '../../images/cardModalImg/pen.svg'
-import starsImg from '../../images/cardModalImg/Stars.svg'
-import heartImg  from '../../images/cardModalImg/Heart.svg'
-import regionImg from '../../images/cardModalImg/region.svg'
-import groupImg from '../../images/cardModalImg/Group.svg'
-import ratingImg from '../../images/cardModalImg/rating.svg'
-import guideImg from '../../images/cardModalImg/guide.svg'
-import walkerImg from '../../images/cardModalImg/walker.svg'
+import SwiperCore, { Navigation, Pagination } from "swiper"
+import { Swiper } from "swiper/react"
+import "swiper/swiper-bundle.css"
+import CardModalCalendar from '../../components/calendar/CardModalCalendar'
 import googleImg from '../../images/cardModalImg/GoogleTwo.svg'
-import vasyaImg from '../../images/cardModalImg/vasya.png'
+import groupImg from '../../images/cardModalImg/Group.svg'
+import guideImg from '../../images/cardModalImg/guide.svg'
+import penImg from '../../images/cardModalImg/pen.svg'
+import ratingImg from '../../images/cardModalImg/rating.svg'
+import regionImg from '../../images/cardModalImg/region.svg'
+import starsImg from '../../images/cardModalImg/Stars.svg'
+import walkerImg from '../../images/cardModalImg/walker.svg'
 import crossImg from '../../images/modalImg/Cross2.svg'
-import "swiper/swiper-bundle.css";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Reviews from './Reviews';
-import ModalReviews from './ModalReviews';
-import { tourInfoAction } from '../../store/slices/TourSlice';
-import { useParams } from 'react-router-dom';
-import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
-import Heart from "react-heart";
-import {Favorite} from "@mui/icons-material";
+import { closeCardModal, openReviewsModal } from '../../store/slices/authSlice'
+import { addProduct, removeProduct } from "../../store/slices/likesModalSlice"
+import classes from './CardModalPage.module.css'
+import ModalReviews from './ModalReviews'
+import Reviews from './Reviews'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -88,8 +84,11 @@ function CardModalPage() {
     }
     const Favorite = card.some((el) => el.id === products.id);
     const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
-
-
+    console.log(products)
+    const date = {
+        back:products.date_arrival,
+        gone:products.date_departure
+    }
     return (
     <div>
         <Modal
@@ -204,7 +203,7 @@ function CardModalPage() {
                     </div>
                             <hr className={classes.line_two}></hr>
                             
-                        <div className={classes.rating_and_guide}>
+                    <div className={classes.rating_and_guide}>
         
                     
         
@@ -246,12 +245,12 @@ function CardModalPage() {
                                 </div>
                             </div>
                         </div>
-                    
                         
-                        </div>
-
-
-
+                    </div> 
+                     <div className={classes.data}>
+                        <span className={classes.data_title}>ДОСТУПНЫЕ ДАТЫ</span>
+                        <CardModalCalendar propsDate={date}/>
+                     </div>
                 </div>
             <ModalReviews/>
         </Box>  
