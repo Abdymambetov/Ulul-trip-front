@@ -1,7 +1,12 @@
 import React from 'react'
 import classes from './CardModalPage.module.css'
 import starsImg from '../../images/cardModalImg/Stars.svg'
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 function Reviews({info}) {
+  const str = info?.date_published
+  const regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).(\d{6})([\+\-]\d{2}):(\d{2})$/;
+  const [, year, month, day, hour, minute, second, millisecond, offsetHour, offsetMinute] = str.match(regex);
   console.log(info);
   return (
     <div className={classes.people_reviwes}>
@@ -12,10 +17,13 @@ function Reviews({info}) {
             {info?.author}
         </h5>
         <h6 className={classes.date}>
-          {info?.date_published} 
-        </h6>
+          {year + '-' + month + '-' + day}
+        </h6> 
         </div>
-        <img src={starsImg} alt ='stars' className={classes.stars}/>
+        <Stack spacing={1}>
+          <Rating name="size-large"  value={info?.rating} size="large" readOnly className={classes.stars}/>
+      </Stack>
+        {/* <img src={starsImg} alt ='stars' className={classes.stars}/> */}
     </div>
         <hr className={classes.line}/>
     <div className={classes.review_text}>

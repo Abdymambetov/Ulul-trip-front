@@ -23,7 +23,7 @@ const style = {
     
     // zIndex: 2,
 };
-function ModalReviews() {
+function ModalReviews({products}) {
 
     const {reviewsModal} = useSelector(state=> state.modalTour)
     const dispatch = useDispatch()
@@ -37,7 +37,7 @@ function ModalReviews() {
     } 
     const handleSubmitReview = (e) =>{
         e.preventDefault()
-        const param = {text, rating}
+        const param = {text, post: products?.id, rating}
         dispatch(addReviewAction(param))
     }      
   return (

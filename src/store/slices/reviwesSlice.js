@@ -3,9 +3,9 @@ import axios from "axios";
 
 export const getReviwesAction = createAsyncThunk(
     'getReviwesAction',
-    async(param, {dispatch, rejectWithValue}) => {
+    async(slug, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios.get('http://164.92.190.147:8880/home/review/', {
+            const response = await axios.get(`http://164.92.190.147:8880/home/tours/${slug}/reviews/`, {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
                 }
@@ -37,6 +37,7 @@ export const addReviewAction = createAsyncThunk(
             if(response.status === 201) {
                 const data = await response.data
                 console.log(data);
+                alert('hello')
             }
         } catch(e){
             alert(e)

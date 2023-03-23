@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.css"
-import CardModalCalendar from '../../components/calendar/CardModalCalendar'
+// import CardModalCalendar from '../../components/calendar/CardModalCalendar'
 import googleImg from '../../images/cardModalImg/GoogleTwo.svg'
 import groupImg from '../../images/cardModalImg/Group.svg'
 import guideImg from '../../images/cardModalImg/guide.svg'
@@ -19,18 +19,14 @@ import walkerImg from '../../images/cardModalImg/walker.svg'
 import crossImg from '../../images/modalImg/Cross2.svg'
 import "swiper/swiper-bundle.css";
 import classes from './CardModalPage.module.css'
-
-
 import Reviews from './Reviews';
 import ModalReviews from './ModalReviews';
-
-
 import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
-
 import { getReviwesAction } from '../../store/slices/reviwesSlice'
 import { closeCardModal, openReviewsModal } from '../../store/slices/authSlice'
 
-
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 SwiperCore.use([Navigation, Pagination])
 
 const style = {
@@ -58,14 +54,14 @@ function CardModalPage() {
 
     useEffect(() => {
       const fetchProducts = async () => {
-        const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`);
+        const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`)
         const data = await response.data
         setProducts(data);
         
       };
 
       fetchProducts();
-      dispatch(getReviwesAction())
+      dispatch(getReviwesAction(products?.slug))
     }, [cardInfo]);
     console.log(products)
 
@@ -124,7 +120,7 @@ function CardModalPage() {
                         navigation
                         pagination={{ clickable: true }}
                     >
-                            {
+                            {/* {
                                 products?.tour_images?.map(item=>
                                     <SwiperSlide >
                                         <img src={item?.images.replace(
@@ -132,7 +128,7 @@ function CardModalPage() {
                                     '$1' + '147:8880' 
                                 )} alt='hello'/>
                                  </SwiperSlide>)
-                            }                        
+                            }                         */}
                             
 
                         </Swiper>
@@ -221,7 +217,11 @@ function CardModalPage() {
                                 <img src = {ratingImg} alt ='r' className={classes.rating_image}/>
                                 <div className={classes.rating_text}>Рейтинг</div>
                             </div>
-                            <img src ={starsImg} alt ='stars' className={classes.stars_image}/>
+                            <Stack spacing={1}>
+                                <Rating name="size-large"  value={products?.average_rating} size="large" readOnly
+                                className={classes.stars_image}/>
+                            </Stack>
+                            {/* <img src ={starsImg} alt ='stars' className={classes.stars_image}/> */}
         
                             
                         <div className={classes.walker_and_google}>
@@ -256,15 +256,15 @@ function CardModalPage() {
                         </div>
                         
                     </div> 
-                     <div className={classes.data}>
+                     {/* <div className={classes.data}>
                         <span className={classes.data_title}>ДОСТУПНЫЕ ДАТЫ</span>
                         <CardModalCalendar propsDate={date}/>
-                     </div>
+                     </div> */}
                 </div>
-            <ModalReviews/>
+            <ModalReviews products={products}/>
         </Box>  
         </Modal>
-    </div>
+    </div> 
   )
 }
 
