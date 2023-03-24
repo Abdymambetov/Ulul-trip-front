@@ -1,9 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Modal, Box } from '@mui/material'
+import { Modal, Box, TextField } from '@mui/material'
 import { closeRequestResetEmailModal } from '../../../../../store/slices/authSlice'
 import { useState } from 'react'
 import { requestEmailAction } from '../../../../../store/slices/registerSlice'
+import classes from './RequestReset.module.css'
+import croosImg from '../../../../../images/modalImg/Cross2.svg'
+
 const style = {
     width: '600px',
     height: '602px',
@@ -39,11 +42,32 @@ function RequestResetEmail() {
         sx={{ backdropFilter: 'blur(5px)' }}
     >
         <Box sx={style}>
-            <div>
-                <form onSubmit={handleCLick}>
-                    <h2>Введите email</h2>
-                    <input type="text" placeholder='email' onChange={handleEmailChange}/>
-                    <button>Отправить</button>
+            <div className={classes.email_inner}>
+            <div className={classes.cross_parent}>
+                <img
+                    src={croosImg}
+                    alt="cross"
+                    onClick={closeResetEmail}
+                    className={classes.croos_ulul}
+                />
+            </div>
+                <form onSubmit={handleCLick} className={classes.from_inputs}>
+                    <h2 className={classes.text_email}>Введите email</h2>
+                    <TextField 
+                    id="outlined-basic"
+                    label="email"
+                    variant="outlined"
+                    name="email"
+                    value={email}
+                    sx={{
+                        '& .MuiInputBase-root': {
+                            borderRadius: '10px',
+                            width: '402px',
+                            marginBottom: '20px'
+                        }
+                    }}
+                    onChange={handleEmailChange}/>
+                    <button className={classes.btn_from}>Отправить</button>
                 </form>
             </div>
         </Box>

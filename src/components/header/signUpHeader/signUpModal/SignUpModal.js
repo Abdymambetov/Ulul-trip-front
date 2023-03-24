@@ -247,7 +247,7 @@ function SignUpModal() {
                                 <div className={classes.one_inputs}>
                                     <TextField
                                         id="outlined-basic"
-                                        label="Фамилия"
+                                        label="username"
                                         variant="outlined"
                                         name="username"
                                         value={username}

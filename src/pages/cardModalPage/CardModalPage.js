@@ -6,7 +6,7 @@ import Heart from "react-heart"
 import { useDispatch, useSelector } from 'react-redux'
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.css"
+// import "swiper/swiper-bundle.css"
 // import CardModalCalendar from '../../components/calendar/CardModalCalendar'
 import googleImg from '../../images/cardModalImg/GoogleTwo.svg'
 import groupImg from '../../images/cardModalImg/Group.svg'
@@ -28,7 +28,7 @@ import ModalReviews from './ModalReviews'
 import Reviews from './Reviews'
 import Reservation from './ReservationComponent/Reservation'
 import { getReviwesAction } from '../../store/slices/reviwesSlice'
-
+SwiperCore.use([Navigation, Pagination])
 
 const style = {
     width: '990px',
@@ -115,30 +115,31 @@ function CardModalPage() {
                     <img src = {crossImg} alt='cross' className={classes.cross_main} onClick ={closeMod} />
                     </div>
                     <div className={classes.block_reviwes}>
-                    {/* <div className={classes.slider_block}> */}
-                    {/* <div className= {classes.slider}> */}
+                    <div className={classes.slider_block}> 
+                    <div className= {classes.slider}>
                         
-                        {/* <Swiper
+                        <Swiper
+                        style={{width: '500px', height: '420px', display: 'flex'}}
                         spaceBetween={30}
                         slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
                         
                     >
-                            {/* {
+                            {
                                 products?.tour_images?.map(item=>
                                     <SwiperSlide >
                                         <img src={item?.images.replace(
                                     /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
                                     '$1' + '147:8880' 
-                                )} alt='hello'/>
+                                )} alt='hello'  style={{width: '100%', height: '390px'}}/>
                                  </SwiperSlide>)
-                            }                         */}
+                            }                         
                             
 
-                        {/* </Swiper> */}
-                        {/* </div> */}
-                    
+                        </Swiper> 
+                        </div>
+                    </div>
                         <div className={classes.text}>
                            {products?.description}
                     </div>
@@ -275,9 +276,10 @@ function CardModalPage() {
                      </div> */}
                      <button className={classes.btn_reservation} onClick  ={openReservation}>Забронировать</button>
                 </div>
-            <ModalReviews/>
+            <ModalReviews products={products}/>
             <Reservation item={products}/>
             </div>
+            {/* </div> */}
         </Box>  
         </Modal>
     </div>

@@ -6,13 +6,17 @@ import lockSvg from '../../../images/profileImg/lock.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from '../../../store/slices/profileSlice'
 import DeleteProfileModal from './deleteProfileModal/DeleteProfileModal'
-import { openChangePasswordModal, openDeleteModal, openEditProfileModal } from '../../../store/slices/authSlice'
+import { openChangePasswordModal, openConfidentalityModal, openDeleteModal, openEditProfileModal } from '../../../store/slices/authSlice'
 import ChangePasswordModa from './changePasswordModal/ChangePasswordModa'
 import EditProfileModal from './editProfileModal/EditProfileModal'
+import ConfidentalityText from './ConfidentalityText'
 
 function JustProfilePage() {
   const {id} = JSON.parse(localStorage.getItem('token'))
   const {userInfo} = useSelector(state => state.profile) 
+  const openConfidentality = () => {
+    dispatch(openConfidentalityModal())
+  }
   console.log(id)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -54,7 +58,7 @@ function JustProfilePage() {
                     height: '60px'
                   }
                 }}/>
-                <button onClick={openEditModal}>Редактировать профиль</button>
+                <button onClick={openEditModal} className={classes.btn_edit}>Редактировать профиль</button>
               </div>
               <div className={classes.user_info_block}>
                 <div className={classes.user_password}>
@@ -72,13 +76,14 @@ function JustProfilePage() {
                 <p className={classes.text_conf}>Конфиденциальность</p>
                 <div className={classes.confidentality_lock}>
                   <img src={lockSvg} alt="lock" className={classes.lock_img}/>
-                  <p>Политика конфиденциальности</p>
+                  <p onClick={openConfidentality}>Политика конфиденциальности</p>
                   <img src={crossSvg} alt="crossSvg" className={classes.lock_cross}/>
                 </div>
               </div>
             </div>
         </div>
       </div>
+      <ConfidentalityText/>
       <EditProfileModal/>
       <ChangePasswordModa/>
       <DeleteProfileModal/>

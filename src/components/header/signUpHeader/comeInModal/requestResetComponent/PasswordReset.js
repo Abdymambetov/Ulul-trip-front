@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { Modal, Box } from '@mui/material'
+import { Modal, Box, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { closePasswordResetModal } from '../../../../../store/slices/authSlice'
 import { passwordResetAction } from '../../../../../store/slices/registerSlice'
+import classes from './RequestReset.module.css'
+import croosImg from '../../../../../images/modalImg/Cross2.svg'
+
 const style = {
     width: '600px',
     height: '602px',
@@ -41,9 +44,46 @@ function PasswordReset() {
     >
         <Box sx={style}>
             <div>
-                <input type="text" onChange={changePassword}/>
-                <input type="text" onChange={changePasswordRepeat}/>
-                <button onClick={hadleSubmitPassword}>Отправить</button>
+            <div className={classes.cross_parent}>
+                <img
+                    src={croosImg}
+                    alt="cross"
+                    onClick={closePasswordModal}
+                    className={classes.croos_ulul}
+                />
+            </div>
+                <form className={classes.from_inputs}>
+                    <h2 className={classes.text_email}>Введите новый пароль</h2>
+                    <TextField
+                     id="outlined-basic"
+                     label="password"
+                     variant="outlined"
+                     name="password"
+                     value={password}
+                     onChange={changePassword}
+                     sx={{
+                         '& .MuiInputBase-root': {
+                             borderRadius: '10px',
+                             width: '300px',
+                             marginBottom: '20px'
+                         }
+                     }}/>
+                     <TextField
+                     id="outlined-basic"
+                     label="repeat"
+                     variant="outlined"
+                     name="password_repeat"
+                     value={password_repeat}
+                     onChange={changePasswordRepeat}
+                     sx={{
+                         '& .MuiInputBase-root': {
+                             borderRadius: '10px',
+                             width: '300px',
+                             marginBottom: '20px'
+                         }
+                     }}/>
+                     <button onClick={hadleSubmitPassword} className={classes.btn_from}>Отправить</button>
+                </form>
             </div>
         </Box>
     </Modal>

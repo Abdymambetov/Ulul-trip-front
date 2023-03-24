@@ -15,7 +15,7 @@ function FAQHeader() {
                 <a href="/">
                   <img src={HeadIcon} alt="heard" />
                 </a>
-                <h3>Snail Trip</h3>
+                <h3>Ulul Trip</h3>
                 </div>
                 <div className={classes.messages}>
                   <img src={gestion} alt="messages" />

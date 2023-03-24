@@ -46,23 +46,14 @@ export const logAction = createAsyncThunk(
                 data: JSON.stringify(param)
             })
             const data = await response
-            
             if(data.status >= 200 && data.status < 400) {
-                    // dispatch(CorrectLogIn())
                     dispatch(closeComeInModal())
                     localStorage.setItem('user',data.data.tokens.replace(/'/g,'"'))
-                    // localStorage.setItem('user', )
-                    // const userTokens = JSON.parse(localStorage.getItem('user'));
-                    // const accessToken = userTokens.access;
-                    // const refreshToken = userTokens.refresh;
-                    // console.log(JSON.parse( accessToken));
-                    // console.log(JSON.parse(refreshToken));
-            } else{
-                throw Error('error')
-            }
+                    window.location.reload()
+            } 
         } catch (e) {
-            alert(e)
-            // dispatch(ErrorLogIn())
+            console.log(e);
+            alert(e.response.data.detail)
         }
     }
 )
@@ -123,11 +114,14 @@ export const chechDigitsAction = createAsyncThunk(
 export const refreshToken = createAsyncThunk(
     'refreshToken',
     async (_, { dispatch, getState, rejectWithValue }) => {
+        const refToken = JSON.parse((localStorage.getItem('user')).refresh)
+        const param = {refToken}
         try {
             const response = await axios.post('http://164.92.190.147:8880/users/refresh/', {
-                headers: {
-                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
-                }
+                // headers: {
+                //     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
+                // },
+                 data: JSON.stringify(param)
             })
             console.log(response)
             const data = await response.data
@@ -178,20 +172,21 @@ export const fetchUser = createAsyncThunk(
             })
             return response.data
         } catch (error) {
-            if (error.response && error.response.status === 401) {
-                try {
-                    await dispatch(refreshToken())
-                    const newAccessToken = getState().auth.accessToken
-                    const response = await axios.get('/user', {
-                        headers: { Authorization: `Bearer ${newAccessToken}` }
-                    })
-                    return response.data
-                } catch (error) {
-                    return rejectWithValue(error.response.data)
-                }
-            } else {
-                return rejectWithValue(error.response.data)
-            }
+            // if (error.response && error.response.status === 401) {
+            //     try {
+            //         await dispatch(refreshToken())
+            //         const newAccessToken = getState().auth.accessToken
+            //         const response = await axios.get('/user', {
+            //             headers: { Authorization: `Bearer ${newAccessToken}` }
+            //         })
+            //         return response.data
+            //     } catch (error) {
+            //         return rejectWithValue(error.response.data)
+            //     }
+            // } else {
+            //     return rejectWithValue(error.response.data)
+            // }
+            console.log(error);
         }
     }
 )

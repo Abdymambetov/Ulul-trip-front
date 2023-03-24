@@ -107,7 +107,7 @@
 .slider {
     width: 500px;
     height: 500px;
-    background-color: #0c73fe;
+    display: flex;
 }
 .text {
     margin-left: 42px;

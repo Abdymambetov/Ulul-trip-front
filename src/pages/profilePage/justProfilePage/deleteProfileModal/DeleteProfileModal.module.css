@@ -6,6 +6,32 @@
   text-align: center;
   margin-top: 150px;
 }
+.cross_parent{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 13px;
+  right: 1px;
+}
+.cross_parent:hover{
+  background: #EFF1F4;
+  border-radius: 8px;
+}
+
+.croos_ulul{
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  top: 13px;
+  right: 1px;
+  transition: 500ms;
+}
+.croos_ulul:hover{
+  transform: rotate(-90deg);
+}
 .button button{
   margin-top: 30px;
   background: none;

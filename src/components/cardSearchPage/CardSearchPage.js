@@ -13,9 +13,14 @@ function CardSearchPage() {
         <div className={classes.container}>
             <div className={classes.card_inner}>
                 <div className={classes.tour_card}>
-                  {arrayTour?.map(item =>
-                    <SmallTravelCard item={item}/>
-                    )}
+                {filtered && filtered.results && filtered.results.length === 0 
+                ? 
+                (
+                  <h2>Такого тура не существует</h2>
+                ) : 
+                (
+                  arrayTour?.map(item => <SmallTravelCard item={item} />)
+                )}
                       {/* <SmallTravelCard/>
                       <SmallTravelCard/>
                       <SmallTravelCard/>
@@ -25,7 +30,6 @@ function CardSearchPage() {
                       <SmallTravelCard/>
                       <SmallTravelCard/> */}
                 </div>
-                <button className={classes.btn_load}>Загрузить еще</button>
             </div>
         </div>
     </div>

@@ -1,32 +1,55 @@
-*{
-  box-sizing: border-box;
-}
+
 .editProfile{
   margin: 0 auto;
 }
 .form{
   padding: 30px;
-  margin: 120px auto ;
+  margin: 50px auto ;
   text-align: center;
 }
-.form input[type="text"]{
-  background: none;
-  color: black;
-  font-size: 16px;
-  display:  block;
-  margin: 20px auto;
-  padding: 10px;
-  text-align: center;
-  width: 250px;
-  border: 2px solid black;
-  outline: none;
+.text_form{
+  margin-bottom: 15px;
+}
+.cross_parent{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 13px;
+  right: 1px;
+}
+.cross_parent:hover{
+  background: #EFF1F4;
+  border-radius: 8px;
+}
+
+.croos_ulul{
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  top: 13px;
+  right: 1px;
+  transition: 500ms;
+}
+.croos_ulul:hover{
+  transform: rotate(-90deg);
+}
+.all_inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .form button{
-  background: none;
-  font-size: 16px;
-  border: 0px solid black;
-  padding: 10px;
-  background-color: rgb(21, 141, 189);
-  color: white;
-  border-radius: 4px;
+  min-width: 200px;
+    height: 60px;
+    background: #FF6F32;
+    border-radius: 12px;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 0px;
+    color: #FFFFFF;
 }

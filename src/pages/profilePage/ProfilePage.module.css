@@ -141,3 +141,15 @@
     top: 1px;
     right: 20px;
 }
+.btn_edit{
+    min-width: 300px;
+    height: 30px;
+    border-radius: 12px;
+    background-color: #958f8f;
+    border: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 0px;
+    color: #FFFFFF;
+}

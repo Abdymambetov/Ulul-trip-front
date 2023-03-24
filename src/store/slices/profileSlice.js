@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { closeEditProfileModal } from "./authSlice";
+import { refreshToken } from "./registerSlice";
 
 
 export const getProfile = createAsyncThunk(
@@ -20,8 +21,16 @@ export const getProfile = createAsyncThunk(
             }else {
                 throw Error (`error: ${response.status}`)
                }
-        } catch(e) {
-            alert(e)
+        } catch(error) {
+            if (error.response && error.response.status === 401) {
+                try {
+                    dispatch(refreshToken())
+                } catch (error) {
+                    return rejectWithValue(error.response.data)
+                }
+            } else {
+                return rejectWithValue(error.response.data)
+            }
         }
     }
 )
