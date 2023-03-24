@@ -11,6 +11,7 @@
   }
 }
 .container{
+    display: block;
     width: 1060px;
     margin: 0 auto;
 }
@@ -32,10 +33,11 @@
 .buttons_arrow{
     display: flex;
     justify-content: end;
+    min-height: 45px;
 }
 .right_btn{
     width: 40px;
-    height: 42.15px;
+    height: 42px;
     background: #FFFFFF;
     border-radius: 10px;
     border: 0;
@@ -44,17 +46,17 @@
 }
 .left_btn{
     width: 40px;
-    height: 42.15px;
+    height: 42px;
     background: #FFFFFF;
     border-radius: 10px;
     border: 0;
     margin-right: 45px;
-    margin-bottom:31px;
+    margin-bottom:21px;
 }
-/* .cards_slider{
-   margin-top: 28px;
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-    margin-bottom: 58px;
-} */
+/* .cards_slider{*/
+/*   margin-top: 28px;*/
+/*   display: flex;*/
+/*   justify-content: center;*/
+/*   flex-wrap: wrap;*/
+/*    margin-bottom: 58px;*/
+/*}*/
