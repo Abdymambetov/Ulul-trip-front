@@ -1,20 +1,27 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-const API_URL = 'http://164.92.190.147';
+const API_URL = 'http://164.92.190.147:8880';
 
 export const fetchFavorite = createAsyncThunk(
     'favorites/fetchFavorite',
-    async (favorites,{dispatch, rejectWithValue}) => {
+    async (_,{dispatch, rejectWithValue}) => {
         const {id} = JSON.parse(localStorage.getItem('token'))
         try{
             const response = await axios.get(`${API_URL}/profiles/${id}/favorites/`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`                    }
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
+                    }
                 })
             const data = await response.data
+            console.log(data)
             if(response.status === 200) {
+                //console.log(data)
                 dispatch(setUser(data))
+                for (let i = 0; i < data.favorite_tour.length; i++) {
+                    dispatch(addProduct(data.favorite_tour[i]))
+                }
+
             }
         } catch(e) {
             alert(e)
@@ -23,19 +30,23 @@ export const fetchFavorite = createAsyncThunk(
 )
 export const fetchFavoriteProducts = createAsyncThunk(
     'favorites/fetchFavoriteProducts',
-    async (slug,favorites,{dispatch, rejectWithValue}) => {
+    async (item,{dispatch, rejectWithValue}) => {
         try{
-            const response = await axios.post(`${API_URL}/home/tours/${slug}/favorite`,
-                {
+            const response = await axios.post(`${API_URL}/home/tours/${item.slug}/favorite/`,
+                {},{
                     headers: {
                         Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`,
                     }
                 })
-            if (response.status === 200) {
-                const data = await response.data
-                dispatch(addProduct(data))
-            }else {
-                throw Error (`error: ${response.status}`)
+            const data = await response.data
+
+            //console.log(JSON.parse(localStorage.getItem('user')).access)
+            //console.log(response.status)
+            console.log(item?.tour_images[0]?.images)
+            if(response.status === 200) {
+                dispatch(addProduct(item))
+                //console.log(data)
+
             }
         } catch(e) {
             alert(e)
@@ -44,20 +55,18 @@ export const fetchFavoriteProducts = createAsyncThunk(
 )
 export const removeFavorite = createAsyncThunk(
     'favorites/removeFavorite',
-    async (slug,favorites, {dispatch, rejectWithValue}) => {
+    async (item, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios.delete(`${API_URL}/home/tours/${slug}/favorite`,
+            const response = await axios.delete(`${API_URL}/home/tours/${item.slug}/favorite/`,
                 {
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`,
                     }
                 })
-            if (response.status === 200) {
-                const data = await response.data
-                console.log(data);
-                dispatch(removeProduct(data))
-            }else {
-                throw Error (`error: ${response.status}`)
+            const data = await response.data
+            if(response.status === 200) {
+                dispatch(removeProduct(item))
+                console.log(data)
             }
         } catch(e) {
             alert(e)
@@ -68,29 +77,21 @@ const favorites = createSlice({
     name: 'favorites',
     initialState: {
         card: [],
-        userIno:null
+        userInfo:null
 
     },
     reducers: {
         setUser: (state, action) => {
-            state.userInfo = action.payload;
-            localStorage.setItem('favorites', JSON.stringify(state.userInfo))
+            state.userInfo = action.payload
+
         },
         addProduct: (state, action) => {
-            const item = action.payload;
-            const existingItem = state.card.find((i) => i.id === item.id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                state.card.push({ ...item, quantity: 1 });
-            }
-            localStorage.setItem('favorites', JSON.stringify(state.card))
+            state.card = [...state.card, action.payload]
 
         },
         removeProduct: (state, action) => {
             const el = action.payload;
             state.card = state.card.filter((item) => item.id !== el.id);
-            localStorage.setItem('favorites', JSON.stringify(state.card))
 
         }
 
@@ -101,30 +102,8 @@ const favorites = createSlice({
         },
         [fetchFavorite.fulfilled]: (state, action) => {
             state.status = 'succeeded';
-            state.user =action.payload;
         },
         [fetchFavorite.rejected]: (state, action) => {
-            state.status = 'failed';
-            state.error = action.error.message;
-        },
-        [fetchFavoriteProducts.pending]: (state, action) => {
-            state.status = 'loading';
-        },
-        [fetchFavoriteProducts.fulfilled]: (state, action) => {
-            state.status = 'succeeded';
-        },
-        [fetchFavoriteProducts.rejected]: (state, action) => {
-            state.status = 'failed';
-            state.error = action.error.message;
-        },
-        [removeFavorite.pending]: (state, action) => {
-            state.status = 'loading';
-        },
-        [removeFavorite.fulfilled]: (state, action) => {
-            state.status = 'succeeded';
-
-        },
-        [removeFavorite.rejected]: (state, action) => {
             state.status = 'failed';
             state.error = action.error.message;
         },

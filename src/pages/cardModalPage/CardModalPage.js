@@ -22,7 +22,13 @@ import priceImg from '../../images/cardModalImg/price.svg'
 import gidImg from '../../images/cardModalImg/gid.svg'
 import crossImg from '../../images/modalImg/Cross2.svg'
 import { closeCardModal, openReservationModal, openReviewsModal } from '../../store/slices/authSlice'
-import { addProduct, removeProduct } from "../../store/slices/likesModalSlice"
+import {
+    addProduct,
+    fetchFavorite,
+    fetchFavoriteProducts,
+    removeFavorite,
+    removeProduct
+} from "../../store/slices/likesModalSlice"
 import classes from './CardModalPage.module.css'
 import ModalReviews from './ModalReviews'
 import Reviews from './Reviews'
@@ -72,26 +78,22 @@ function CardModalPage() {
         dispatch(openReviewsModal())
     }
     const {card} = useSelector(state => state.favorites)
-    const [active, setActive] = useState(true)
+    const [active, setActive] = useState(false)
     const [notActive, setNotActive] = useState('heard_focus')
     const isFavorite = card.findIndex(el =>el.id === products.id)
-    const handleClick = (el) => {
-        if (isFavorite, active === true) {
-            dispatch(removeProduct(el));
-            setActive(true);
-            setNotActive('heard_focus');
-        } else if (isFavorite , active === false) {
-            dispatch(addProduct(el));
-            setActive(true);
-            setNotActive('heard_focus')
-        } else {
-            dispatch(addProduct(el));
-            setActive(true);
-            setNotActive('heard_focus');
-        }
-    }
     const Favorite = card.some((el) => el.id === products.id);
     const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
+    const handleClick = (el) => {
+        if (isFavorite, active === false) {
+            dispatch(fetchFavoriteProducts(el));
+            setActive(true);
+            setNotActive('heard_focus');
+        } else{
+            dispatch(removeFavorite(el));
+            setActive(false);
+            setNotActive('heard_focus')
+        }
+    }
     console.log(products)
     const date = {
         back:products.date_arrival,
@@ -163,9 +165,9 @@ function CardModalPage() {
                 {/* </div> */}
                 
                 <div className={classes.block_booking}>
-                         {/* <div className={classes.heart_header}>
+                          <div className={classes.heart_header}>
                         <div className={notActive} style={{width: "32px", height: "32px", }}>
-                            <Heart  c className="heard-back"
+                            <Heart  className="heard-back"
                                     isActive={Favorite}
                                     onClick={() => handleClick(products)}
                                     animationTrigger="both"
@@ -176,7 +178,7 @@ function CardModalPage() {
                                     color={heartColor}
                             />
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
