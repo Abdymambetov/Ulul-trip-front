@@ -51,18 +51,19 @@ function SliderTours() {
         dispatch(jeepsToursAction())
     }, [])
   return (
-    <div  style={{  Minwidth:" 1400px"}} className={classes.slider}>
+    <div   className={classes.slider}>
             <div className={classes.container}>
                     <div className={classes.slider_inner}>
                         <h1 className={classes.tours_text}>Джип туры</h1>
                         <div className={classes.cards_slider}>
-                            <Slider {...settings}>
-                            {
-                                jeepTourArr.map((item) => (
-                                    <SmallTravelCard  item={item}/>
-                                ))
-                            }
-                            </Slider>
+                                <Slider {...settings}>
+                                    {
+                                        jeepTourArr.map((item) => (
+                                            <SmallTravelCard  item={item}/>
+                                        ))
+                                    }
+                                </Slider>
+
                             {/* <SmallTravelCard/>
                     <SmallTravelCard/>
                     <SmallTravelCard/>

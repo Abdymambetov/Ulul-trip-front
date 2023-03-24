@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import classes from './SmallTravelCard.module.css'
 import carPng from '../../images/smallCardImg/Rectangle 276.png'
 import Heart from 'react-heart'
@@ -7,28 +7,31 @@ import star from '../../images/smallCardImg/star.svg'
 import { useDispatch } from 'react-redux'
 import { openCardModal } from '../../store/slices/authSlice'
 import {useSelector} from "react-redux";
-import {addProduct, removeProduct} from "../../store/slices/likesModalSlice";
+import {fetchFavorite, fetchFavoriteProducts, removeFavorite} from "../../store/slices/likesModalSlice";
+
 
 
 function SmallTravelCard({item}) {
     const dispatch = useDispatch()
-    const {card }= useSelector(state => state.favorites)
+    const {card}= useSelector(state => state.favorites)
     const [active, setActive] = useState(false)
     const [notActive, setNotActive] = useState('heard')
     const isFavorite = card.findIndex(el =>el.id === item.id)
+    const Favorite = card.some((el) => el.id === item.id);
+    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
+
        const handleClick = (el) => {
         if (isFavorite , active === false) {
-            dispatch(addProduct(el));
+            dispatch(fetchFavoriteProducts(el));
             setActive(true);
             setNotActive('heard_focus');
         } else {
-            dispatch(removeProduct(el));
+            dispatch(removeFavorite(el));
             setActive(false);
             setNotActive('heard');
         }
     }
-    const Favorite = card.some((el) => el.id === item.id);
-    const heartColor = Favorite ? "#FF6F32" : "#BDBDBD";
+
 
 
     const openModal = e => {
@@ -43,6 +46,7 @@ function SmallTravelCard({item}) {
             dispatch(openCardModal(item?.slug))
         }
     }
+
     return (
         <div className={classes.small_card} onClick={openModal}>
             <div className={classes.parent_card}>

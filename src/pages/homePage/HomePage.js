@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, {memo, useEffect} from 'react'
 import FirstBlockHome from '../../components/firstBlockHome/FirstBlockHome'
 import CheckDigits from '../../components/header/signUpHeader/comeInModal/requestResetComponent/CheckDigits'
 import PasswordReset from '../../components/header/signUpHeader/comeInModal/requestResetComponent/PasswordReset'
@@ -11,7 +11,20 @@ import SliderTours from '../../components/homePageComponents/toursComponents/sli
 import Velotur from '../../components/homePageComponents/toursComponents/sliderTours/velotur/Velotur'
 import CardModalPage from '../cardModalPage/CardModalPage'
 import classes from './HomePage.module.css'
+import {fetchFavorite} from "../../store/slices/likesModalSlice";
+import {useDispatch} from "react-redux";
 function HomePage() {
+    const dispatch = useDispatch()
+    const loadFavorite = () => {
+        try {
+            dispatch(fetchFavorite());
+            console.log('Компонент загружен');
+        } catch (error) {
+        }
+    }
+    useEffect(() => {
+        loadFavorite();
+    }, []);
     return (
         <div>
             <FirstBlockHome />

@@ -6,8 +6,9 @@ import crossSvg from '../../images/modalImg/Cross2.svg';
 import star from "../../images/smallCardImg/star.svg";
 import point from "../../images/smallCardImg/Vector (3).svg";
 import { closeLikesModal, openCardModal } from '../../store/slices/authSlice';
-import { removeProduct } from "../../store/slices/likesModalSlice";
+import {removeFavorite, removeProduct} from "../../store/slices/likesModalSlice";
 import classes from './LikesModal.module.css';
+
 
 const style = {
   width: '900px',
@@ -34,16 +35,12 @@ function LikesModal() {
     const [notActive, setNotActive] = useState('heard_focus')
     const handleClick = (el) => {
         if (isFavorite , active === true) {
-            dispatch(removeProduct(el));
-            setActive(true);
-            setNotActive('heard_focus');
-        } else {
-            dispatch(removeProduct(el));
+            console.log(el)
+            dispatch(removeFavorite(el));
             setActive(true);
             setNotActive('heard_focus');
         }
     }
-
     const openModal = e => {
         if (
             e.target.classList.contains('heard') ||
@@ -75,16 +72,17 @@ function LikesModal() {
             </div>
             <div className={classes.cards_tour}>
               {
-                  card && card.map((item) => (
+                   card.map((item) => (
                       <div className={classes.small_card} onClick={openModal}>
                           <div className={classes.parent_card}>
                               <div className={classes.photo_block}>
                                   <div className="photo">
                                       <img
                                           src={item?.tour_images[0]?.images.replace(
-                                              /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
+                                               /(\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}/,
                                               '$1' + '147:8880'
-                                          )}
+                                           )}
+
                                           alt="car"
                                           className={classes.card_img}
                                       />

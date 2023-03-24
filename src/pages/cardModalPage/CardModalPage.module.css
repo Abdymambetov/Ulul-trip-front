@@ -229,8 +229,8 @@ margin-top: 5px;
 .heart_header {
     display: flex;
     position: absolute;
-    left: 10.75%;
-    right: 84.75%;
+    left: 70%;
+    right: 50%;
     top: -2%;
     bottom: 18.75%;
 } 
