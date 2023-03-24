@@ -21,7 +21,6 @@ export const fetchFavorite = createAsyncThunk(
                 for (let i = 0; i < data.favorite_tour.length; i++) {
                     dispatch(addProduct(data.favorite_tour[i]))
                 }
-
             }
         } catch(e) {
             alert(e)

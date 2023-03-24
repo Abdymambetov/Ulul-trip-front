@@ -7,6 +7,7 @@ import star from "../../images/smallCardImg/star.svg";
 import point from "../../images/smallCardImg/Vector (3).svg";
 import { closeLikesModal, openCardModal } from '../../store/slices/authSlice';
 import {removeFavorite, removeProduct} from "../../store/slices/likesModalSlice";
+import SmallTravelCard from '../smallTravelCard/SmallTravelCard';
 import classes from './LikesModal.module.css';
 
 
@@ -73,6 +74,7 @@ function LikesModal() {
             <div className={classes.cards_tour}>
               {
                    card.map((item) => (
+                    // <SmallTravelCard item={item}/>
                       <div className={classes.small_card} onClick={openModal}>
                           <div className={classes.parent_card}>
                               <div className={classes.photo_block}>
