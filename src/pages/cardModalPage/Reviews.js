@@ -21,7 +21,7 @@ function Reviews({info}) {
         </h6> 
         </div>
         <Stack spacing={1}>
-          <Rating name="size-large"  value={info?.rating} size="large" readOnly className={classes.stars}/>
+          <Rating name="size-medium"  value={info?.rating} size="medium" readOnly className={classes.stars}/>
       </Stack>
         {/* <img src={starsImg} alt ='stars' className={classes.stars}/> */}
     </div>
