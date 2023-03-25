@@ -23,7 +23,7 @@ function OneTour() {
                         <div className={classes.all_tours}>
                             {
                                 slice.map((item) => (
-                                    <SmallTravelCard item={item}/>
+                                    <SmallTravelCard key={item.id} item={item}/>
                                 ))
                             }
                         </div>

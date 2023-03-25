@@ -34,6 +34,7 @@ import ModalReviews from './ModalReviews'
 import Reviews from './Reviews'
 import Reservation from './ReservationComponent/Reservation'
 import { getReviwesAction } from '../../store/slices/reviwesSlice'
+import Calendar from '../../components/calendar/CardModalCalendar'
 SwiperCore.use([Navigation, Pagination])
 
 const style = {
@@ -274,10 +275,10 @@ function CardModalPage() {
                         </div>
                         
                     </div> 
-                     {/* <div className={classes.data}>
+                     <div className={classes.data}>
                         <span className={classes.data_title}>ДОСТУПНЫЕ ДАТЫ</span>
-                        <CardModalCalendar propsDate={date}/>
-                     </div> */}
+                        <Calendar propsDate={date}/>
+                     </div>
                      <button className={classes.btn_reservation} onClick  ={openReservation}>Забронировать</button>
                 </div>
             <ModalReviews products={products}/>

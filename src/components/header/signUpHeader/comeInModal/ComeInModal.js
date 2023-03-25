@@ -13,6 +13,7 @@ import googleSvg from '../../../../images/modalImg/Google.svg'
 import { logAction } from '../../../../store/slices/registerSlice'
 import { useEffect } from 'react'
 import RequestResetEmail from './requestResetComponent/RequestResetEmail'
+import { useNavigate } from 'react-router-dom'
 
 const style = {
     width: '600px',
@@ -30,7 +31,9 @@ function ComeInModal() {
     const [passwordType, setPasswordType] = useState('password')
     const dispatch = useDispatch()
     const { comeInModal } = useSelector(state => state.modalTour)
+    const navigate = useNavigate()
     const handleCloseModal = () => {
+
         dispatch(closeComeInModal())
     }
     const openRequestEmail = () => {
@@ -105,6 +108,22 @@ function ComeInModal() {
             setFormValid(username.trim().length > 3 && password.trim().length > 7)
         }
     }, [username, password, emailError, passwordError, isFormSubmitted])
+
+    const handleLoginGoogle=()=>{
+        navigate('/')
+        // eslint-disable-next-line no-undef
+        google.accounts.oauth2
+        .initTokenClient({
+            client_id:
+                '447596947513-bdnnkhkjfpnmkrt2c7rgtovqql4gnd3j.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/calendar.readonly',
+            ux_mode: 'popup',
+            callback: response => {
+                console.log(response)
+            },
+        })
+        .requestAccessToken()
+    }
     return (
         <div>
             <Modal
@@ -203,7 +222,7 @@ function ComeInModal() {
                                 <p onClick={openRequestEmail}>Забыли пароль?</p>
                                 <RequestResetEmail/>
                                 <span className={classes.or_text}>ИЛИ</span>
-                                <button className={classes.google_btn}>
+                                <button onClick={handleLoginGoogle} className={classes.google_btn}>
                                     <span
                                         className={classes.account_google_icon}
                                     >
@@ -211,11 +230,11 @@ function ComeInModal() {
                                     </span>
                                     <div className={classes.user_account}>
                                         <p className={classes.sign_google_text}>
-                                            Войти как example
+                                            Войти через гугл
                                         </p>
-                                        <p className={classes.exemple_user}>
-                                            example@gmail.com
-                                        </p>
+                                            {/* <p className={classes.exemple_user}>
+                                                example@gmail.com
+                                            </p> */}
                                     </div>
                                     <img
                                         src={googleSvg}
