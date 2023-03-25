@@ -166,8 +166,9 @@ function CardModalPage() {
                 
                 <div className={classes.block_booking}>
                           <div className={classes.heart_header}>
-                        <div className={notActive} style={{width: "32px", height: "32px", }}>
-                            <Heart  className="heard-back"
+                         
+                        <div className={notActive} style={{width: "32px", height: "32px", marginRight: "300px" }}>
+                            <Heart  className={classes.heard_back}
                                     isActive={Favorite}
                                     onClick={() => handleClick(products)}
                                     animationTrigger="both"
@@ -178,8 +179,9 @@ function CardModalPage() {
                                     color={heartColor}
                             />
                         </div>
+                        <div className={classes.title_tour}>{products?.title}</div>
                     </div>
-
+                  
                     <div className={classes.location_and_level}>
                             <div className={classes.region}>
                                 <img src ={regionImg} alt = 'r' className={classes.region_image}/>
@@ -188,7 +190,7 @@ function CardModalPage() {
                             <div className={classes.level}>
                                 <img src ={groupImg} alt ='g' className={classes.group_image}/>
                                 <div className={classes.level_text}>Сложность</div>
-                            </div>    
+                            </div>     
                     </div>
                     <div className={classes.user_choice}>
 
