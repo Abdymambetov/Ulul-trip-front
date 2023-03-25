@@ -16,14 +16,14 @@ import { fetchUser } from './store/slices/registerSlice'
 function Main() {
 	const dispatch = useDispatch()
 
-	useEffect(() => {
-		const userTokens = JSON.parse(localStorage.getItem('user'))
-		const accessToken = userTokens?.access
-		const refreshToken = userTokens?.refresh
-		if (accessToken) {
-			dispatch(fetchUser())
-		}
-	}, [dispatch])
+	// useEffect(() => {
+	// 	const userTokens = JSON.parse(localStorage.getItem('user'))
+	// 	const accessToken = userTokens?.access
+	// 	const refreshToken = userTokens?.refresh
+	// 	if (accessToken) {
+	// 		dispatch(fetchUser())
+	// 	}
+	// }, [dispatch])
 
 	return (
 		<>

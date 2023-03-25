@@ -58,7 +58,7 @@ function Velotur() {
                       <Slider {...settings}>
                           {
                               veloTurArr.map((item) => (
-                                  <SmallTravelCard  item={item}/>
+                                  <SmallTravelCard key={item.id} item={item}/>
                               ))
                           }
                       </Slider>

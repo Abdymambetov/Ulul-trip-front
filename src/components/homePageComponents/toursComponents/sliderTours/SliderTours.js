@@ -50,6 +50,7 @@ function SliderTours() {
     useEffect(() => {
         dispatch(jeepsToursAction())
     }, [])
+    console.log(jeepTourArr)
   return (
     <div   className={classes.slider}>
             <div className={classes.container}>
@@ -59,7 +60,7 @@ function SliderTours() {
                                 <Slider {...settings}>
                                     {
                                         jeepTourArr.map((item) => (
-                                            <SmallTravelCard  item={item}/>
+                                            <SmallTravelCard key={item.id}  item={item}/>
                                         ))
                                     }
                                 </Slider>
