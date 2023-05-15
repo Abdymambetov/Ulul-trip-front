@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-const API_URL = 'http://164.92.190.147:8880';
+const API_URL = 'http://164.92.190.147:8880/api/v1';
 
 export const fetchFavorite = createAsyncThunk(
     'favorites/fetchFavorite',

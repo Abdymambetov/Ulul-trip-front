@@ -7,7 +7,7 @@ export const leftCardAction = createAsyncThunk(
     'leftCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=konnyj-tur') //&limit=9
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=konnyj-tur') //&limit=9
             if (response.status === 200) {
                 const data = await response.data.results
                 dispatch(getLeftCardPhotos(data))
@@ -25,7 +25,7 @@ export const hotCardAction = createAsyncThunk(
     'hotCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours?limit=50') //?limit=10&offset=10
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours?limit=50') //?limit=10&offset=10
             if (response.status === 200) {
                 const data = await response.data.results
                 dispatch(getHotCardPhotos(data.filter(item => item.is_hot)))
@@ -43,8 +43,8 @@ export const rightCardAction = createAsyncThunk(
     'rightCardAction',
     async (param, {dispatch, rejectWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=velotur')
-            // const response = await axios('http://164.92.190.147:8880/home/tours/?category=jeep-tur&limit=9')
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=velotur')
+            // const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=jeep-tur&limit=9')
             if (response.status === 200) {
                 const data = await response.data.results
                 dispatch(getRightCardPhotos(data))

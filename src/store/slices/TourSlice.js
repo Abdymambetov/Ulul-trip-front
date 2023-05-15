@@ -23,7 +23,7 @@ export const categoryAction = createAsyncThunk(
     'horseTourAction',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=konnyj-tur')
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=konnyj-tur')
             if(response.status === 200){
                 const data = await response.data.results
                 console.log(data);
@@ -41,7 +41,7 @@ export const peshijTurAction = createAsyncThunk(
     'peshijTurAction',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur')
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=peshij-tur')
             if(response.status === 200) {
                 const data = await response.data.results
                 console.log(data)
@@ -59,7 +59,7 @@ export const peshijTurAction = createAsyncThunk(
     'jeepsToursSlice',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios ('http://164.92.190.147:8880/home/tours/?category=jeep-tur')
+            const response = await axios ('http://164.92.190.147:8880/api/v1/home/tours/?category=jeep-tur')
             if(response.status === 200) {
                 const data = await response.data.results
                 console.log(data)
@@ -76,7 +76,7 @@ export const veloTutAction = createAsyncThunk(
     'veloTutAction',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const reponse = await axios('http://164.92.190.147:8880/home/tours/?category=velotur')
+            const reponse = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=velotur')
            if(reponse.status === 200) {
                 const data = await reponse.data.results
                 console.log(data)
@@ -93,7 +93,7 @@ export const oneTour = createAsyncThunk(
     'oneTour',
     async(param,{dispatch,rejectedWithValue}) => {
         try {
-            const response = await axios('http://164.92.190.147:8880/home/tours/?category=peshij-tur')
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours/?category=peshij-tur')
             if(response.status === 200) {
                 const data = await response.data.results
                 console.log(data)

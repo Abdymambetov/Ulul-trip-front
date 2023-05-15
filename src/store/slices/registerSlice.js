@@ -63,7 +63,7 @@ export const requestEmailAction = createAsyncThunk(
         try{
             const response = await axios({
                 method: 'POST',
-                url: 'http://164.92.190.147:8880/users/request-reset-email/',
+                url: 'http://164.92.190.147:8880/api/v1/users/request-reset-email/',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -94,7 +94,7 @@ export const chechDigitsAction = createAsyncThunk(
         try{
             const response = await axios({
                 method: 'POST',
-                url: 'http://164.92.190.147:8880/users/check-digits/',
+                url: 'http://164.92.190.147:8880/api/v1/users/check-digits/',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -117,7 +117,7 @@ export const refreshToken = createAsyncThunk(
         const refToken = JSON.parse((localStorage.getItem('user')).refresh)
         const param = {refToken}
         try {
-            const response = await axios.post('http://164.92.190.147:8880/users/refresh/', {
+            const response = await axios.post('http://164.92.190.147:8880/api/v1/users/refresh/', {
                 // headers: {
                 //     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).refresh}` 
                 // },
@@ -143,7 +143,7 @@ export const passwordResetAction = createAsyncThunk(
         try{
             const response = await axios({
                 method: 'PATCH',
-                url: 'http://164.92.190.147:8880/users/password-reset-complete/',
+                url: 'http://164.92.190.147:8880/api/v1/users/password-reset-complete/',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -167,7 +167,7 @@ export const fetchUser = createAsyncThunk(
     async (_, { dispatch, getState, rejectWithValue }) => {
         const { access } = JSON.parse(localStorage.getItem('user'))
         try {
-            const response = await axios.get('http://164.92.190.147:8880/profiles/profile/', {
+            const response = await axios.get('http://164.92.190.147:8880/api/v1/profiles/profile/', {
                 headers: { Authorization: `Bearer ${access}` }
             })
             return response.data

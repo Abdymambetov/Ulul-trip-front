@@ -63,7 +63,7 @@ function CardModalPage() {
     }
     useEffect(() => {
       const fetchProducts = async () => {
-        const response  = await axios.get(`http://164.92.190.147:8880/home/tour/${cardInfo}`)
+        const response  = await axios.get(`http://164.92.190.147:8880/api/v1/home/tour/${cardInfo}`)
         const data = await response.data
         setProducts(data);
         

@@ -8,7 +8,7 @@ export const getProfile = createAsyncThunk(
     'getProfile',
     async (id, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios(`http://164.92.190.147:8880/profiles/profile/${id}`, 
+            const response = await axios(`http://164.92.190.147:8880/api/v1/profiles/profile/${id}`, 
             {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
@@ -38,7 +38,7 @@ export const deleteProfileAction = createAsyncThunk(
     'deleteProfileAction',
     async (id, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios.delete(`http://164.92.190.147:8880/profiles/profile/${id}/`, {
+            const response = await axios.delete(`http://164.92.190.147:8880/api/v1/profiles/profile/${id}/`, {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
                 }
@@ -65,7 +65,7 @@ export const changeProfileAction = createAsyncThunk(
             const response = await axios(
                 {
                     method: 'PATCH',
-                    url: `http://164.92.190.147:8880/profiles/change-password/${id}/`,
+                    url: `http://164.92.190.147:8880/api/v1/profiles/change-password/${id}/`,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
@@ -87,7 +87,7 @@ export const editProfileAction = createAsyncThunk(
             const {id} = JSON.parse(localStorage.getItem('token'))
             const response = await axios({
                 method: 'PUT',
-                url: `http://164.92.190.147:8880/profiles/profile/${id}/`,
+                url: `http://164.92.190.147:8880/api/v1/profiles/profile/${id}/`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).access}`
