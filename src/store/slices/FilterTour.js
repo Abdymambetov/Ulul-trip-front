@@ -105,7 +105,7 @@ export const filterSearch = createAsyncThunk('filterSearch', async param => {
 	const reg = regionFilter(param.region)
 	const complex = complexFilter(param.complexity)
 	const category = categoryFilter(param.category)
-	const { data } = await axios.get('http://164.92.190.147:8880/home/tours/', {
+	const { data } = await axios.get('http://164.92.190.147:8880/api/v1/home/tours/', {
 		params: {...param,region:reg,complexity:complex,category:category},
 	})
 	return data

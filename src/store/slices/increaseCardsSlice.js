@@ -8,7 +8,7 @@ export const increaseCardsAction = createAsyncThunk(
     'increaseCardsAction',
     async (param, {dispatch, rejectWithValue}) => {
         try{
-            const response = await axios('http://164.92.190.147:8880/home/tours?limit=50')
+            const response = await axios('http://164.92.190.147:8880/api/v1/home/tours?limit=50')
             if(response.status === 200) {
                 const data = await response.data.results
                 dispatch(increaseCardsPhotos(data.filter(item => item.is_hot === true))) //only Hot tours
